@@ -1,0 +1,19 @@
+---
+layout: page
+title: Home
+---
+
+{% include profile-hero.html %}
+{% include quick-links.html %}
+
+<section class="home-intro" aria-label="Intro">
+  <p class="home-intro__text">
+    {{ site.data.profile.about | markdownify | strip_html | strip_newlines | truncate: 280 }}
+  </p>
+
+  <div class="home-cards" aria-label="Shortcuts">
+    <a class="home-card" href="{{ '/about/' | relative_url }}">About →</a>
+    <a class="home-card" href="{{ '/publications/' | relative_url }}">Publications →</a>
+    <a class="home-card" href="{{ site.data.profile.links.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF) →</a>
+  </div>
+</section>

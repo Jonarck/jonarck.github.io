@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" rx="28" fill="#f3f4f6" />
+  <path d="M140 340h520" stroke="#9ca3af" stroke-width="10" stroke-linecap="round" opacity="0.7" />
+  <path
+    d="M220 170c0-22 18-40 40-40h280c22 0 40 18 40 40v160c0 22-18 40-40 40H260c-22 0-40-18-40-40V170Z"
+    fill="#e5e7eb"
+  />
+  <path
+    d="M266 214h268M266 254h220M266 294h240"
+    stroke="#9ca3af"
+    stroke-width="12"
+    stroke-linecap="round"
+    opacity="0.75"
+  />
+  <text
+    x="50%"
+    y="86%"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
+    font-size="28"
+    font-weight="700"
+    fill="#6b7280"
+  >
+    Thumbnail placeholder
+  </text>
+</svg>
+

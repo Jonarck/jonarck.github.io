@@ -1,0 +1,13 @@
+{% assign p = site.data.profile %}
+{% assign current = include.current | default: "" %}
+
+<nav class="quick-links" aria-label="Quick links">
+  <a class="quick-links__item{% if current == 'about' %} is-active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+  <a
+    class="quick-links__item{% if current == 'publications' %} is-active{% endif %}"
+    href="{{ '/publications/' | relative_url }}"
+    >Publications</a
+  >
+  <a class="quick-links__item" href="{{ p.links.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)</a>
+</nav>
+

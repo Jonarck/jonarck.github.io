@@ -1,0 +1,13 @@
+{% assign highlight = site.data.profile.author_highlight %}
+{% if highlight == nil %}
+  {% assign highlight = "" | split: "" %}
+{% endif %}
+
+{% for author in include.authors %}
+  {% if highlight contains author %}
+    <strong>{{ author }}</strong>
+  {% else %}
+    {{ author }}
+  {% endif %}
+  {%- unless forloop.last -%}, {% endunless %}
+{% endfor %}

@@ -1,0 +1,35 @@
+{% assign pub = include.pub %}
+{% assign image = pub.image | default: '/assets/img/pubs/placeholder.svg' %}
+{% assign tags = pub.tags | default: "" %}
+
+<article
+  class="pub-card{% unless pub.url %} pub-card--disabled{% endunless %}"
+  {% if pub.url %}
+    role="link"
+    tabindex="0"
+    data-url="{{ pub.url }}"
+  {% else %}
+    aria-disabled="true"
+  {% endif %}
+  data-tags="{{ pub.tags | join: '||' }}"
+>
+  <div class="pub-card__media" aria-hidden="true">
+    <img src="{{ image | relative_url }}" alt="" loading="lazy" />
+  </div>
+
+  <div class="pub-card__body">
+    <div class="pub-title">{{ pub.title }}</div>
+    <div class="pub-position">{{ pub.position }}</div>
+    <div class="pub-venue">{{ pub.venue }}</div>
+    <div class="pub-authors">{% include render-authors.html authors=pub.authors %}</div>
+
+    {% if pub.tags and pub.tags.size > 0 %}
+      <div class="pub-tags" aria-label="Tags">
+        {% for tag in pub.tags %}
+          <button type="button" class="pub-tag" data-tag="{{ tag | escape }}">{{ tag }}</button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>
+

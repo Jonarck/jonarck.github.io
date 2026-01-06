@@ -1,0 +1,59 @@
+- title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next-Token Prediction"
+  category: core
+  position: "Master’s core work: Graph representation learning for science foundation models"
+  venue: "Preprint (2026)"
+  authors:
+    - Zhuoyang Jiang
+    - Yaosen Min
+    - Lei Chen
+  tags:
+    - Molecular Graph
+    - Representation Learning
+    - Autoregressive Modeling
+  url: https://arxiv.org/
+  image: /assets/img/pubs/CamS.png
+
+- title: "A Deep Learning Approach to Identify Potential Sites for Pocket Park Installation in Nanjing, China"
+  category: core
+  position: "Undergraduate thesis core work: Pocket park site selection with large-scale street-view data"
+  venue: "Journal of Urban Technology (2024)"
+  authors:
+    - Conghui Zhou
+    - Liuyi Yang
+    - Zhuoyang Jiang
+    - Xinyu Wu
+  tags:
+    - Urban Computing
+    - Computer Vision
+    - Data-centric AI
+  url: https://www.tandfonline.com/doi/abs/10.1080/10630732.2024.2402676
+  image: /assets/img/pubs/AI4PocketPark.png
+
+- title: "CovDiff"
+  category: branch
+  position: "Important branch work: Diffusion-based architectural schematic design tools"
+  venue: "In progress"
+  authors:
+    - Zhuoyang Jiang
+    - Dongqing Zhang
+  tags:
+    - Architecture
+    - Diffusion Models
+    - AIGC
+  url:
+  image: /assets/img/pubs/placeholder.svg
+
+- title: "Behaviour Is All You Need"
+  category: branch
+  position: "Important branch work: Cognitive user modeling for LLM interactions"
+  venue: "In progress"
+  authors:
+    - Zhuoyang Jiang
+    - Zhiyuan Xia
+  tags:
+    - HCI
+    - LLM
+    - User Modeling
+  url:
+  image: /assets/img/pubs/placeholder.svg
+

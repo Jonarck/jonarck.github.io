@@ -1,0 +1,37 @@
+name: Zhuoyang Jiang
+headline: Research Assistant, CityMind Lab, HKUST(GZ)
+location: Guangzhou, China
+email: zjiang496@connect.hkust-gz.edu.cn
+
+links:
+  github: https://github.com/Jonarck
+  scholar: https://scholar.google.com/
+  cv: /research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf
+
+about: |
+  Zhuoyang Jiang is a Research Assistant at CityMind Lab, HKUST(GZ), working on spatio-temporal foundation models and agents for urban computing.
+  Previously, he was a research intern at Microsoft Research AI for Science, focusing on graph representation learning for autoregressive foundation models, supervised by Dr. Yaosen Min and Dr. Peiran Jin.
+  He received an M.Sc. in Data-Centric AI from HKUST(GZ) (co-advised by Prof. Lei Chen) and a B.Eng. in Artificial Intelligence from Southeast University, where he collaborated with Prof. Conghui Zhou on deep-learning-based pocket park planning with large-scale street-view data.
+  He also explored Human-AI Interaction projects supervised by Prof. Mingming Fan.
+
+timeline:
+  - date: 2025-10
+    text: M.Sc. in Data-Centric AI, HKUST(GZ)
+  - date: 2024-08
+    text: Research Intern, Microsoft Research AI for Science
+  - date: 2024-11
+    text: Journal of Urban Technology paper on pocket park site selection
+  - date: 2023-09
+    text: Started M.Sc. in Data-Centric AI, HKUST(GZ)
+  - date: 2019-09
+    text: Started B.Eng. in Artificial Intelligence, Southeast University
+
+research_pathway:
+  image: /assets/img/research_summary.png
+  alt: Research pathway overview
+  caption: Research Pathway (overview)
+
+author_highlight:
+  - Zhuoyang Jiang
+  - Jiang Zhuoyang
+

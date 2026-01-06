@@ -1,0 +1,93 @@
+# The Site Configuration
+
+# Import the theme
+theme: jekyll-theme-chirpy
+
+lang: en
+timezone: Asia/Shanghai
+
+title: Zhuoyang Jiang
+tagline: Research Assistant @ CityMind Lab
+description: >-
+  Zhuoyang Jiang - Research Assistant at CityMind Lab, HKUST(GZ). Data-centric and AI-driven foundation models for habitat design.
+
+url: "https://jonarck.github.io"
+baseurl: ""
+
+github:
+  username: Jonarck
+
+social:
+  name: Zhuoyang Jiang
+  email: zjiang496@connect.hkust-gz.edu.cn
+  links:
+    - https://github.com/Jonarck
+    - https://scholar.google.com/
+
+theme_mode: light
+cdn:
+avatar: "/assets/img/avatar.svg"
+
+toc: false
+
+pwa:
+  enabled: false
+
+paginate: 10
+
+# ------------ The following options are not recommended to be modified ------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+exclude:
+  - legacy-static
+  - Jonarck
+  - jekyll-theme-chirpy-master
+  - node_modules
+  - vendor
+  - tools
+  - docs
+  - README.md
+  - LICENSE
+

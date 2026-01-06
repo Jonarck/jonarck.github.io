@@ -1,0 +1,47 @@
+{% assign p = site.data.profile %}
+
+<section class="profile-hero" aria-label="Profile">
+  <div class="profile-hero__avatar">
+    <img src="{{ site.avatar | relative_url }}" alt="{{ p.name }} portrait" loading="lazy" />
+  </div>
+
+  <div class="profile-hero__text">
+    <h1 class="profile-hero__name">{{ p.name }}</h1>
+    <p class="profile-hero__headline">{{ p.headline }}</p>
+    <p class="profile-hero__location">{{ p.location }}</p>
+
+    <div class="profile-hero__links" aria-label="External links">
+      {% if p.email %}
+        <a class="icon-link" href="mailto:{{ p.email }}" aria-label="Email" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      {% endif %}
+
+      {% if p.links.github %}
+        <a class="icon-link" href="{{ p.links.github }}" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      {% endif %}
+
+      {% if p.links.scholar %}
+        <a
+          class="icon-link"
+          href="{{ p.links.scholar }}"
+          target="_blank"
+          rel="noopener"
+          aria-label="Google Scholar"
+          title="Google Scholar"
+        >
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+      {% endif %}
+
+      {% if p.links.cv %}
+        <a class="icon-link" href="{{ p.links.cv | relative_url }}" target="_blank" rel="noopener" aria-label="CV (PDF)" title="CV (PDF)">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
