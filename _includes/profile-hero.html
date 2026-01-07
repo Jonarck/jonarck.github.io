@@ -23,6 +23,12 @@
         </a>
       {% endif %}
 
+      {% if p.links.linkedin %}
+        <a class="icon-link" href="{{ p.links.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      {% endif %}
+
       {% if p.links.scholar %}
         <a
           class="icon-link"
@@ -44,4 +50,3 @@
     </div>
   </div>
 </section>
-

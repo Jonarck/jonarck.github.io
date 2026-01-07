@@ -1,12 +1,13 @@
 - title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next Token Prediction"
   role: "Core Work of Master's Thesis → Deepening for Data-centic AI Methods"
   venue: "[2026] Preprint"
-  authors: "Zhuoyang Jiang, Yaosen Min, Lei Chen"
+  authors: "Zhuoyang Jiang, Yaosen Min, Peiran Jin, Lei Chen"
   category: core
   tags:
     - Molecular Structure
     - Representation Learning
     - Graph
+    - Foundation Model
   url: "https://arxiv.org/abs/2601.02530"
   image: "/assets/img/pubs/CamS.png"
 
@@ -19,10 +20,11 @@
     - Urban Planning
     - End-to-End AI Applications
     - Computer Vision
+    - Dataset Construction
   url: "https://www.tandfonline.com/doi/abs/10.1080/10630732.2024.2402676"
   image: "/assets/img/pubs/AI4PocketPark.png"
 
-- title: "CovDiff"
+- title: "CovDiffusion : Floorplan Generation with Unified Spatial Tokenization and Space Syntax Injection"
   role: "Investigating intelligent frameworks to build consumer tools for architectural schematic design."
   venue: "In Progressing"
   authors: "Zhuoyang Jiang & Dongqing Zhang"

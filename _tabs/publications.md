@@ -1,5 +1,6 @@
 ---
 title: "Publication & Projects"
+sidebar_label: "Pub. & Proj."
 icon: fas fa-book
 order: 2
 permalink: /publications/

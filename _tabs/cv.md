@@ -8,7 +8,7 @@ permalink: /cv/
 {% assign p = site.data.profile %}
 
 {% include profile-hero.html %}
-{% include quick-links.html %}
+{% include quick-links.html current="cv" %}
 
 <section class="cv-section" aria-label="Curriculum Vitae">
   <p>
