@@ -1,0 +1,17 @@
+<!-- Custom sidebar: directory only (no duplicated profile header) -->
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <nav class="flex-column flex-grow-1 w-100 ps-0" aria-label="Directory">
+    <ul class="nav">
+      {% for tab in site.tabs %}
+        <li class="nav-item{% if tab.url == page.url %}{{ ' active' }}{% endif %}">
+          <a href="{{ tab.url | relative_url }}" class="nav-link">
+            <i class="fa-fw {{ tab.icon }}"></i>
+            <span>{{ tab.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>
+

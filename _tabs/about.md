@@ -11,14 +11,14 @@ permalink: /about/
 <section class="about-grid" aria-label="About and timeline">
   <div class="about-grid__col">
     <h2>About Me</h2>
-    <div class="about-text">
+    <div id="about-text-block" class="about-text">
       {{ site.data.profile.about | markdownify }}
     </div>
   </div>
 
   <div class="about-grid__col">
     <h2>Timeline</h2>
-    <ul class="timeline">
+    <ul id="timeline-list" class="timeline">
       {% for item in site.data.profile.timeline %}
         <li class="timeline__item">
           <span class="timeline__date">{{ item.date }}</span>
@@ -42,3 +42,5 @@ permalink: /about/
     {% endif %}
   </figure>
 </section>
+
+<script src="{{ '/assets/js/about.js' | relative_url }}" defer></script>

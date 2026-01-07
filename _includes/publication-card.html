@@ -19,7 +19,7 @@
 
   <div class="pub-card__body">
     <div class="pub-title">{{ pub.title }}</div>
-    <div class="pub-position">{{ pub.position }}</div>
+    <div class="pub-position">{{ pub.role | default: pub.position }}</div>
     <div class="pub-venue">{{ pub.venue }}</div>
     <div class="pub-authors">{% include render-authors.html authors=pub.authors %}</div>
 
@@ -32,4 +32,3 @@
     {% endif %}
   </div>
 </article>
-

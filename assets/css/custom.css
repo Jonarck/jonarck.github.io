@@ -11,16 +11,17 @@
   display: none;
 }
 
-@media (min-width: 1200px) {
-  #panel-wrapper {
-    display: none !important;
-  }
+/* Full-width main content (hide the right panel) */
+#panel-wrapper {
+  display: none !important;
+}
 
-  #main-wrapper main.col-xl-9,
-  #tail-wrapper.col-xl-9 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+#main-wrapper main.col-lg-11,
+#main-wrapper main.col-xl-9,
+#tail-wrapper.col-lg-11,
+#tail-wrapper.col-xl-9 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
 }
 
 /* Profile hero */
@@ -83,29 +84,21 @@
 /* Quick links (tab-like headers) */
 .quick-links {
   display: flex;
-  gap: 26px;
+  gap: 10px;
   margin: 6px 0 18px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--flat-border);
   flex-wrap: wrap;
 }
 
 .quick-links__item {
-  position: relative;
-  padding: 6px 0;
+  padding: 6px 12px;
+  border-radius: 999px;
   color: var(--flat-accent) !important;
   text-decoration: none;
   font-weight: 600;
 }
 
-.quick-links__item.is-active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -9px;
-  height: 2px;
-  background: var(--flat-accent);
+.quick-links__item.is-active {
+  background: var(--flat-card);
 }
 
 /* About layout */
@@ -122,6 +115,10 @@
   }
 }
 
+.about-grid__col {
+  min-height: 0;
+}
+
 .about-text p {
   margin: 0 0 0.8rem;
 }
@@ -130,6 +127,13 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+@media (min-width: 901px) {
+  .timeline {
+    padding-right: 6px;
+    scrollbar-gutter: stable;
+  }
 }
 
 .timeline__item {
@@ -167,33 +171,22 @@
 /* Publications */
 .pub-tabs {
   display: flex;
-  gap: 28px;
+  gap: 10px;
   flex-wrap: wrap;
   margin: 10px 0 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--flat-border);
 }
 
 .pub-tab {
   border: 0;
   background: transparent;
-  padding: 6px 0;
+  padding: 6px 12px;
+  border-radius: 999px;
   font-weight: 700;
   color: var(--flat-accent);
 }
 
 .pub-tab.is-active {
-  position: relative;
-}
-
-.pub-tab.is-active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -9px;
-  height: 2px;
-  background: var(--flat-accent);
+  background: var(--flat-card);
 }
 
 .pub-filter {

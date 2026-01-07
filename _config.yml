@@ -7,9 +7,9 @@ lang: en
 timezone: Asia/Shanghai
 
 title: Zhuoyang Jiang
-tagline: Research Assistant @ CityMind Lab
+tagline: Research Assistant, CityMind Lab, HKUST(GZ)
 description: >-
-  Zhuoyang Jiang - Research Assistant at CityMind Lab, HKUST(GZ). Data-centric and AI-driven foundation models for habitat design.
+  Zhuoyang Jiang - Research Assistant at CityMind Lab, HKUST(GZ). Data-centric and AI-driven foundation models for architecture and urban planning.
 
 url: "https://jonarck.github.io"
 baseurl: ""
@@ -90,4 +90,3 @@ exclude:
   - docs
   - README.md
   - LICENSE
-

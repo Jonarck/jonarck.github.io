@@ -1,5 +1,5 @@
 ---
-title: Publications
+title: "Publication & Projects"
 icon: fas fa-book
 order: 2
 permalink: /publications/
@@ -18,12 +18,12 @@ permalink: /publications/
 <section class="pub-section" aria-label="Selected publications and projects">
   <div class="pub-tabs" role="tablist" aria-label="Publication categories">
     <button type="button" class="pub-tab is-active" data-pub-tab="core" role="tab" aria-selected="true">
-      Core Contributions
+      Core Work
     </button>
     <button type="button" class="pub-tab" data-pub-tab="branch" role="tab" aria-selected="false">
-      Key Branch Contributions
+      Important Branch Work
     </button>
-    <button type="button" class="pub-tab" data-pub-tab="all" role="tab" aria-selected="false">All Contributions</button>
+    <button type="button" class="pub-tab" data-pub-tab="all" role="tab" aria-selected="false">All Works</button>
   </div>
 
   <div id="pub-filter" class="pub-filter" hidden>

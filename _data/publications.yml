@@ -1,59 +1,48 @@
-- title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next-Token Prediction"
+- title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next Token Prediction"
+  role: "Core Work of Master's Thesis → Deepening for Data-centic AI Methods"
+  venue: "[2026] Preprint"
+  authors: "Zhuoyang Jiang, Yaosen Min, Lei Chen"
   category: core
-  position: "Master’s core work: Graph representation learning for science foundation models"
-  venue: "Preprint (2026)"
-  authors:
-    - Zhuoyang Jiang
-    - Yaosen Min
-    - Lei Chen
   tags:
-    - Molecular Graph
+    - Molecular Structure
     - Representation Learning
-    - Autoregressive Modeling
-  url: https://arxiv.org/
-  image: /assets/img/pubs/CamS.png
+    - Graph
+  url: "https://arxiv.org/"
+  image: "/assets/img/pubs/CamS.png"
 
 - title: "A Deep Learning Approach to Identify Potential Sites for Pocket Park Installation in Nanjing, China"
+  role: "Core Work of Undergraduate Thesis → Beginning with Domain-specific AI Applications"
+  venue: "[2024] Journal of Urban Technology"
+  authors: "Conghui Zhou, Liuyi Yang, Zhuoyang Jiang, Xinyu Wu"
   category: core
-  position: "Undergraduate thesis core work: Pocket park site selection with large-scale street-view data"
-  venue: "Journal of Urban Technology (2024)"
-  authors:
-    - Conghui Zhou
-    - Liuyi Yang
-    - Zhuoyang Jiang
-    - Xinyu Wu
   tags:
-    - Urban Computing
+    - Urban Planning
+    - End-to-End AI Applications
     - Computer Vision
-    - Data-centric AI
-  url: https://www.tandfonline.com/doi/abs/10.1080/10630732.2024.2402676
-  image: /assets/img/pubs/AI4PocketPark.png
+  url: "https://www.tandfonline.com/doi/abs/10.1080/10630732.2024.2402676"
+  image: "/assets/img/pubs/AI4PocketPark.png"
 
 - title: "CovDiff"
+  role: "Investigating intelligent frameworks to build consumer tools for architectural schematic design."
+  venue: "In Progressing"
+  authors: "Zhuoyang Jiang & Dongqing Zhang"
   category: branch
-  position: "Important branch work: Diffusion-based architectural schematic design tools"
-  venue: "In progress"
-  authors:
-    - Zhuoyang Jiang
-    - Dongqing Zhang
   tags:
-    - Architecture
-    - Diffusion Models
+    - Architecture Design
     - AIGC
-  url:
-  image: /assets/img/pubs/placeholder.svg
+    - Diffusion Models
+  url: ""
+  image: "/assets/img/pubs/branch-1.png"
 
-- title: "Behaviour Is All You Need"
+- title: "Behaviour Is Also You Need"
+  role: "Investigating human cognitive modeling to align LLM interactions in knowledge activities."
+  venue: "In Progressing"
+  authors: "Zhuoyang Jiang & Zhiyuan Xia"
   category: branch
-  position: "Important branch work: Cognitive user modeling for LLM interactions"
-  venue: "In progress"
-  authors:
-    - Zhuoyang Jiang
-    - Zhiyuan Xia
   tags:
+    - User Modelling
     - HCI
     - LLM
-    - User Modeling
-  url:
-  image: /assets/img/pubs/placeholder.svg
+  url: ""
+  image: "/assets/img/pubs/branch-1.png"
 

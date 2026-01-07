@@ -8,30 +8,34 @@ links:
   scholar: https://scholar.google.com/
   cv: /research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf
 
-about: |
-  Zhuoyang Jiang is a Research Assistant at CityMind Lab, HKUST(GZ), working on spatio-temporal foundation models and agents for urban computing.
-  Previously, he was a research intern at Microsoft Research AI for Science, focusing on graph representation learning for autoregressive foundation models, supervised by Dr. Yaosen Min and Dr. Peiran Jin.
-  He received an M.Sc. in Data-Centric AI from HKUST(GZ) (co-advised by Prof. Lei Chen) and a B.Eng. in Artificial Intelligence from Southeast University, where he collaborated with Prof. Conghui Zhou on deep-learning-based pocket park planning with large-scale street-view data.
-  He also explored Human-AI Interaction projects supervised by Prof. Mingming Fan.
+about: >-
+  Zhuoyang Jiang is a Research Assistant at CityMind Lab, HKUST(GZ), working on spatio-temporal foundation models and agents for urban computing. Previously, he was a research intern at Microsoft Research AI for Science, focusing on graph representation learning for autoregressive foundation models, advised by Dr. Yaosen Min and Dr. Peiran Jin. He received an M.Sc. in Data-Centric AI from HKUST(GZ) (co-advised by Prof. Lei Chen) and a B.Eng. in Artificial Intelligence from Southeast University, where he collaborated with Prof. Conghui Zhou on deep-learning-based pocket park planning with large-scale street-view data. He also explored Human-AI Interaction projects advised by Prof. Mingming Fan.
 
 timeline:
+  - date: 2025-11
+    text: Started Research Assistant, HKUST(GZ) DSA CityMind
   - date: 2025-10
-    text: M.Sc. in Data-Centric AI, HKUST(GZ)
-  - date: 2024-08
-    text: Research Intern, Microsoft Research AI for Science
+    text: Graduated M.Sc. in Data-Centric AI, HKUST(GZ)
+  - date: 2025-08
+    text: Started Research Intern, Zhongguancun Academy
   - date: 2024-11
-    text: Journal of Urban Technology paper on pocket park site selection
+    text: A Journal of Urban Technology paper on pocket park site selection
+  - date: 2024-08
+    text: Started Research Intern, Microsoft Research (AI for Science)
+  - date: 2024-02
+    text: Started Human-AI Interaction project, HKUST(GZ) CMA APEX
   - date: 2023-09
-    text: Started M.Sc. in Data-Centric AI, HKUST(GZ)
+    text: Started M.Sc. in DCAI, HKUST(GZ)
+  - date: 2023-06
+    text: Graduated B.Eng. in AI, Southeast University
   - date: 2019-09
-    text: Started B.Eng. in Artificial Intelligence, Southeast University
+    text: Started B.Eng. in AI, Southeast University
 
 research_pathway:
   image: /assets/img/research_summary.png
-  alt: Research pathway overview
-  caption: Research Pathway (overview)
+  alt: Research summary
+  caption: Imported from Jonarck/Research_Summary.png
 
 author_highlight:
   - Zhuoyang Jiang
   - Jiang Zhuoyang
-

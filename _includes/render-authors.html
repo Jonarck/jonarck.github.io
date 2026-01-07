@@ -3,11 +3,12 @@
   {% assign highlight = "" | split: "" %}
 {% endif %}
 
-{% for author in include.authors %}
-  {% if highlight contains author %}
-    <strong>{{ author }}</strong>
-  {% else %}
-    {{ author }}
-  {% endif %}
-  {%- unless forloop.last -%}, {% endunless %}
+{% assign authors = include.authors | default: "" %}
+{% assign rendered = authors | escape %}
+
+{% for name in highlight %}
+  {% assign strong = "<strong>" | append: name | append: "</strong>" %}
+  {% assign rendered = rendered | replace: name, strong %}
 {% endfor %}
+
+{{ rendered }}
