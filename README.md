@@ -43,7 +43,7 @@ Edit `_data/publications.yml` (display order follows the YAML order).
 
 ## Deploy
 
-GitHub Actions workflow: `.github/workflows/pages-deploy.yml`
+GitHub Actions workflow: `.github/workflows/jekyll.yml`
 
 ## Local preview (optional)
 
@@ -51,4 +51,3 @@ If you have Ruby installed:
 
 - `bundle install`
 - `bundle exec jekyll s`
-
