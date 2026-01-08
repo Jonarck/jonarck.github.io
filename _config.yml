@@ -1,7 +1,8 @@
 # The Site Configuration
 
 # Import the theme
-theme: jekyll-theme-chirpy
+theme: # remove or leave blank
+remote_theme: cotes2020/jekyll-theme-chirpy
 
 lang: en
 timezone: Asia/Shanghai
