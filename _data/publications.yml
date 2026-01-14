@@ -48,3 +48,14 @@
   url: ""
   image: "/assets/img/pubs/branch-1.png"
 
+
+
+- title: "Rationale-Grounded In-Context Learning for Time Series Reasoning with Multimodal Large Language Models"
+  venue: "[2026] Preprint"
+  authors: "Qingxiang Liu, Zhiqing Cui, Xiaoliang Luo, Yuqian Wu, Zhuoyang Jiang, Huaiyu Wan, Sheng Sun, Lvchun Wang, Wei Yu, Yuxuan Liang"
+  category: other
+  tags:
+    - Time Modelling
+    - Multimodal LLM
+    - In-Context Learning
+  url: "https://arxiv.org/abs/2601.02968"
