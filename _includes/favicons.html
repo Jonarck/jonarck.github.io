@@ -1,5 +1,6 @@
 {% capture favicon_path %}{{ '/assets/img/favicons' | relative_url }}{% endcapture %}
+{% assign favicon_version = site.time | date: '%s' %}
 
-<link rel="icon" type="image/svg+xml" href="{{ favicon_path }}/favicon.svg">
-<link rel="shortcut icon" href="{{ favicon_path }}/favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="any" href="{{ favicon_path }}/favicon.svg?v={{ favicon_version }}">
+<link rel="shortcut icon" href="{{ '/favicon.svg?v=' | append: favicon_version | relative_url }}">
 <meta name="theme-color" content="#f3efe7">
