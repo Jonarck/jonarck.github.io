@@ -20,16 +20,16 @@ permalink: /about/
       {% when 'Education' %}
         {% assign highlight_tone = 'education' %}
         {% assign highlight_icon = 'fas fa-graduation-cap' %}
-        {% assign highlight_kicker = 'Academic Path' %}
+        {% assign highlight_kicker = 'Education' %}
       {% when 'Research Interests' %}
         {% assign highlight_tone = 'interests' %}
         {% assign highlight_icon = 'fas fa-drafting-compass' %}
-        {% assign highlight_kicker = 'Research Focus' %}
+        {% assign highlight_kicker = 'Research Interests' %}
       {% when 'Research Methodology' %}
         {% assign highlight_tone = 'methodology' %}
         {% assign highlight_icon = 'fas fa-project-diagram' %}
-        {% assign highlight_kicker = 'Approach' %}
-      {% when 'Interests' %}
+        {% assign highlight_kicker = 'Research Methodology' %}
+      {% when 'Interests' or 'Outside Work' %}
         {% assign highlight_tone = 'personal' %}
         {% assign highlight_icon = 'fas fa-landmark' %}
         {% assign highlight_kicker = 'Outside Work' %}
@@ -42,7 +42,6 @@ permalink: /about/
         </span>
         <div class="profile-highlight__heading">
           <p class="profile-highlight__kicker">{{ highlight_kicker }}</p>
-          <h2 class="profile-highlight__title">{{ item.title }}</h2>
         </div>
       </div>
       {% if item.items %}
