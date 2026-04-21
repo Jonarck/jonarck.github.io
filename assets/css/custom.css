@@ -222,7 +222,7 @@ textarea,
 
 .profile-highlight__head {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   margin-bottom: 12px;
 }
@@ -242,13 +242,17 @@ textarea,
 
 .profile-highlight__heading {
   min-width: 0;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
 }
 
 .profile-highlight__kicker {
-  margin: 0 0 2px;
-  font-size: 0.76rem;
+  margin: 0;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--highlight-accent, var(--flat-accent));
 }
