@@ -4,9 +4,11 @@
   authors: "Zhuoyang Jiang, Yaosen Min, Peiran Jin, Lei Chen"
   category: core
   tags:
+    - Perception & Understanding
     - Representation Learning
     - Graph Autoregressive Models
-    - Drug discovery (Molecular Property Prediction)
+    - Drug Discovery
+    - Molecular Property Prediction
   url: "https://arxiv.org/abs/2601.02530"
   image: "/assets/img/pubs/CamS.png"
 
@@ -16,6 +18,7 @@
   authors: "Conghui Zhou, Liuyi Yang, Zhuoyang Jiang, Xinyu Wu"
   category: core
   tags:
+    - Perception & Understanding
     - Urban Planning
     - End-to-End AI Applications
     - Computer Vision
@@ -29,6 +32,7 @@
   authors: "Zhuoyang Jiang, Dongqing Zhang"
   category: branch
   tags:
+    - Generation
     - Diffusion Transformer Models
     - Reinforcement Learning
     - Post-training
@@ -42,9 +46,11 @@
   authors: "Yanting Li*, Zhuoyang Jiang*, Enyan Dai, Lei Wang, Wen-Cai Ye, Li Liu"
   category: branch
   tags:
+    - Generation
     - Discrete Diffusion Language Models
-    - Reinforcement learning
-    - Drug discovery (Molecular Generation)
+    - Reinforcement Learning    
+    - Drug Discovery
+    - Molecular Generation
   url: "https://arxiv.org/abs/2604.11483"
   image: "/assets/img/pubs/CAGenMol.png"
 

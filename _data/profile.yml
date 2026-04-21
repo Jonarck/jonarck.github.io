@@ -15,8 +15,12 @@ about: >-
 highlights:
   - title: Education
     items:
-      - B.Eng. in Artificial Intelligence, Southeast University; capstone co-supervised by the School of Architecture.
-      - M.Sc. in Data-Centric AI, HKUST(GZ); joint research internship at Microsoft Research Asia.
+      - main: M.Sc. in Data-Centric AI, HKUST(GZ)
+        subitems:
+          - Joint research internship at Microsoft Research Asia
+      - main: B.Eng. in Artificial Intelligence, Southeast University
+        subitems:
+          - Capstone co-supervised by the School of Architecture, Southeast University
   - title: Research Interests
     text: AI-assisted architectural design and urban planning.
   - title: Research Methodology

@@ -47,7 +47,20 @@ permalink: /about/
       {% if item.items %}
         <ul class="profile-highlight__list">
           {% for entry in item.items %}
-            <li>{{ entry }}</li>
+            <li>
+              {% if entry.main %}
+                <span class="profile-highlight__lead">{{ entry.main }}</span>
+                {% if entry.subitems %}
+                  <ul class="profile-highlight__sublist">
+                    {% for subentry in entry.subitems %}
+                      <li>{{ subentry }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% else %}
+                {{ entry }}
+              {% endif %}
+            </li>
           {% endfor %}
         </ul>
       {% else %}

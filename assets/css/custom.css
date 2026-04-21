@@ -266,21 +266,25 @@ textarea,
 
 .profile-highlight__text {
   margin: 0;
-  color: var(--flat-muted);
-  line-height: 1.65;
+  color: rgba(17, 24, 39, 0.78);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.72;
 }
 
 .profile-highlight__list {
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--flat-muted);
+  color: rgba(17, 24, 39, 0.78);
+  font-size: 1.02rem;
+  font-weight: 500;
 }
 
 .profile-highlight__list li {
   position: relative;
   padding-left: 1rem;
-  line-height: 1.65;
+  line-height: 1.72;
 }
 
 .profile-highlight__list li::before {
@@ -296,6 +300,37 @@ textarea,
 
 .profile-highlight__list li + li {
   margin-top: 0.65rem;
+}
+
+.profile-highlight__lead {
+  color: var(--flat-accent);
+  font-weight: 600;
+}
+
+.profile-highlight__sublist {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-highlight__sublist li {
+  position: relative;
+  padding-left: 1rem;
+  color: rgba(17, 24, 39, 0.72);
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.profile-highlight__sublist li::before {
+  content: "–";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(17, 24, 39, 0.5);
+}
+
+.profile-highlight__sublist li + li {
+  margin-top: 0.3rem;
 }
 
 .profile-highlight--education .profile-highlight__icon {
