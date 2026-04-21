@@ -12,8 +12,39 @@ permalink: /about/
 {% if highlights and highlights.size > 0 %}
 <section class="profile-highlights" aria-label="Highlights">
   {% for item in highlights %}
-    <article class="profile-highlight">
-      <h2 class="profile-highlight__title">{{ item.title }}</h2>
+    {% assign highlight_tone = 'general' %}
+    {% assign highlight_icon = 'fas fa-info-circle' %}
+    {% assign highlight_kicker = 'Overview' %}
+
+    {% case item.title %}
+      {% when 'Education' %}
+        {% assign highlight_tone = 'education' %}
+        {% assign highlight_icon = 'fas fa-graduation-cap' %}
+        {% assign highlight_kicker = 'Academic Path' %}
+      {% when 'Research Interests' %}
+        {% assign highlight_tone = 'interests' %}
+        {% assign highlight_icon = 'fas fa-drafting-compass' %}
+        {% assign highlight_kicker = 'Research Focus' %}
+      {% when 'Research Methodology' %}
+        {% assign highlight_tone = 'methodology' %}
+        {% assign highlight_icon = 'fas fa-project-diagram' %}
+        {% assign highlight_kicker = 'Approach' %}
+      {% when 'Interests' %}
+        {% assign highlight_tone = 'personal' %}
+        {% assign highlight_icon = 'fas fa-landmark' %}
+        {% assign highlight_kicker = 'Outside Work' %}
+    {% endcase %}
+
+    <article class="profile-highlight profile-highlight--{{ highlight_tone }}">
+      <div class="profile-highlight__head">
+        <span class="profile-highlight__icon" aria-hidden="true">
+          <i class="{{ highlight_icon }}"></i>
+        </span>
+        <div class="profile-highlight__heading">
+          <p class="profile-highlight__kicker">{{ highlight_kicker }}</p>
+          <h2 class="profile-highlight__title">{{ item.title }}</h2>
+        </div>
+      </div>
       {% if item.items %}
         <ul class="profile-highlight__list">
           {% for entry in item.items %}

@@ -4,6 +4,10 @@
   --flat-border: rgba(0, 0, 0, 0.08);
   --flat-card: rgba(0, 0, 0, 0.03);
   --flat-accent: #111827;
+  --highlight-education: #b7791f;
+  --highlight-interests: #0f766e;
+  --highlight-methodology: #1d4ed8;
+  --highlight-personal: #7c3aed;
 }
 
 /* Reduce heavy theme chrome for a flatter look */
@@ -132,8 +136,8 @@
 .profile-highlights {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin: 8px 0 20px;
+  gap: 14px;
+  margin: 10px 0 22px;
 }
 
 @media (max-width: 900px) {
@@ -143,14 +147,89 @@
 }
 
 .profile-highlight {
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: var(--flat-card);
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--flat-border);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.95), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(0, 0, 0, 0.02));
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.profile-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: var(--highlight-accent, var(--flat-accent));
+}
+
+.profile-highlight:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .profile-highlight:first-child {
+    grid-column: auto;
+  }
+}
+
+.profile-highlight--education {
+  --highlight-accent: var(--highlight-education);
+}
+
+.profile-highlight--interests {
+  --highlight-accent: var(--highlight-interests);
+}
+
+.profile-highlight--methodology {
+  --highlight-accent: var(--highlight-methodology);
+}
+
+.profile-highlight--personal {
+  --highlight-accent: var(--highlight-personal);
+}
+
+.profile-highlight__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.profile-highlight__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--highlight-accent, var(--flat-accent));
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--flat-border);
+}
+
+.profile-highlight__heading {
+  min-width: 0;
+}
+
+.profile-highlight__kicker {
+  margin: 0 0 2px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--highlight-accent, var(--flat-accent));
 }
 
 .profile-highlight__title {
-  margin: 0 0 6px;
-  font-size: 1rem;
+  margin: 0;
+  font-size: 1.03rem;
   line-height: 1.3;
   color: var(--flat-accent);
 }
@@ -158,16 +237,51 @@
 .profile-highlight__text {
   margin: 0;
   color: var(--flat-muted);
+  line-height: 1.65;
 }
 
 .profile-highlight__list {
   margin: 0;
-  padding-left: 1.1rem;
+  padding: 0;
+  list-style: none;
   color: var(--flat-muted);
 }
 
+.profile-highlight__list li {
+  position: relative;
+  padding-left: 1rem;
+  line-height: 1.65;
+}
+
+.profile-highlight__list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72rem;
+  left: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: var(--highlight-accent, var(--flat-accent));
+}
+
 .profile-highlight__list li + li {
-  margin-top: 0.4rem;
+  margin-top: 0.65rem;
+}
+
+.profile-highlight--education .profile-highlight__icon {
+  background: rgba(183, 121, 31, 0.12);
+}
+
+.profile-highlight--interests .profile-highlight__icon {
+  background: rgba(15, 118, 110, 0.12);
+}
+
+.profile-highlight--methodology .profile-highlight__icon {
+  background: rgba(29, 78, 216, 0.11);
+}
+
+.profile-highlight--personal .profile-highlight__icon {
+  background: rgba(124, 58, 237, 0.1);
 }
 
 /* About layout */

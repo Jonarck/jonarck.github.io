@@ -46,7 +46,7 @@
     - Reinforcement learning
     - Drug discovery (Molecular Generation)
   url: "https://arxiv.org/abs/2604.11483"
-  image: "/assets/img/pubs/CAGenMol.pdf"
+  image: "/assets/img/pubs/CAGenMol.png"
 
 - title: "Rationale-Grounded In-Context Learning for Time Series Reasoning with Multimodal Large Language Models"
   venue: "[2026] Preprint"
