@@ -4,10 +4,9 @@
   authors: "Zhuoyang Jiang, Yaosen Min, Peiran Jin, Lei Chen"
   category: core
   tags:
-    - Molecular Structure
     - Representation Learning
-    - Graph
-    - Foundation Model
+    - Graph Autoregressive Models
+    - Drug discovery (Molecular Property Prediction)
   url: "https://arxiv.org/abs/2601.02530"
   image: "/assets/img/pubs/CamS.png"
 
@@ -24,29 +23,30 @@
   url: "https://www.tandfonline.com/doi/abs/10.1080/10630732.2024.2402676"
   image: "/assets/img/pubs/AI4PocketPark.png"
 
-- title: "CovDiffusion : Floorplan Generation with Unified Spatial Tokenization and Space Syntax Injection"
-  role: "Investigating intelligent frameworks to build consumer tools for architectural schematic design."
-  venue: "In Progressing"
-  authors: "Zhuoyang Jiang & Dongqing Zhang"
+- title: "Space Syntax-guided Post-training for Residential Floor Plan Generation"
+  role: "Pre-Phd Exploration → From My Domain Interest in Architecture Design with AI"
+  venue: "[2026] Preprint"
+  authors: "Zhuoyang Jiang, Dongqing Zhang"
   category: branch
   tags:
+    - Diffusion Transformer Models
+    - Reinforcement Learning
+    - Post-training
     - Architecture Design
-    - AIGC
-    - Diffusion Models
-  url: ""
-  image: "/assets/img/pubs/branch-1.png"
+  url: "https://arxiv.org/abs/2602.22507"
+  image: "/assets/img/pubs/SSPT.png"
 
-- title: "Behaviour Is Also You Need"
-  role: "Investigating human cognitive modeling to align LLM interactions in knowledge activities."
-  venue: "In Progressing"
-  authors: "Zhuoyang Jiang & Zhiyuan Xia"
+- title: "CAGenMol: Condition-Aware Diffusion Language Model for Goal-Directed Molecular Generation"
+  role: "Pre-Phd Exploration → From My Methods Interest in Generation with Discrete Diffusion Language Models"
+  venue: "ACL 2026 Finding"
+  authors: "Yanting Li*, Zhuoyang Jiang*, Enyan Dai, Lei Wang, Wen-Cai Ye, Li Liu"
   category: branch
   tags:
-    - User Modelling
-    - HCI
-    - LLM
-  url: ""
-  image: "/assets/img/pubs/branch-1.png"
+    - Discrete Diffusion Language Models
+    - Reinforcement learning
+    - Drug discovery (Molecular Generation)
+  url: "https://arxiv.org/abs/2604.11483"
+  image: "/assets/img/pubs/CAGenMol.pdf"
 
 - title: "Rationale-Grounded In-Context Learning for Time Series Reasoning with Multimodal Large Language Models"
   venue: "[2026] Preprint"

@@ -6,31 +6,45 @@ email: zjiang496@connect.hkust-gz.edu.cn
 links:
   github: https://github.com/Jonarck
   linkedin: https://www.linkedin.com/in/zhuoyang-jiang-5421b4272/
-  scholar: https://scholar.google.com/
+  scholar: https://scholar.google.com/citations?user=vMZ5yPgAAAAJ&hl=en
   cv: /research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf
 
 about: >-
-  I’m a Research Assistant at [CityMind Lab](https://citymind.top/), HKUST(GZ). Previously, I was a research intern at [Microsoft Research AI for Science](https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/) and [Zhongguancun Institute of AI](https://www.bjzgca.edu.cn/en/organization), focusing on graph representation learning for autoregressive foundation models, advised by [Dr. Yaosen Min](https://scholar.google.com/citations?user=732nRkQAAAAJ&hl=en) and [Dr. Peiran Jin](https://www.semanticscholar.org/author/Peiran-Jin/50820195). I received an M.Sc. in Data-Centric AI from [HKUST(GZ)](https://www.hkust-gz.edu.cn/about/) (advised by [Prof. Lei Chen](https://cse.hkust.edu.hk/~leichen/)) and a B.Eng. in Artificial Intelligence from [Southeast University](https://www.seu.edu.cn/english/22456/list.htm), where I collaborated with [Prof. Conghui Zhou](https://arch.seu.edu.cn/jz_en/2019/1113/c41171a410224/page.htm) on deep-learning-based pocket park planning with large-scale street-view data. I also explored Human-AI Interaction projects advised by [Prof. Mingming Fan](https://www.mingmingfan.com/).
+  I'm a Research Assistant at [CityMind Lab](https://citymind.top/), HKUST(GZ). My recent research focuses on multimodal representation learning for unified understanding-and-generation autoregressive models in urban planning and architectural design. In artificial intelligence, I previously worked on representation learning at [Microsoft Research AI for Science](https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/) and the [Zhongguancun Institute of AI](https://www.bjzgca.edu.cn/en/organization). In architecture and urban studies, I actively collaborate with researchers from [the School of Architecture at Southeast University](https://arch.seu.edu.cn/jz_en/main.htm) and [the Built Environment Technology Center at Tongji University](https://caup-lab.tongji.edu.cn/3b/76/c33896a211830/page.htm) on AI-assisted architectural and urban analysis and design. Beyond that, I also explored Human-AI Interaction projects on human cognition modeling and cognitive assistance at the [Augmenting & People by Empowering X (APEX) Group](https://www.mingmingfan.com/), HKUST(GZ).
+
+highlights:
+  - title: Education
+    items:
+      - B.Eng. in Artificial Intelligence, Southeast University; capstone co-supervised by the School of Architecture.
+      - M.Sc. in Data-Centric AI, HKUST(GZ); joint research internship at Microsoft Research Asia.
+  - title: Research Interests
+    text: AI-assisted architectural design and urban planning.
+  - title: Research Methodology
+    text: Representation learning, generative models, and human-AI interaction.
+  - title: Interests
+    text: Architecture, historical sites, music, and anime.
 
 timeline:
+  - date: 2026-04
+    text: 📄 CAGenMol was accepted to ACL 2026 Findings
   - date: 2025-11
-    text: Started Research Assistant, HKUST(GZ) DSA CityMind
+    text: 💼 Joined CityMind Lab, HKUST(GZ) as a Research Assistant
   - date: 2025-10
-    text: Graduated M.Sc. in Data-Centric AI, HKUST(GZ)
+    text: 🎓 Received M.Sc. in Data-Centric AI from HKUST(GZ)
   - date: 2025-08
-    text: Started Research Intern, Zhongguancun Academy
+    text: 💼 Began research internship at the Zhongguancun Institute of AI
   - date: 2024-11
-    text: A Journal of Urban Technology paper on pocket park site selection
+    text: 📄 Undergraduate thesis on AI for pocket park site selection accepted by the Journal of Urban Technology
   - date: 2024-08
-    text: Started Research Intern, Microsoft Research (AI for Science)
+    text: 💼 Began research internship at Microsoft Research AI for Science
   - date: 2024-02
-    text: Started Human-AI Interaction project, HKUST(GZ) CMA APEX
+    text: 🧠 Started Human-AI Interaction projects at the APEX Group, HKUST(GZ)
   - date: 2023-09
-    text: Started M.Sc. in DCAI, HKUST(GZ)
+    text: 🎓 Started M.Sc. in Data-Centric AI at HKUST(GZ)
   - date: 2023-06
-    text: Graduated B.Eng. in AI, Southeast University
+    text: 🎓 Received B.Eng. in Artificial Intelligence from Southeast University
   - date: 2019-09
-    text: Started B.Eng. in AI, Southeast University
+    text: 🎓 Started B.Eng. in Artificial Intelligence at Southeast University
 
 research_pathway:
   image: /assets/img/research_summary.png

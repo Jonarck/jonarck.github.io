@@ -8,6 +8,26 @@ permalink: /about/
 {% include profile-hero.html %}
 {% include quick-links.html current="about" %}
 
+{% assign highlights = site.data.profile.highlights %}
+{% if highlights and highlights.size > 0 %}
+<section class="profile-highlights" aria-label="Highlights">
+  {% for item in highlights %}
+    <article class="profile-highlight">
+      <h2 class="profile-highlight__title">{{ item.title }}</h2>
+      {% if item.items %}
+        <ul class="profile-highlight__list">
+          {% for entry in item.items %}
+            <li>{{ entry }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="profile-highlight__text">{{ item.text }}</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>
+{% endif %}
+
 <section class="about-grid" aria-label="About and timeline">
   <div class="about-grid__col">
     <h2>About Me</h2>
