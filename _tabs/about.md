@@ -52,9 +52,13 @@ permalink: /about/
                 <span class="profile-highlight__lead">{{ entry.main }}</span>
                 {% if entry.subitems %}
                   <ul class="profile-highlight__sublist">
-                    {% for subentry in entry.subitems %}
-                      <li>{{ subentry }}</li>
-                    {% endfor %}
+                    {% if entry.subitems.first %}
+                      {% for subentry in entry.subitems %}
+                        <li>{{ subentry }}</li>
+                      {% endfor %}
+                    {% else %}
+                      <li>{{ entry.subitems }}</li>
+                    {% endif %}
                   </ul>
                 {% endif %}
               {% else %}
