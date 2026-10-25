@@ -27,7 +27,12 @@ const { name } = Astro.props;
       <ol class="name-glyph-sources">
         {script.glyphs.map((glyph, i) => <li>
           <svg viewBox={glyph.viewBox} role="img" aria-label={glyph.char}><use href={`#name-glyph-${script.id}-${i}`} /></svg>
-          <div lang="zh-CN"><h3>{glyph.work === '汉印字例' ? glyph.work : `《${glyph.work}》`}</h3><p>{glyph.attribution}</p>{'note' in glyph && <small>{glyph.note}</small>}</div>
+          <div class="name-glyph-credit">
+            <h3 lang="zh-CN">《{glyph.work}》</h3>
+            <p class="name-source-english" lang="en">{glyph.workEn}</p>
+            <p class="name-source-author" lang="zh-CN">{glyph.attribution}<span lang="en">{glyph.attributionEn}</span></p>
+            {'note' in glyph && <small lang="zh-CN">{glyph.note}{'noteEn' in glyph && <span lang="en">{glyph.noteEn}</span>}</small>}
+          </div>
         </li>)}
       </ol>
     </section>)}
@@ -48,10 +53,10 @@ const { name } = Astro.props;
 <script src="../scripts/name-scripts.js"></script>
 <style>
   .name-script-switcher { display: inline-flex; align-items: center; max-width: 100%; }
-  .name-script-fallback { color: var(--muted); font-size: 21px; letter-spacing: .08em; white-space: nowrap; }
+  .name-script-fallback { color: var(--muted); font-size: 27px; letter-spacing: .08em; white-space: nowrap; }
   .name-script-trigger { display: inline-flex; align-items: center; gap: 3px; min-height: 44px; padding: 0 3px; color: var(--body); border: 0; border-radius: 5px; background: transparent; }
   .name-script-trigger:hover { color: var(--text); background: var(--control); }
-  .name-script-current { width: 105px; height: 35.5px; }
+  .name-script-current { width: 132px; height: 44.55px; }
   .name-script-chevron { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.2; opacity: .6; }
   .name-script-playback { display: grid; place-items: center; width: 28px; height: 36px; padding: 6px; color: var(--muted); border-radius: 5px; background: transparent; }
   .name-script-playback:hover { background: var(--control); color: var(--text); }
@@ -72,8 +77,12 @@ const { name } = Astro.props;
   .name-glyph-sources li:last-child { border: 0; padding-bottom: 0; }
   .name-glyph-sources svg { width: 76px; height: 82px; }
   .name-glyph-sources h3 { font-size: 16px; font-weight: 500; color: var(--text); }
-  .name-glyph-sources p { font-size: 12px; color: var(--muted); margin-top: 6px; }
-  .name-glyph-sources small { display: block; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .name-glyph-credit { min-width: 0; }
+  .name-glyph-sources .name-source-english { font-size: 12px; line-height: 1.5; color: var(--body); margin-top: 3px; }
+  .name-glyph-sources .name-source-author { font-size: 12px; line-height: 1.6; color: var(--muted); margin-top: 9px; }
+  .name-source-author span { display: block; font-size: 11px; }
+  .name-glyph-sources small { display: block; font-size: 11px; line-height: 1.5; color: var(--muted); margin-top: 6px; }
+  .name-glyph-sources small span { display: block; margin-top: 2px; }
   .name-script-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
   .name-script-specimen { display: grid; justify-items: center; gap: 2px; padding: 15px 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--control); color: var(--body); }
   .name-script-specimen:hover { background: var(--control-active); border-color: var(--muted); color: var(--text); }
@@ -85,7 +94,7 @@ const { name } = Astro.props;
   @media (max-width: 580px) {
     .name-script-dialog { width: calc(100% - 24px); padding: 20px; }
     .name-script-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .name-script-current { width: 96px; height: 32.4px; }
+    .name-script-current { width: 120px; height: 40.5px; }
     .name-glyph-sources li { grid-template-columns: 68px minmax(0, 1fr); gap: 16px; }
     .name-glyph-sources svg { width: 64px; height: 70px; }
     .name-glyph-sources h3 { font-size: 15px; }
