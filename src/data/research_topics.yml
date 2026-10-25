@@ -1,15 +1,15 @@
+- id: environments
+  title: Built environment
+  kind: application
+  description: Architectural and urban design, planning, and human experience.
+
 - id: molecules
   title: Physical sciences
   kind: application
   description: Molecular representation, property prediction, and generation.
 
-- id: environments
-  title: Built environment applications
-  kind: application
-  description: Architectural and urban design, planning, and human experience.
-
 - id: entertainment
-  title: Entertainment applications
+  title: Entertainment
   kind: application
   description: Design and creativity in film, storytelling, and entertainment.
   empty_message: Coming soon

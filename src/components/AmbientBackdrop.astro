@@ -1,13 +1,9 @@
 ---
+import ArchitectureArt from './ArchitectureArt.astro';
 interface Props { architecture: 'kyoto' | 'philips' | 'tourette' | 'hangzhou' | 'neutral' }
 const { architecture } = Astro.props;
-const asset = `/assets/img/architecture/${architecture}-abstract`;
 ---
 <div class="ambient-backdrop" aria-hidden="true">
   <div class="ambient-wash"></div>
-  {architecture !== 'neutral' && <picture class="architecture-art">
-    <img src={`${asset}-1672.webp`} srcset={`${asset}-960.webp 960w, ${asset}-1672.webp 1672w`}
-      sizes="(max-width: 640px) 760px, (max-width: 1200px) 112vw, 1320px"
-      alt="" width="1672" height={architecture === 'tourette' ? 940 : 941} loading="eager" decoding="async" fetchpriority="low" />
-  </picture>}
+  {architecture !== 'neutral' && <ArchitectureArt architecture={architecture} />}
 </div>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  architecture: 'kyoto' | 'philips' | 'tourette' | 'hangzhou';
+}
+const { architecture } = Astro.props;
+const asset = `/assets/img/architecture/${architecture}-abstract`;
+const mobileSize = architecture === 'kyoto' ? 'min(120vw, 680px)'
+  : architecture === 'tourette' ? 'min(144vw, 720px)'
+  : architecture === 'hangzhou' ? 'min(130vw, 720px)' : 'min(146vw, 720px)';
+---
+<picture class="architecture-art" aria-hidden="true">
+  <img src={`${asset}-1672.webp`} srcset={`${asset}-960.webp 960w, ${asset}-1672.webp 1672w`}
+    sizes={`(max-width: 640px) ${mobileSize}, (max-width: 1200px) 112vw, 1320px`}
+    alt="" width="1672" height={architecture === 'tourette' ? 940 : 941} loading="eager" decoding="async" fetchpriority="low" />
+</picture>

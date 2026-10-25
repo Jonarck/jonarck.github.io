@@ -55,9 +55,13 @@ The generated originals are 1672 × 941 pixels (La Tourette is 1672 × 940); the
 
 `PageLayout.astro` chooses the architectural theme from the route. Project and blog articles inherit their section's palette, with quieter artwork and a more opaque reading surface. CV and error pages retain a neutral background. The former foreground architectural SVG is no longer displayed on About; its component remains in source history.
 
-`architecture-backgrounds.css` provides a shared material system and four palettes. The image is decorative (`aria-hidden`, empty alt text), occupies the upper and right side of the page, gradually fades downwards, and never handles pointer events. It does not animate or follow the pointer. Glass reading surfaces protect text contrast; dark mode, mobile layouts, reduced-transparency preference, increased-contrast preference and print have dedicated treatments. The mobile artwork is more transparent and does not create a large empty hero block.
+`architecture-backgrounds.css` provides a shared material system and four palettes. The image is decorative (`aria-hidden`, empty alt text), occupies the upper and right side of the page, gradually fades downwards, and never handles pointer events. It does not animate or follow the pointer. Glass reading surfaces protect text contrast; dark mode, mobile layouts, reduced-transparency preference, increased-contrast preference and print have dedicated treatments.
 
-The subsequent publication redesign and research-content changes are documented in [research-organization.md](research-organization.md). The project content and empty blog remain unchanged.
+On screens up to 640 pixels wide, each building has its own subject framing rather than a fixed 760-pixel image offset beyond the right edge. Philips retains both peaks; La Tourette retains the circular aperture and colored planes; Hangzhou retains the celadon screens. Their image widths scale with the viewport and stop at 720 pixels, with a later bottom fade to preserve the identifying geometry. The existing mobile opacity remains unchanged.
+
+Kyoto's mobile artwork is scaled and positioned within the existing About introduction. Its skybridge, tilted square, and stairs fit inside the viewport without adding a separate visual band or extra space below the contact links. `ArchitectureArt.astro` keeps responsive image selection aligned with each building's mobile width. Desktop composition and the About introduction's height are unchanged. Decorative art remains hidden for increased contrast, reduced transparency, and print.
+
+The subsequent publication redesign and research-content changes are documented in [research-organization.md](research-organization.md). Bilingual blog and gallery details are in [blog-publishing.md](blog-publishing.md).
 
 ## Local verification
 
@@ -65,4 +69,4 @@ Build and static checks: `npm run build`, `npm run verify`.
 
 Current browser check: `node tools/ui-preview/verify-research-redesign.mjs`. It checks the updated publication organization and responsive views of all four themed sections. Screenshots are stored in `tools/ui-preview/research-reframe/qa/`. Earlier architecture checks and screenshots remain in `tools/ui-preview/architecture-backgrounds/qa/`; their publication selectors predate the redesign.
 
-This experiment is local. No commit, push or deployment has been made.
+The approved site has been deployed to GitHub Pages. The local snapshots retain earlier design studies; they are not public site assets.

@@ -42,7 +42,7 @@ body { position: relative; isolation: isolate; }
 .site-header { top: 18px; margin-top: 18px; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .header-inner { min-height: 64px; gap: 24px; padding: 8px 10px 8px 20px; border: 1px solid var(--glass-edge); border-radius: 24px; background: var(--glass); box-shadow: var(--glass-shadow); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); }
 .site-name { display: inline-flex; gap: 10px; align-items: center; font-size: 14px; }
-.site-monogram { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; border: 1px solid var(--glass-edge); background: linear-gradient(140deg, var(--control-active), var(--control)); box-shadow: inset 0 1px 0 var(--glass-edge), 0 3px 8px rgba(52, 77, 116, .05); font-size: 11px; font-weight: 600; letter-spacing: -.05em; }
+.site-logo { display: block; width: 34px; height: 34px; flex: 0 0 auto; }
 .main-nav { gap: 4px; }
 .main-nav a { padding: 0 16px; min-height: 42px; border: 1px solid transparent; border-radius: 16px; color: var(--body); }
 .main-nav a:hover { background: var(--control); }
@@ -167,7 +167,7 @@ h2 { font-size: 17px; font-weight: 600; letter-spacing: -.025em; }
   .site-header { top: 10px; margin-top: 10px; }
   .header-inner { padding: 11px 10px 8px; gap: 10px; border-radius: 23px; align-items: stretch; }
   .site-name { align-self: flex-start; padding-left: 4px; font-size: 13px; gap: 9px; }
-  .site-monogram { width: 25px; height: 25px; font-size: 9px; border-radius: 8px; }
+  .site-logo { width: 25px; height: 25px; }
   .main-nav { gap: 3px; justify-content: space-between; }
   .main-nav a { padding: 0 11px; min-height: 37px; border-radius: 12px; font-size: 11px; }
   main { padding-top: 26px; padding-bottom: 45px; }

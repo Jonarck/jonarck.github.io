@@ -172,15 +172,25 @@ html.dark[data-architecture='hangzhou'] {
   [data-architecture='philips'] .architecture-art,
   [data-architecture='tourette'] .architecture-art,
   [data-architecture='hangzhou'] .architecture-art {
-    top: 105px;
-    width: 760px;
-    right: -280px;
+    top: 110px;
+    width: min(146vw, 720px);
+    right: 4vw;
     opacity: calc(var(--art-opacity) * .62);
-    mask-image: linear-gradient(#000 35%, transparent 87%);
-    -webkit-mask-image: linear-gradient(#000 35%, transparent 87%);
+    mask-image: linear-gradient(#000 76%, transparent 100%);
+    -webkit-mask-image: linear-gradient(#000 76%, transparent 100%);
   }
+  [data-architecture='tourette'] .architecture-art { width: min(144vw, 720px); }
+  [data-architecture='hangzhou'] .architecture-art { width: min(130vw, 720px); }
   .profile-stage { min-height: 250px; margin: 0 5px 28px; padding: 0; }
-  [data-architecture='kyoto'] .architecture-art { top: 70px; width: 660px; right: -205px; }
+  /* Fit Kyoto's full structure into the existing introduction, without
+     extending the hero or reserving a separate illustration area. */
+  [data-architecture='kyoto'] .architecture-art {
+    top: clamp(48px, calc(264px - 47.25vw), 120px);
+    right: 0;
+    width: min(120vw, 680px);
+    mask-image: linear-gradient(#000 84%, transparent 100%);
+    -webkit-mask-image: linear-gradient(#000 84%, transparent 100%);
+  }
   .profile-stage__content { padding: 14px 0 0; }
   .profile-grid, .profile-sidebar { gap: 18px; }
   .page-heading { min-height: 206px; margin: 0 6px 24px; padding-right: 10px; }

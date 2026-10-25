@@ -6,7 +6,7 @@ const current = Astro.url.pathname;
 <header class="site-header">
   <Container>
     <div class="header-inner">
-      <a class="site-name" href="/"><span class="site-monogram" aria-hidden="true">ZJ</span><span>{profile.name}</span></a>
+      <a class="site-name" href="/"><img class="site-logo" src="/assets/img/favicons/favicon.svg" alt="" width="34" height="34" aria-hidden="true" /><span>{profile.name}</span></a>
       <nav class="main-nav" aria-label="Main navigation">
         {navigation.map(item => (
           <a href={item.url} aria-current={current === item.url ? 'page' : item.url !== '/' && current.startsWith(item.url) ? 'location' : undefined}>{item.title}</a>

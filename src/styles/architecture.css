@@ -48,7 +48,6 @@ html.dark {
 .ambient-wash { background: radial-gradient(ellipse at 80% 8%, var(--ambient-blue), transparent 48%), radial-gradient(ellipse at 5% 32%, var(--ambient-pearl), transparent 43%), radial-gradient(ellipse at 95% 85%, var(--ambient-ice), transparent 50%); }
 .ambient-backdrop::after { content: ''; position: absolute; width: 500px; height: 520px; top: -160px; right: -40px; opacity: .2; transform: rotate(24deg) skewY(-13deg); background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 38px 56px; mask-image: radial-gradient(ellipse, #000, transparent 70%); }
 .header-inner { border-radius: 18px; border-bottom-color: var(--line); box-shadow: 0 8px 30px -23px rgba(43, 57, 48, .23), inset 0 1px 0 var(--glass-edge); }
-.site-monogram { border-radius: 7px; box-shadow: inset 3px 0 0 color-mix(in srgb, var(--architecture-blue) 70%, transparent), inset 0 1px 0 var(--glass-edge); }
 .main-nav a { border-radius: 10px; }
 .main-nav a[aria-current] { box-shadow: 0 2px 5px rgba(46, 58, 49, .05), inset 0 -2px 0 color-mix(in srgb, var(--architecture-blue) 38%, transparent); }
 .profile-stage { grid-template-columns: minmax(0, 1fr) 420px; min-height: 300px; gap: 12px; margin-bottom: 47px; }
