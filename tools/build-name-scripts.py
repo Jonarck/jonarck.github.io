@@ -1,50 +1,86 @@
-"""Render the three name glyphs from attributed font sources without shipping fonts."""
+"""Trace supplied historical specimens into transparent, currentColor SVG paths.
+
+Usage: python tools/build-name-scripts.py --sources PATH_TO_EXTRACTED_PNGS
+Requires numpy, opencv-python and scipy. No generative reconstruction is used.
+The recipes are recorded in name-script-sources.json for reproducible extraction.
+"""
 from pathlib import Path
+import argparse
 import hashlib
+import html
 import json
-import shutil
-from fontTools.ttLib import TTFont
-from fontTools.pens.boundsPen import BoundsPen
-from fontTools.pens.svgPathPen import SVGPathPen
-from fontTools.pens.transformPen import TransformPen
+import os
+import cv2
+import numpy as np
+from scipy.ndimage import binary_fill_holes
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = ROOT / 'tools/ui-preview/name-scripts'
-FONTS = [
-    ('seal', '小篆', 'Small seal', '蔣卓洋', 'CNS-Seal.ttf', '數位發展部 · CNS11643 中文標準交換碼全字庫', 'https://www.cns11643.gov.tw/downloadList.jsp?ID=2&ID2=20'),
-    ('clerical', '隶书', 'Clerical', '蔣卓洋', 'eduLi-v3.0-2019-06.ttf', '中華民國教育部 · 教育部隸書', 'https://language.moe.gov.tw/material/info?m=9fe3fb11-c3d5-41f2-b029-6d18a2c2fd0d'),
-    ('regular', '楷书', 'Regular', '蒋卓洋', 'MaShanZheng-Regular.ttf', 'Ma Shan Zheng Project Authors', 'https://github.com/googlefonts/mashanzheng'),
-    ('running', '行书', 'Running', '蒋卓洋', 'ZhiMangXing-Regular.ttf', 'Zhi Mang Xing Project Authors', 'https://github.com/googlefonts/zhimangxing'),
-    ('cursive', '草书', 'Cursive', '蒋卓洋', 'LiuJianMaoCao-Regular.ttf', 'Liu Jian Mao Cao Project Authors', 'https://github.com/googlefonts/liujianmaocao'),
-]
-result = []
-for key, label, english, text, filename, credit, source in FONTS:
-    file = SOURCES / filename
-    font = TTFont(file)
-    cmap = font.getBestCmap()
-    assert all(ord(char) in cmap for char in text), f'Missing name glyph in {filename}'
-    glyphs = font.getGlyphSet()
-    bounds = BoundsPen(glyphs)
-    placements = []
-    cursor = 0
-    for char in text:
-        name = cmap[ord(char)]
-        placements.append((name, cursor))
-        glyphs[name].draw(TransformPen(bounds, (1, 0, 0, 1, cursor, 0)))
-        cursor += font['hmtx'][name][0] + font['head'].unitsPerEm * .08
-    x0, y0, x1, y1 = bounds.bounds
-    scale = min(300 / (x1-x0), 92 / (y1-y0))
-    tx = (320 - (x1-x0)*scale) / 2 - x0*scale
-    ty = (108 - (y1-y0)*scale) / 2 + y1*scale
-    pen = SVGPathPen(glyphs, ntos=lambda value: f'{value:.2f}'.rstrip('0').rstrip('.') if '.' in f'{value:.2f}' else str(value))
-    for name, x in placements:
-        glyphs[name].draw(TransformPen(pen, (scale, 0, 0, -scale, tx+x*scale, ty)))
-    result.append(dict(id=key, label=label, english=english, text=text, viewBox='0 0 320 108', path=pen.getCommands(), credit=credit, source=source, sourceFile=filename, sha256=hashlib.sha256(file.read_bytes()).hexdigest()))
-    font.close()
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--sources', type=Path, default=ROOT/'tools/ui-preview/name-scripts-2026-10-26/originals')
+parser.add_argument('--preview', type=Path, default=ROOT/'tools/ui-preview/name-scripts-2026-10-26/trace-review.html')
+args = parser.parse_args()
+recipes = json.loads((ROOT/'tools/name-script-sources.json').read_text(encoding='utf-8'))
 
-(ROOT / 'src/data/name-scripts.json').write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-licenses = ROOT / 'licenses/name-scripts'
-licenses.mkdir(parents=True, exist_ok=True)
-for family in ['mashanzheng', 'zhimangxing', 'liujianmaocao']:
-    shutil.copyfile(SOURCES / f'{family}-OFL.txt', licenses / f'{family}-OFL.txt')
-print('Rendered five three-glyph name specimens; no font binaries distributed.')
+def small_components(mask, minimum):
+    count, labels, stats, _ = cv2.connectedComponentsWithStats(mask, 8)
+    keep = np.zeros(count, dtype=np.uint8)
+    keep[1:] = (stats[1:, cv2.CC_STAT_AREA] >= minimum) * 255
+    return keep[labels]
+
+def trace(gray, recipe):
+    x0, y0, x1, y1 = recipe['crop']
+    crop = gray[y0:y1, x0:x1]
+    mask = ((crop > 170) if recipe.get('inverted') else (crop < 170)).astype(np.uint8)*255
+    if 'polygon' in recipe:
+        bounds = np.zeros_like(mask)
+        polygon = np.array(recipe['polygon'], np.int32)-[x0,y0]
+        cv2.fillPoly(bounds, [polygon.astype(np.int32)], 255)
+        mask &= bounds
+    for rectangle in recipe.get('exclude', []):
+        left,top,right,bottom=rectangle
+        mask[max(0,top-y0):bottom-y0, max(0,left-x0):right-x0]=0
+    for operation, flag in [('opening', cv2.MORPH_OPEN), ('closing', cv2.MORPH_CLOSE)]:
+        size = recipe.get(operation, 1)
+        if size > 1:
+            mask = cv2.morphologyEx(mask, flag, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (size,size)))
+    mask = small_components(mask, recipe.get('minArea',100))
+    filled = binary_fill_holes(mask > 0)
+    holes = (filled & (mask == 0)).astype(np.uint8)*255
+    large_holes = small_components(holes, recipe.get('fillHoles',0)+1)
+    mask |= holes & ~large_holes
+    contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    assert contours, 'No strokes extracted'
+    x,y,w,h = cv2.boundingRect(np.concatenate(contours))
+    scale = min(86/w, 92/h)
+    tx,ty = (100-w*scale)/2-x*scale, (108-h*scale)/2-y*scale
+    parts=[]
+    for contour in contours:
+        vertices=cv2.approxPolyDP(contour, .65, True).reshape(-1,2)
+        if len(vertices) < 3:continue
+        points=vertices*scale+[tx,ty]
+        parts.append('M'+'L'.join(f'{a:.2f},{b:.2f}' for a,b in points)+'Z')
+    return ''.join(parts)
+
+result=[]
+review=['<!doctype html><meta charset="utf-8"><title>Historical glyph tracing review</title><style>body{font:15px system-ui;background:#eef1f3;color:#2d424e;margin:30px}section{margin:40px 0}article{display:inline-flex;vertical-align:top;gap:12px;margin-right:20px}.source{width:130px;height:170px;position:relative;overflow:hidden;background:white}.source img{position:absolute;max-width:none}svg{width:130px;height:170px;background:repeating-conic-gradient(#fff 0% 25%,#e2e9eb 0% 50%) 0/12px 12px}small{display:block}</style>']
+for script in recipes:
+    file=args.sources/script['file']
+    raw=file.read_bytes()
+    gray=cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_GRAYSCALE)
+    glyphs=[]
+    review.append(f'<section><h2>{script["label"]}</h2>')
+    for glyph in script['glyphs']:
+        path=trace(gray,glyph)
+        data={key:glyph[key] for key in ['char','work','attribution','note','url'] if key in glyph}
+        data.update(path=path,viewBox='0 0 100 108')
+        glyphs.append(data)
+        x0,y0,x1,y1=glyph['crop']
+        z=min(130/(x1-x0),170/(y1-y0))
+        rel=Path(os.path.relpath(file,args.preview.parent)).as_posix()
+        review.append(f'<article><div><div class="source" style="height:{(y1-y0)*z}px"><img src="{rel}" style="width:{gray.shape[1]*z}px;left:{-x0*z}px;top:{-y0*z}px"></div><small>{glyph["char"]} · {html.escape(glyph["work"])}</small></div><svg viewBox="0 0 100 108"><path d="{path}" fill="currentColor" fill-rule="evenodd"/></svg></article>')
+    review.append('</section>')
+    result.append(dict(id=script['id'],label=script['label'],english=script['english'],viewBox='0 0 320 108',glyphs=glyphs,sourceFile=script['file'],sha256=hashlib.sha256(raw).hexdigest()))
+(ROOT/'src/data/name-scripts.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+args.preview.parent.mkdir(parents=True,exist_ok=True)
+args.preview.write_text(''.join(review),encoding='utf-8')
+print('Traced 21 glyphs in 7 styles. Review original/vector pairs at', args.preview)

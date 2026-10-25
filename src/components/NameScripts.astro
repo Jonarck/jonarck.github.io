@@ -4,59 +4,92 @@ interface Props { name: string }
 const { name } = Astro.props;
 ---
 <span class="name-script-switcher" data-name-scripts>
-  <span class="name-script-fallback" lang="zh-CN" aria-hidden="true">{name}</span>
-  <button type="button" class="name-script-trigger" aria-label={`Choose a writing style for ${name}`} aria-haspopup="dialog" aria-controls="name-script-dialog" aria-expanded="false" hidden>
-    <svg class="name-script-current" viewBox="0 0 320 108" aria-hidden="true"><use href="#name-glyph-clerical" /></svg>
+  <span class="name-script-fallback" lang="zh-CN">{name}</span>
+  <button type="button" class="name-script-trigger" aria-label={`${name} · View calligraphy sources`} aria-haspopup="dialog" aria-controls="name-script-dialog" aria-expanded="false" hidden>
+    <svg class="name-script-current" viewBox="0 0 320 108" aria-hidden="true"><use href="#name-glyph-seal" /></svg>
     <svg class="name-script-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
+  </button>
+  <button type="button" class="name-script-playback" aria-label="Pause calligraphy rotation" title="Pause rotation" aria-pressed="false" hidden>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path data-pause-icon d="M5 4v8M11 4v8" /><path data-play-icon d="m5 3 7 5-7 5Z" display="none" /></svg>
   </button>
 </span>
 <dialog id="name-script-dialog" class="name-script-dialog" aria-labelledby="name-script-heading">
   <header class="name-script-heading">
-    <div><h2 id="name-script-heading">Name scripts</h2><p lang="zh-CN">{name}</p></div>
-    <button type="button" data-close-name-scripts aria-label="Close name styles" autofocus>Close <span aria-hidden="true">×</span></button>
+    <div><h2 id="name-script-heading"><span lang="zh-CN" data-view-title>字形出处</span><span class="name-script-subtitle" data-view-subtitle>Script sources</span></h2></div>
+    <button type="button" data-close-name-scripts aria-label="Close calligraphy sources" autofocus>Close <span aria-hidden="true">×</span></button>
   </header>
-  <div class="name-script-options" role="group" aria-label="Chinese writing styles">
-    {scripts.map(script => <button type="button" class="name-script-option" data-name-script={script.id} data-script-label={script.label} aria-pressed={script.id === 'clerical' ? 'true' : 'false'}>
+  <div class="name-script-view-bar">
+    <p data-script-context><span lang="zh-CN">小篆</span><span>Small seal</span></p>
+    <button type="button" data-name-view-toggle>全部书体 <span lang="en">· All scripts →</span></button>
+  </div>
+  <div class="name-script-sources" data-source-view>
+    {scripts.map((script, index) => <section data-script-source={script.id} data-script-label={script.label} data-script-english={script.english} hidden={index !== 0} aria-label={`${script.label} · ${script.english}`}>
+      <ol class="name-glyph-sources">
+        {script.glyphs.map((glyph, i) => <li>
+          <svg viewBox={glyph.viewBox} role="img" aria-label={glyph.char}><use href={`#name-glyph-${script.id}-${i}`} /></svg>
+          <div lang="zh-CN"><h3>{glyph.work === '汉印字例' ? glyph.work : `《${glyph.work}》`}</h3><p>{glyph.attribution}</p>{'note' in glyph && <small>{glyph.note}</small>}</div>
+        </li>)}
+      </ol>
+    </section>)}
+  </div>
+  <div class="name-script-overview" data-overview-view hidden>
+    {scripts.map(script => <button type="button" class="name-script-specimen" data-view-source={script.id} aria-label={`View sources for ${script.label} · ${script.english}`}>
       <svg viewBox={script.viewBox} aria-hidden="true"><use href={`#name-glyph-${script.id}`} /></svg>
       <span class="name-script-label" lang="zh-CN">{script.label}</span><span class="name-script-english">{script.english}</span>
     </button>)}
   </div>
-  <details class="name-script-credits" hidden>
-    <summary>Typeface sources</summary>
-    <ul>{scripts.map(script => <li><span lang="zh-CN">{script.label}</span> — <a href={script.source} target="_blank" rel="noopener">{script.credit}</a>{script.id === 'clerical' && ' · CC BY-ND 3.0 TW'}</li>)}</ul>
-  </details>
 </dialog>
-<svg class="name-script-definitions" aria-hidden="true" width="0" height="0"><defs>{scripts.map(script => <symbol id={`name-glyph-${script.id}`} viewBox={script.viewBox}><path d={script.path} fill="currentColor" /></symbol>)}</defs></svg>
+<svg class="name-script-definitions" aria-hidden="true" width="0" height="0"><defs>
+  {scripts.map(script => <>
+    {script.glyphs.map((glyph, i) => <symbol id={`name-glyph-${script.id}-${i}`} viewBox={glyph.viewBox}><path d={glyph.path} fill="currentColor" fill-rule="evenodd" /></symbol>)}
+    <symbol id={`name-glyph-${script.id}`} viewBox={script.viewBox}>{script.glyphs.map((_, i) => <use href={`#name-glyph-${script.id}-${i}`} x={5 + i * 105} width="100" height="108" />)}</symbol>
+  </>)}
+</defs></svg>
 <script src="../scripts/name-scripts.js"></script>
 <style>
-  .name-script-switcher { display: inline-flex; align-items: baseline; max-width: 100%; }
+  .name-script-switcher { display: inline-flex; align-items: center; max-width: 100%; }
   .name-script-fallback { color: var(--muted); font-size: 21px; letter-spacing: .08em; white-space: nowrap; }
-  .name-script-trigger { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; padding: 0 3px; color: var(--body); border: 0; border-radius: 5px; background: transparent; }
+  .name-script-trigger { display: inline-flex; align-items: center; gap: 3px; min-height: 44px; padding: 0 3px; color: var(--body); border: 0; border-radius: 5px; background: transparent; }
   .name-script-trigger:hover { color: var(--text); background: var(--control); }
   .name-script-current { width: 105px; height: 35.5px; }
-  .name-script-chevron { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.2; opacity: .6; }
-  .name-script-dialog { width: min(580px, calc(100% - 32px)); max-height: calc(100dvh - 40px); margin: auto; padding: 26px; border: 1px solid var(--glass-edge); border-radius: 18px; background: color-mix(in srgb, var(--page) 96%, transparent); color: var(--body); box-shadow: 0 20px 80px #0003; }
+  .name-script-chevron { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.2; opacity: .6; }
+  .name-script-playback { display: grid; place-items: center; width: 28px; height: 36px; padding: 6px; color: var(--muted); border-radius: 5px; background: transparent; }
+  .name-script-playback:hover { background: var(--control); color: var(--text); }
+  .name-script-playback svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+  .name-script-dialog { width: min(580px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 26px; border: 1px solid var(--glass-edge); border-radius: 18px; background: color-mix(in srgb, var(--page) 96%, transparent); color: var(--body); box-shadow: 0 20px 80px #0003; overscroll-behavior: contain; }
   .name-script-dialog::backdrop { background: #15192355; backdrop-filter: blur(8px); }
   .name-script-heading { display: flex; align-items: start; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
-  .name-script-heading h2 { font-size: 19px; font-weight: 500; }
-  .name-script-heading p { font-size: 12px; color: var(--muted); margin-top: 5px; letter-spacing: .15em; }
+  .name-script-heading h2 { font-size: 20px; font-weight: 500; letter-spacing: .08em; }
+  .name-script-subtitle { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; letter-spacing: .01em; font-weight: 400; }
   .name-script-heading > button { min-height: 36px; font-size: 12px; padding-inline: 7px; color: var(--body); }
-  .name-script-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-  .name-script-option { display: grid; justify-items: center; gap: 2px; padding: 17px 9px 13px; border: 1px solid var(--line); border-radius: 10px; background: var(--control); color: var(--body); }
-  .name-script-option:hover, .name-script-option[aria-pressed='true'] { background: var(--control-active); border-color: var(--link); color: var(--text); }
-  .name-script-option svg { width: 100%; height: auto; margin-bottom: 10px; }
+  .name-script-view-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .name-script-view-bar p { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; font-size: 14px; }
+  .name-script-view-bar p span + span { font-size: 11px; color: var(--muted); }
+  .name-script-view-bar button { min-height: 36px; padding: 6px 0 6px 8px; color: var(--link); font-size: 11px; text-align: right; }
+  .name-script-view-bar button:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .name-glyph-sources { list-style: none; margin: 0; padding: 0; }
+  .name-glyph-sources li { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 24px; align-items: center; padding: 17px 4px; border-bottom: 1px solid var(--line); }
+  .name-glyph-sources li:last-child { border: 0; padding-bottom: 0; }
+  .name-glyph-sources svg { width: 76px; height: 82px; }
+  .name-glyph-sources h3 { font-size: 16px; font-weight: 500; color: var(--text); }
+  .name-glyph-sources p { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .name-glyph-sources small { display: block; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .name-script-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+  .name-script-specimen { display: grid; justify-items: center; gap: 2px; padding: 15px 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--control); color: var(--body); }
+  .name-script-specimen:hover { background: var(--control-active); border-color: var(--muted); color: var(--text); }
+  .name-script-specimen svg { width: 100%; height: auto; margin-bottom: 8px; }
   .name-script-label { font-size: 12px; }
   .name-script-english { font-size: 10px; color: var(--muted); }
-  .name-script-credits { margin-top: 13px; color: var(--muted); font-size: 10px; line-height: 1.8; }
-  .name-script-credits summary { padding-block: 6px; }
-  .name-script-credits ul { padding-left: 16px; margin: 6px 0 0; }
-  .name-script-credits a { text-decoration: underline; text-decoration-color: var(--line); }
   .name-script-definitions { position: absolute; pointer-events: none; }
   :global(html.name-scripts-open) { overflow: hidden; }
   @media (max-width: 580px) {
     .name-script-dialog { width: calc(100% - 24px); padding: 20px; }
-    .name-script-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .name-script-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .name-script-current { width: 96px; height: 32.4px; }
+    .name-glyph-sources li { grid-template-columns: 68px minmax(0, 1fr); gap: 16px; }
+    .name-glyph-sources svg { width: 64px; height: 70px; }
+    .name-glyph-sources h3 { font-size: 15px; }
   }
+  @media (max-width: 340px) { .name-script-view-bar { align-items: start; } .name-script-view-bar p { display: grid; gap: 0; } .name-script-view-bar button span { display: block; } }
   @media (prefers-reduced-transparency: reduce) { .name-script-dialog { background: var(--page); } .name-script-dialog::backdrop { backdrop-filter: none; background: #151923cc; } }
 </style>

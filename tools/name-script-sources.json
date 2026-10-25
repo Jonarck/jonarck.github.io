@@ -1,0 +1,37 @@
+[
+  {"id":"seal","label":"小篆","english":"Small seal","file":"1792946190844.png","glyphs":[
+    {"char":"蔣","work":"说文解字","attribution":"许慎 · 东汉","crop":[240,150,492,590],"minArea":80,"fillHoles":55},
+    {"char":"卓","work":"说文解字","attribution":"许慎 · 东汉","crop":[262,660,462,1090],"minArea":80,"fillHoles":55},
+    {"char":"洋","work":"说文解字","attribution":"许慎 · 东汉","crop":[220,1170,508,1588],"minArea":80,"fillHoles":55}
+  ]},
+  {"id":"clerical","label":"汉隶","english":"Han clerical","file":"1792945650526.png","glyphs":[
+    {"char":"蔣","work":"礼器碑","attribution":"东汉","crop":[133,140,600,372],"minArea":120,"opening":3,"fillHoles":100,"exclude":[[480,140,520,156],[590,290,600,339]]},
+    {"char":"卓","work":"石门颂","attribution":"东汉","crop":[120,417,608,714],"minArea":500,"opening":7,"closing":3,"fillHoles":260,"polygon":[[307,420],[331,417],[352,447],[568,435],[604,417],[607,440],[558,459],[486,474],[476,493],[469,523],[459,583],[383,600],[382,616],[530,610],[598,597],[600,620],[569,648],[389,645],[381,700],[351,711],[338,644],[255,651],[148,679],[125,680],[126,662],[212,632],[321,612],[318,601],[222,611],[193,633],[187,614],[204,575],[215,545],[214,518],[235,518],[253,529],[320,510],[302,484],[309,421]]},
+    {"char":"洋","work":"北大汉简","attribution":"西汉","crop":[138,775,609,1120],"minArea":230,"opening":3,"fillHoles":130}
+  ]},
+  {"id":"han-seal","label":"汉印","english":"Han seal","file":"1792946386791.png","glyphs":[
+    {"char":"蔣","work":"汉印字例","attribution":"印名待考","crop":[195,167,537,578],"minArea":100},
+    {"char":"卓","work":"汉印字例","attribution":"印名待考","crop":[252,659,480,1090],"minArea":100},
+    {"char":"洋","work":"金石索","attribution":"冯云鹏、冯云鹓 · 清","note":"据《金石索》字例补配","crop":[186,1154,550,1593],"minArea":120,"fillHoles":65}
+  ]},
+  {"id":"wei","label":"魏碑","english":"Wei stele","file":"1792946503407.png","glyphs":[
+    {"char":"蔣","work":"龙门十二品","attribution":"北魏","crop":[186,166,537,579],"inverted":true,"minArea":1200,"opening":3,"fillHoles":120,"polygon":[[277,167],[310,167],[525,174],[535,216],[535,579],[186,579],[186,235],[227,194]]},
+    {"char":"卓","work":"爨龙颜碑","attribution":"刘宋","crop":[206,669,515,1090],"minArea":230,"opening":3,"fillHoles":110,"exclude":[[206,1030,338,1090]]},
+    {"char":"洋","work":"元桢墓志","attribution":"北魏","crop":[184,1175,555,1558],"minArea":150,"fillHoles":70}
+  ]},
+  {"id":"regular","label":"楷书","english":"Regular","file":"1792946886710.png","glyphs":[
+    {"char":"蔣","work":"颜家庙碑","attribution":"颜真卿 · 唐","crop":[177,153,553,569],"minArea":180,"fillHoles":90},
+    {"char":"卓","work":"李誉墓志","attribution":"传欧阳询 · 唐","crop":[174,665,555,1079],"minArea":150,"fillHoles":65},
+    {"char":"洋","work":"孔子庙堂碑","attribution":"虞世南 · 唐","crop":[174,1174,530,1576],"minArea":120,"fillHoles":65}
+  ]},
+  {"id":"running","label":"行书","english":"Running","file":"1792945945594.png","glyphs":[
+    {"char":"蔣","work":"五言古诗卷","attribution":"黄庭坚 · 北宋","crop":[209,168,503,563],"minArea":100,"fillHoles":60},
+    {"char":"卓","work":"普觉国师碑","attribution":"集王羲之字","crop":[274,668,455,1070],"minArea":90,"fillHoles":60},
+    {"char":"洋","work":"刘园集帖","attribution":"赵孟頫 · 元","crop":[232,1165,513,1582],"minArea":120,"fillHoles":60}
+  ]},
+  {"id":"cursive","label":"草书","english":"Cursive","file":"1792947211276.png","glyphs":[
+    {"char":"蔣","work":"奏记帖","attribution":"陆游 · 南宋","crop":[219,157,506,577],"minArea":130,"fillHoles":60},
+    {"char":"卓","work":"论书法卷","attribution":"徐渭 · 明","crop":[261,655,495,1094],"minArea":130,"fillHoles":60},
+    {"char":"洋","work":"秋兴八首册","attribution":"王铎 · 明清之际","crop":[213,1173,508,1577],"minArea":130,"fillHoles":60}
+  ]}
+]

@@ -1,25 +1,47 @@
-# Chinese name and writing styles
+# Chinese name: seven historical writing styles
 
-The user confirmed the Chinese name **蒋卓洋** and requested small seal, large seal, clerical, regular, running, and cursive forms. The user subsequently chose to omit unverified ancient forms. Five attributed styles are therefore available; large seal is intentionally not shown.
+The name remains **蒋卓洋** in accessible labels and metadata. On 26 October 2026 the owner supplied `ygsf(1).zip`, with seven PNG sheets and a per-character source list. These replace the previous five digital-font specimens. Each sheet contains three glyphs vertically in surname/given-name order; filenames are not in the requested display order.
 
-About displays the English name and a smaller Chinese specimen. Clicking the Chinese name opens a writing-style chooser. The default is clerical script, as subsequently requested by the user, with the visitor's explicit choice saved locally. The English name, body typography, navigation, and metadata are unaffected. Without JavaScript, the Chinese name remains readable in the system font.
+## Display and interaction
 
-## Sources
+The header cycles every six seconds in this order: 小篆 → 汉隶 → 汉印 → 魏碑 → 楷书 → 行书 → 草书. It starts with 小篆. There is no saved visitor-selected typeface, and an old `name-script` local-storage preference is ignored. A small pause/resume control is available. Rotation pauses during pointer hover, keyboard focus, modal reading, and while the document is hidden. Reduced-motion preferences disable automatic cycling initially. The Chinese name remains readable without JavaScript.
 
-| Style | Displayed name | Typeface / source | License |
-| --- | --- | --- | --- |
-| 小篆 · Small seal | 蔣卓洋 | 數位發展部，CNS11643 中文標準交換碼全字庫網站，[說文解字 True Type](https://www.cns11643.gov.tw/downloadList.jsp?ID=2&ID2=20) | [Government Data Open License v1](https://www.cns11643.gov.tw/pageView.jsp?ID=59&SN=&lang=en) |
-| 隶书 · Clerical | 蔣卓洋 | 中華民國教育部，[教育部隸書 3.0](https://language.moe.gov.tw/material/info?m=9fe3fb11-c3d5-41f2-b029-6d18a2c2fd0d) | CC BY-ND 3.0 TW |
-| 楷书 · Regular | 蒋卓洋 | [Ma Shan Zheng](https://github.com/googlefonts/mashanzheng) | SIL OFL 1.1 |
-| 行书 · Running | 蒋卓洋 | [Zhi Mang Xing](https://github.com/googlefonts/zhimangxing) | SIL OFL 1.1 |
-| 草书 · Cursive | 蒋卓洋 | [Liu Jian Mao Cao](https://github.com/googlefonts/liujianmaocao) | SIL OFL 1.1 |
+Clicking the name opens the **current style's sources**: each glyph is paired with its work and attribution. A single view control opens an overview containing only the seven specimens and their style names. Clicking an overview specimen opens its sources without changing the name displayed in the header. Closing the dialog restores focus; moving focus away allows the rotation to continue. Native dialog behavior supports Escape and backdrop dismissal.
 
-These are attributed digital typeface specimens, not a claim to reconstruct the same person's name from an ancient inscription. Seal and clerical sources use the traditional surname 蔣; the underlying accessible name stays 蒋卓洋. At the user's request, the source list is hidden in the chooser; attribution remains in the page markup and project documentation.
+The previous generic traditional/simplified-name note stays removed. Source information is now visible because the owner explicitly requested a source-first interface.
 
-The two government download servers failed locally (TLS/DNS). Original font binaries were obtained from redistribution mirrors: [typst-doc-cn/moe-tw-fonts](https://github.com/typst-doc-cn/moe-tw-fonts) for `eduLi-v3.0-2019-06.ttf`, and [UnicodingUnicorn/seal-generator](https://github.com/UnicodingUnicorn/seal-generator) for `ebas927.ttf`. Attribution and permitted use were checked against the government publishers, not inferred from a mirror. The font names and all three mapped glyphs were inspected. Google font binaries and OFL texts came directly from `google/fonts`.
+## Source mapping
 
-## Implementation
+These are the owner's supplied attributions, with uncertain identifications explicitly qualified. The work titles are not presented as independently authenticated manuscript provenance.
 
-`tools/build-name-scripts.py` uses fontTools to typeset the three glyphs from each source into SVG path data. It checks that every requested character exists, preserves glyph contours and aspect ratios, and records the source binary SHA-256. The generated data is in `src/data/name-scripts.json`; original binaries remain in the ignored `tools/ui-preview/name-scripts/` study directory. No complete font binary is distributed with the website, and no remote font service is requested at runtime.
+| Style | PNG | 蔣 | 卓 | 洋 |
+| --- | --- | --- | --- | --- |
+| 小篆 | 1792946190844.png | 说文解字 | 说文解字 | 说文解字 |
+| 汉隶 | 1792945650526.png | 礼器碑 | 石门颂 | 北大汉简 |
+| 汉印 | 1792946386791.png | 汉印字例，印名待考 | 汉印字例，印名待考 | 金石索，按用户允许的补配方案 |
+| 魏碑 | 1792946503407.png | 龙门十二品 | 爨龙颜碑 | 元桢墓志 |
+| 楷书 | 1792946886710.png | 颜真卿，颜家庙碑 | 传欧阳询，李誉墓志 | 虞世南，孔子庙堂碑 |
+| 行书 | 1792945945594.png | 黄庭坚，五言古诗卷 | 集王羲之字，普觉国师碑 | 赵孟頫，刘园集帖 |
+| 草书 | 1792947211276.png | 陆游，奏记帖 | 徐渭，论书法卷 | 王铎，秋兴八首册 |
 
-The three OFL notices are retained in `licenses/name-scripts/`. The Chinese-name dialog uses native buttons and a native modal dialog, supports Escape and focus return, and gracefully handles unavailable local storage. On 26 October 2026, the user requested removing the visible traditional/simplified-surname explanation. That paragraph and its dialog `aria-describedby` reference were removed; the source attribution and the glyphs remain unchanged.
+### Han-seal investigation
+
+Web and image searches on 26 October 2026 located the following authoritative comparison material in CUHK's 漢語多功能字庫:
+
+- [蔣](https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E8%94%A3): an image titled `漢印文字徵．蔣延年印`, [direct image](https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/archaic/8523-1607798341.jpg).
+- [卓](https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E5%8D%93): `漢印文字徵．卓安平印`, [direct image](https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/archaic/5353-1386561955.jpg), with a textual reference to 《漢印文字徵》8.11.
+- [洋](https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E6%B4%8B): the additional historical example is attributed to 《汗簡》, not a Han seal.
+
+Visual comparison did **not** establish that the supplied 蔣 and 卓 came from those two named seals. Their exact seal names remain unverified; do not label the supplied outlines as 蔣延年印 or 卓安平印. No securely identified Han-seal 洋 was found, so the supplied 金石索 form remains, explicitly identified in its source card. Search results for unrelated 延年 or 安平 seals are not evidence.
+
+《普觉国师碑》 is described as a collection of Wang Xizhi characters rather than his autograph ([comparison article](https://www.sohu.com/a/594552434_121124386)). Attribution of 《李誉墓志》 to Ouyang Xun is disputed ([discussion](https://www.sohu.com/a/421467445_582661)); the interface uses “传欧阳询”. The supplied source “龙门十二品” does not identify an individual inscription; none is invented.
+
+## Reproducible vector extraction
+
+`tools/name-script-sources.json` records crops, thresholds, component limits, occasional boundary masks, and attributions. `tools/build-name-scripts.py` traces the supplied raster contours using OpenCV and writes `src/data/name-scripts.json`. Each sheet's SHA-256 is recorded. No full font is generated or downloaded.
+
+Extraction removes the screenshot frame, ruling lines, background speckles, and small erosion holes; it preserves character aspect ratios and major counters. The white-on-black Wei surname is inverted within a constrained rubbing boundary. The particularly noisy 石门颂 glyph uses a manually delimited foreground region followed by conservative noise removal. Missing historical strokes are not generatively reconstructed. The result is a clean display tracing, not a new facsimile or a scholarly restoration.
+
+All 21 glyphs are inline SVG paths with transparent backgrounds and `fill="currentColor"`. Each path is defined only once and reused in header, sources, and overview. They follow light/dark theme colors without raster filters or external font requests. Specimens use a stable 320×108 view box to avoid layout shifts during rotation.
+
+Original sheets and side-by-side tracing QA stay in the ignored `tools/ui-preview/name-scripts-2026-10-26/` directory. Rebuild with `python tools/build-name-scripts.py --sources PATH_TO_EXTRACTED_PNGS` (numpy, OpenCV, scipy required). Inspect the generated `trace-review.html` before accepting new extraction parameters. The historical OFL notices in `licenses/name-scripts/` are retained for the superseded version's history; those font outlines are no longer used by the current UI.
