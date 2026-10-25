@@ -1,0 +1,67 @@
+---
+import { marked } from 'marked';
+import PageLayout from '../layouts/PageLayout.astro';
+import ArrowCard from '../components/ArrowCard.astro';
+import VisitorMap from '../components/VisitorMap.astro';
+import NameScripts from '../components/NameScripts.astro';
+import { profile } from '../lib/site';
+import { primaryPosts } from '../lib/content';
+const posts = (await primaryPosts()).slice(0, 3);
+const about = marked.parse(profile.about);
+const education = profile.highlights.find(item => item.title === 'Education');
+const interests = profile.highlights.find(item => item.title === 'Research Interests');
+const personal = profile.highlights.find(item => item.title === 'Outside Work');
+---
+<PageLayout title="About">
+  <section class="profile-stage" aria-labelledby="profile-name">
+    <div class="profile-stage__content">
+      <div class="profile-intro">
+        <img class="avatar" src="/assets/img/avatar1.jpg" alt="Zhuoyang Jiang" width="88" height="88" fetchpriority="high" />
+        <div>
+          <p class="profile-location">{profile.location}</p>
+          <div class="profile-name-row">
+            <h1 id="profile-name">{profile.name}{profile.name_zh && <span class="sr-only" lang="zh-CN"> · {profile.name_zh}</span>}</h1>
+            {profile.name_zh && <NameScripts name={profile.name_zh} />}
+          </div>
+        </div>
+      </div>
+      <p class="profile-role">{profile.headline}</p>
+      <div class="social-links">
+        <a href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a>
+        <a href={profile.links.scholar} target="_blank" rel="noopener">Scholar <span aria-hidden="true">↗</span></a>
+        <a href={profile.links.github} target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a href={profile.links.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href={profile.links.cv} target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+  <div class="profile-grid">
+    <section class="bio-panel glass-panel" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <div class="prose about-text" set:html={about} />
+      <dl class="profile-details">
+        <div><dt>Research interests</dt><dd>
+          <ul class="research-interests">
+            <li>{interests?.text}</li>
+            {interests?.items?.map(item => <li>{item.subitems.join(' · ')}</li>)}
+          </ul>
+        </dd></div>
+        <div><dt>Outside work</dt><dd>{personal?.text}</dd></div>
+      </dl>
+    </section>
+    <div class="profile-sidebar">
+  <section class="home-section glass-panel" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <ul class="education-list">{education?.items?.map(item => <li><h3>{item.main}</h3>{item.subitems.map(text => <p>{text}</p>)}</li>)}</ul>
+  </section>
+  <section class="home-section glass-panel updates-panel" aria-labelledby="updates-heading">
+    <h2 id="updates-heading">Recent updates</h2>
+    <div class="updates-scroll" role="region" aria-labelledby="updates-heading" tabindex="0">
+      <ol class="timeline">{profile.timeline.map(item => <li><time datetime={item.date}>{item.date}</time><p>{item.text.replace(/^\S+\s/, '')}</p></li>)}</ol>
+    </div>
+  </section>
+    </div>
+  </div>
+  {posts.length > 0 && <section class="home-section glass-panel"><div class="section-heading"><h2>Latest posts</h2><a href="/blog/">View all <span aria-hidden="true">→</span></a></div><ul class="entry-list">{posts.map(entry => <li><ArrowCard entry={entry} compact /></li>)}</ul></section>}
+  <VisitorMap />
+</PageLayout>

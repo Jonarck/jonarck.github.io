@@ -1,0 +1,34 @@
+---
+import Container from './Container.astro';
+import { profile } from '../lib/site';
+---
+<footer class="site-footer">
+  <Container>
+    <div class="footer-inner">
+      <p>© {new Date().getFullYear()} {profile.name}</p>
+      <div class="footer-controls">
+        <a href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a>
+        <label class="sr-only" for="theme">Color theme</label>
+        <select id="theme" aria-label="Color theme">
+          <option value="light">Light</option><option value="dark">Dark</option><option value="system">System</option>
+        </select>
+        <a href="#top" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </Container>
+</footer>
+<script>
+  const select = document.querySelector<HTMLSelectElement>('#theme');
+  const media = matchMedia('(prefers-color-scheme: dark)');
+  if (select) {
+    select.value = document.documentElement.dataset.theme || 'light';
+    const apply = () => {
+      const value = select.value;
+      document.documentElement.classList.toggle('dark', value === 'dark' || (value === 'system' && media.matches));
+      document.documentElement.dataset.theme = value;
+      try { localStorage.setItem('theme', value); } catch {}
+    };
+    select.addEventListener('change', apply);
+    media.addEventListener('change', () => { if (select.value === 'system') apply(); });
+  }
+</script>

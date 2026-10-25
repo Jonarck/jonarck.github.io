@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-25",
+  "figures": [
+    {
+      "id": "floorplan",
+      "source": "https://arxiv.org/abs/2602.22507v3",
+      "localSource": "tools/ui-preview/research-reframe/floorplan.pdf",
+      "page": 2,
+      "clipPdfPoints": [
+        333,
+        110,
+        493,
+        200
+      ],
+      "sourceSha256": "8f90d7950ce54c6d121a84220e5662ba4deb18bc93d7f88d98d83a3e5c647898",
+      "operation": "Faithful PDF figure/panel rasterization; no scientific content redrawn."
+    },
+    {
+      "id": "cagenmol",
+      "source": "https://arxiv.org/abs/2604.11483",
+      "localSource": "tools/ui-preview/research-reframe/cagenmol.pdf",
+      "page": 2,
+      "clipPdfPoints": [
+        72,
+        70,
+        520,
+        290
+      ],
+      "sourceSha256": "7cd9fce192d1b01b65fbdf5ac34b3e4b65d91093f848873500e84281fc72f6e6",
+      "operation": "Faithful PDF figure/panel rasterization; no scientific content redrawn."
+    },
+    {
+      "id": "rationalets",
+      "source": "https://arxiv.org/abs/2601.02968",
+      "localSource": "tools/ui-preview/research-reframe/rationalets.pdf",
+      "page": 2,
+      "clipPdfPoints": [
+        110,
+        70,
+        485,
+        224
+      ],
+      "sourceSha256": "c097363fb342beb487c0267ec39bb334c44e2c9f86d55ace3282e0b328b79324",
+      "operation": "Faithful PDF figure/panel rasterization; no scientific content redrawn."
+    },
+    {
+      "id": "intentpoi",
+      "source": "https://arxiv.org/abs/2606.08122",
+      "localSource": "tools/ui-preview/research-reframe/intentpoi.pdf",
+      "page": 2,
+      "clipPdfPoints": [
+        63,
+        84,
+        289,
+        259
+      ],
+      "sourceSha256": "6d0c323f1a88237c6f553eb9d9e92f9fc30917d93ef2efa7ac3fabae9ada67c0",
+      "operation": "Faithful PDF figure/panel rasterization; no scientific content redrawn."
+    },
+    {
+      "id": "cams",
+      "source": "public/assets/img/pubs/CamS.png",
+      "sourceSha256": "62313d4d98169c5494bb398ab78a1063f1981674626815d425d503d2f12409f2",
+      "operation": "SVG viewport exposes only panel (a); embedded image is resized and WebP encoded. Original retained unchanged.",
+      "viewBox": [
+        0,
+        0,
+        3314,
+        2011
+      ],
+      "embeddedPixelWidth": 2000,
+      "output": "public/assets/img/pubs/cams-left.svg"
+    },
+    {
+      "id": "pocketpark",
+      "source": "public/assets/img/pubs/AI4PocketPark.png",
+      "sourceSha256": "833683962e985c29f9440080a012eb2a0f139cddae807d7c3001754c224f4244",
+      "operation": "Resize and WebP encoding of existing author-provided figure; original retained."
+    },
+    {
+      "id": "parkbind",
+      "source": "https://pub.mdpi-res.com/land/land-15-01572/article_deploy/html/images/land-15-01572-g004.png",
+      "article": "https://doi.org/10.3390/land15091572",
+      "figure": 4,
+      "operation": "Publisher figure, resized and WebP encoded; full panels and legend retained."
+    },
+    {
+      "id": "residents",
+      "source": "D:\\WebDownload\\DownloadFromChrome\\ICHEC_2026_paper__18 (1).pdf",
+      "sourceSha256": "e3adfd9de02337320726698387e00ba51717c7afd115ad5a6d1be96668730796",
+      "figure": 4,
+      "page": 10,
+      "clipPdfPoints": [
+        118.728,
+        95.038,
+        529.984,
+        326.524
+      ],
+      "output": "public/assets/img/pubs/ichec.webp",
+      "operation": "User-authorized extraction of Figure 4 only; full manuscript remains local."
+    }
+  ]
+}

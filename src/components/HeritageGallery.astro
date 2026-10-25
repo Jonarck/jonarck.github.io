@@ -1,0 +1,83 @@
+---
+import { mediaUrl } from '../lib/media';
+interface GalleryImage { id: string; width: number; height: number; small: string; medium: string; large: string; smallWidth: number; mediumWidth: number; largeWidth: number; largeHeight: number }
+interface Props { gallery: { images: GalleryImage[] }; lang?: string }
+const { gallery, lang = 'zh-CN' } = Astro.props;
+const zh = lang.startsWith('zh');
+const title = zh ? '文保碑选辑' : 'A gathering of heritage markers';
+const groups = [gallery.images.slice(0, 12), gallery.images.slice(12)];
+---
+<section class="heritage-gallery not-prose" data-heritage-gallery data-gallery-lang={lang} aria-labelledby="heritage-gallery-heading">
+  <header class="heritage-gallery-heading">
+    <p>{zh ? '图记' : 'PHOTOGRAPHIC NOTES'}</p>
+    <h2 id="heritage-gallery-heading">{title}</h2>
+    <p>{zh ? '选600块近几年收集的文保碑。' : 'A selection of 600 heritage markers collected over recent years.'}</p>
+    <p class="gallery-hint">{zh ? `${gallery.images.length} 幅拼图 · 点击放大，细读碑文` : `${gallery.images.length} collages · Open an image to explore the inscriptions`}</p>
+  </header>
+  {groups.map((images,group) => {
+    const items = <div class="heritage-grid">{images.map((image,index) => <figure>
+      <a href={mediaUrl(image.large)} data-gallery-item data-gallery-index={group * 12 + index} data-gallery-width={image.largeWidth} data-gallery-height={image.largeHeight} aria-label={zh ? `放大第 ${image.id} 幅文保碑拼图` : `Enlarge heritage-marker collage ${image.id}`}>
+        <img src={mediaUrl(image.small)} srcset={`${mediaUrl(image.small)} ${image.smallWidth}w, ${mediaUrl(image.medium)} ${image.mediumWidth}w`} sizes="(max-width: 640px) calc((100vw - 90px) / 2), 230px" width={image.width} height={image.height} alt={zh ? `文保碑拼图 ${image.id}` : `Heritage-marker collage ${image.id}`} loading="lazy" decoding="async" />
+        <span class="gallery-enlarge" aria-hidden="true">↗</span>
+      </a>
+      <figcaption>{image.id}</figcaption>
+    </figure>)}</div>;
+    return group === 0 ? items : <details class="heritage-more"><summary><span>{zh ? `展开其余 ${images.length} 幅` : `Explore ${images.length} more collages`}</span></summary>{items}</details>;
+  })}
+  <dialog class="heritage-dialog" aria-label={title} data-gallery-dialog>
+    <header class="heritage-dialog-toolbar">
+      <span data-gallery-counter aria-live="polite"></span>
+      <div class="heritage-dialog-actions">
+        <button type="button" data-gallery-prev aria-label={zh ? '上一张' : 'Previous image'}>←</button>
+        <button type="button" data-gallery-next aria-label={zh ? '下一张' : 'Next image'}>→</button>
+        <button type="button" data-gallery-zoom aria-pressed="false">{zh ? '放大查看' : 'Zoom in'}</button>
+        <button type="button" data-gallery-close autofocus>{zh ? '关闭' : 'Close'} ×</button>
+      </div>
+    </header>
+    <div class="heritage-image-stage" data-gallery-stage tabindex="0" aria-label={zh ? '图片区域，放大后可滚动' : 'Image area; scroll to explore when zoomed'}>
+      <p class="gallery-load-status" data-gallery-status role="status"></p>
+      <img data-gallery-image alt="" hidden />
+    </div>
+    <footer><a data-gallery-open target="_blank" rel="noopener">{zh ? '在新窗口打开图片 ↗' : 'Open image in a new tab ↗'}</a><span>{zh ? '网页高清版' : 'High-resolution web image'}</span></footer>
+  </dialog>
+</section>
+<script src="../scripts/heritage-gallery.js"></script>
+<style>
+  .heritage-gallery { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; letter-spacing: normal; line-height: 1.7; }
+  .heritage-gallery-heading { margin-bottom: 24px; }
+  .heritage-gallery-heading > p:first-child { font-size: 10px; letter-spacing: .12em; color: var(--muted); }
+  .heritage-gallery-heading h2 { margin: 12px 0; font-size: 21px; font-weight: 500; }
+  .heritage-gallery-heading p { font-size: 12px; margin: 0 0 7px !important; }
+  .heritage-gallery-heading .gallery-hint { font-size: 11px; color: var(--muted); }
+  .heritage-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px 14px; }
+  .heritage-grid figure { margin: 0; min-width: 0; }
+  .heritage-grid a { display: grid; place-items: center; position: relative; aspect-ratio: 1; padding: 5px; border: 1px solid var(--line); border-radius: 6px; background: var(--control); overflow: hidden; }
+  .heritage-grid img { width: 100%; height: 100%; object-fit: contain; border-radius: 2px; margin: 0; }
+  .heritage-grid figcaption { margin-top: 5px; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .gallery-enlarge { position: absolute; right: 8px; bottom: 8px; width: 24px; height: 24px; text-align: center; background: var(--page); border: 1px solid var(--line); border-radius: 4px; opacity: 0; transition: opacity .15s; font-size: 13px; }
+  .heritage-grid a:hover .gallery-enlarge, .heritage-grid a:focus-visible .gallery-enlarge { opacity: .9; }
+  .heritage-more { margin-top: 24px; }
+  .heritage-more summary { width: fit-content; margin: 0 auto 24px; padding: 9px 18px; font-size: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--control); }
+  .heritage-dialog { width: min(1200px,calc(100vw - 32px)); height: min(1000px,calc(100dvh - 32px)); margin: auto; padding: 16px; border: 1px solid var(--glass-edge); border-radius: 15px; background: var(--page); color: var(--body); }
+  .heritage-dialog[open] { display: flex; flex-direction: column; }
+  .heritage-dialog::backdrop { background: #101914bc; backdrop-filter: blur(8px); }
+  .heritage-dialog-toolbar { display: flex; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 12px; }
+  .heritage-dialog-actions { display: flex; gap: 5px; align-items: center; }
+  .heritage-dialog-actions button { min-height: 44px; min-width: 40px; padding: 5px 10px; border: 1px solid var(--line); background: var(--control); border-radius: 6px; }
+  .heritage-image-stage { min-height: 0; flex: 1; position: relative; display: flex; justify-content: center; align-items: center; overflow: auto; overscroll-behavior: contain; }
+  .heritage-image-stage img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0; margin: 0; }
+  .heritage-image-stage.is-zoomed { display: block; }
+  .heritage-image-stage.is-zoomed img { max-width: none; max-height: none; margin-inline: auto; }
+  .gallery-load-status { font-size: 12px; }
+  .heritage-dialog footer { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; color: var(--muted); padding-top: 12px; }
+  .heritage-dialog footer a { text-decoration: underline; }
+  :global(html.gallery-open) { overflow: hidden; }
+  @media(max-width: 640px) {
+    .heritage-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 10px; }
+    .heritage-dialog { width: calc(100vw - 12px); height: calc(100dvh - 12px); padding: 10px; border-radius: 9px; }
+    .heritage-dialog-toolbar { flex-wrap: wrap; }
+    .heritage-dialog-actions { margin-left: auto; }
+    .heritage-dialog-actions button { padding-inline: 8px; font-size: 11px; }
+  }
+  @media print { .heritage-more, .heritage-dialog, .gallery-hint, .gallery-enlarge { display: none; } }
+</style>

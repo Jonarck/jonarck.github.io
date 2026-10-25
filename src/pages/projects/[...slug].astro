@@ -1,0 +1,27 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectLinks from '../../components/ProjectLinks.astro';
+import { publishedEntries } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await publishedEntries('projects')).map(entry => ({ params: { slug: entry.id.replace(/\/index$/, '') }, props: { entry } }));
+}
+interface Props { entry: CollectionEntry<'projects'> }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, date, role, venue, tags, image, image_alt, image_caption, lang, code, demo, paper } = entry.data;
+---
+<PageLayout title={title} description={description} image={image} lang={lang} article>
+  <article class="reading-surface glass-panel">
+    <a class="back-link" href="/projects/"><span aria-hidden="true">←</span> All projects</a>
+    <header class="article-header">
+      <p class="entry-meta">{date.getUTCFullYear()}{role && <> · {role}</>}{venue && <> · {venue}</>}</p>
+      <h1>{title}</h1><p class="article-description">{description}</p>
+      {tags.length > 0 && <ul class="content-tags" aria-label="Topics">{tags.map(tag => <li>{tag}</li>)}</ul>}
+      <ProjectLinks title={title} code={code} demo={demo} paper={paper} />
+    </header>
+    {image && <figure class="article-cover article-cover--project"><img src={image} alt={image_alt || title} />{image_caption && <figcaption>{image_caption}</figcaption>}</figure>}
+    <div class="prose"><Content /></div>
+    <div class="article-navigation"><a href="/projects/">All projects →</a></div>
+  </article>
+</PageLayout>

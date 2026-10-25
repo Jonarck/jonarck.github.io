@@ -1,0 +1,205 @@
+/* Four abstract architectural studies, one material system.
+   Art direction / references: docs/architecture-backgrounds.md. */
+:root {
+  --page: #f2f5f7;
+  --text: #283740;
+  --body: #4b5b66;
+  --muted: #657580;
+  --link: #3c657e;
+  --accent-rgb: 104, 140, 161;
+  --wash-rgb: 190, 211, 224;
+  --architecture-blue: #607f92;
+  --architecture-red: #889caa;
+  --architecture-ochre: #90a5ad;
+  --panel-radius: 16px;
+  --art-opacity: .28;
+}
+html[data-architecture='philips'] {
+  --page: #f4f3f7;
+  --text: #343441;
+  --body: #595969;
+  --muted: #737181;
+  --link: #646080;
+  --accent-rgb: 130, 123, 164;
+  --wash-rgb: 212, 207, 230;
+  --architecture-blue: #88829e;
+  --panel-radius: 18px;
+  --art-opacity: .48;
+}
+html[data-architecture='tourette'] {
+  --page: #f5f3ee;
+  --text: #383c39;
+  --body: #5a5e57;
+  --muted: #73766b;
+  --link: #526e84;
+  --accent-rgb: 147, 138, 118;
+  --wash-rgb: 222, 214, 196;
+  --architecture-blue: #66849c;
+  --architecture-red: #b97a67;
+  --architecture-ochre: #b69d65;
+  --panel-radius: 12px;
+  --art-opacity: .55;
+}
+html[data-architecture='hangzhou'] {
+  --page: #f2f4ef;
+  --text: #303f38;
+  --body: #526259;
+  --muted: #6b7a6f;
+  --link: #4a6e5c;
+  --accent-rgb: 118, 154, 133;
+  --wash-rgb: 200, 219, 201;
+  --architecture-blue: #809e8c;
+  --panel-radius: 12px;
+  --art-opacity: .65;
+}
+html[data-architecture] {
+  --line: rgba(var(--accent-rgb), .18);
+  --surface: rgba(var(--accent-rgb), .07);
+  --glass: linear-gradient(120deg, rgba(255, 255, 255, .82), rgba(255, 255, 255, .66));
+  --glass-edge: rgba(255, 255, 255, .93);
+  --glass-shadow: 0 12px 36px -28px rgba(var(--accent-rgb), .34), inset 0 1px 0 rgba(255, 255, 255, .86);
+  --control: rgba(255, 255, 255, .52);
+  --control-active: rgba(255, 255, 255, .90);
+}
+html.dark[data-architecture] {
+  --page: #171d23;
+  --text: #e5ecf0;
+  --body: #c1cdd4;
+  --muted: #9eafb9;
+  --link: #abcbdc;
+  --line: rgba(var(--accent-rgb), .25);
+  --surface: rgba(var(--accent-rgb), .12);
+  --glass: linear-gradient(120deg, rgba(30, 38, 45, .91), rgba(29, 36, 44, .82));
+  --glass-edge: rgba(210, 229, 239, .15);
+  --glass-shadow: 0 12px 36px -28px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .04);
+  --control: rgba(160, 189, 208, .08);
+  --control-active: rgba(160, 189, 208, .16);
+  --art-opacity: .16;
+}
+html.dark[data-architecture='philips'] {
+  --page: #1b1a23;
+  --text: #e9e7f1;
+  --body: #c7c4d5;
+  --muted: #aaa6bc;
+  --link: #c5bedf;
+  --glass: linear-gradient(120deg, rgba(36, 34, 47, .92), rgba(33, 32, 43, .83));
+}
+html.dark[data-architecture='tourette'] {
+  --page: #201f1b;
+  --text: #eeeae0;
+  --body: #d0cbc0;
+  --muted: #b1ad9f;
+  --link: #b6ccdb;
+  --glass: linear-gradient(120deg, rgba(43, 42, 36, .92), rgba(37, 36, 32, .83));
+}
+html.dark[data-architecture='hangzhou'] {
+  --page: #181f1c;
+  --text: #e6eee6;
+  --body: #c3d0c6;
+  --muted: #a0b3a5;
+  --link: #b0cfbb;
+  --glass: linear-gradient(120deg, rgba(32, 43, 36, .92), rgba(29, 39, 34, .83));
+}
+::selection { background: rgba(var(--accent-rgb), .25); color: var(--text); }
+.ambient-backdrop {
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(1040px, 100%);
+  mask-image: linear-gradient(#000 58%, transparent 100%);
+  -webkit-mask-image: linear-gradient(#000 58%, transparent 100%);
+}
+.ambient-backdrop::after { content: none; }
+.ambient-wash { background: radial-gradient(ellipse at 88% 16%, rgba(var(--wash-rgb), .28), transparent 55%); }
+.architecture-art {
+  display: block;
+  position: absolute;
+  top: 72px;
+  right: min(-40px, -5vw);
+  width: min(1320px, 112vw);
+  opacity: var(--art-opacity);
+  mask-image: linear-gradient(#000 48%, transparent 97%);
+  -webkit-mask-image: linear-gradient(#000 48%, transparent 97%);
+}
+.architecture-art img { display: block; width: 100%; max-width: none; height: auto; }
+[data-architecture='kyoto'] .architecture-art {
+  top: -32px;
+  right: -2vw;
+  width: min(1120px, 106vw);
+  mask-image: linear-gradient(#000 58%, transparent 100%);
+  -webkit-mask-image: linear-gradient(#000 58%, transparent 100%);
+}
+[data-architecture='philips'] .architecture-art { top: 55px; right: 0; }
+[data-architecture='tourette'] .architecture-art { top: 48px; right: -3vw; width: min(1250px, 110vw); }
+[data-architecture='hangzhou'] .architecture-art { top: 68px; right: -4vw; }
+.header-inner { background: color-mix(in srgb, var(--page) 74%, transparent); }
+.glass-panel, [data-collection] { border-radius: var(--panel-radius); backdrop-filter: blur(18px) saturate(110%); -webkit-backdrop-filter: blur(18px) saturate(110%); }
+.profile-stage { grid-template-columns: minmax(0, 570px) 1fr; min-height: 280px; margin-bottom: 44px; }
+.profile-stage__content { padding-left: 6px; }
+.profile-grid { gap: 30px; }
+.profile-grid::after { display: none; }
+.profile-sidebar { gap: 24px; }
+.page-heading { display: flex; flex-direction: column; justify-content: center; min-height: 236px; margin: 0 12px 36px; }
+.page-heading h1 { font-size: 34px; }
+.page-heading p { max-width: 490px; text-wrap: pretty; }
+.page-heading::before { content: ''; width: 36px; height: 2px; margin-bottom: 23px; background: var(--architecture-blue); opacity: .62; }
+[data-architecture='tourette'] .page-heading::before { width: 54px; background: linear-gradient(90deg, var(--architecture-red) 0 27%, transparent 27% 35%, var(--architecture-blue) 35% 66%, transparent 66% 73%, var(--architecture-ochre) 73%); }
+[data-architecture='hangzhou'] .page-heading::before { width: 82px; height: 1px; }
+.reading-surface { background: color-mix(in srgb, var(--page) 91%, transparent); }
+[data-article='true'] .architecture-art { opacity: calc(var(--art-opacity) * .65); }
+[data-architecture='neutral'] .page-heading { min-height: 0; margin-block: 10px 34px; }
+[data-architecture='neutral'] .page-heading::before { display: none; }
+.footer-inner { border-color: var(--line); }
+@media (min-width: 1600px) {
+  .architecture-art { right: calc((100vw - 1600px) / 2); }
+  [data-architecture='philips'] .architecture-art, [data-architecture='tourette'] .architecture-art, [data-architecture='hangzhou'] .architecture-art { right: calc((100vw - 1600px) / 2); }
+  [data-architecture='kyoto'] .architecture-art { right: calc((100vw - 1600px) / 2); }
+}
+@media (max-width: 1000px) {
+  .profile-stage { grid-template-columns: minmax(0, 490px) 1fr; min-height: 265px; }
+  .profile-grid { gap: 24px; }
+  .page-heading { min-height: 220px; }
+}
+@media (max-width: 800px) {
+  .profile-stage { grid-template-columns: 1fr; min-height: 250px; }
+  .profile-stage__content { max-width: 500px; }
+  .profile-grid { gap: 22px; }
+  .architecture-art { opacity: calc(var(--art-opacity) * .85); }
+}
+@media (max-width: 640px) {
+  .ambient-backdrop { height: min(780px, 100%); }
+  .architecture-art,
+  [data-architecture='kyoto'] .architecture-art,
+  [data-architecture='philips'] .architecture-art,
+  [data-architecture='tourette'] .architecture-art,
+  [data-architecture='hangzhou'] .architecture-art {
+    top: 105px;
+    width: 760px;
+    right: -280px;
+    opacity: calc(var(--art-opacity) * .62);
+    mask-image: linear-gradient(#000 35%, transparent 87%);
+    -webkit-mask-image: linear-gradient(#000 35%, transparent 87%);
+  }
+  .profile-stage { min-height: 250px; margin: 0 5px 28px; padding: 0; }
+  [data-architecture='kyoto'] .architecture-art { top: 70px; width: 660px; right: -205px; }
+  .profile-stage__content { padding: 14px 0 0; }
+  .profile-grid, .profile-sidebar { gap: 18px; }
+  .page-heading { min-height: 206px; margin: 0 6px 24px; padding-right: 10px; }
+  .page-heading h1 { font-size: 29px; }
+  .page-heading p { max-width: 310px; }
+  .page-heading::before { margin-bottom: 18px; }
+  .glass-panel, [data-collection] { border-radius: 13px; }
+  [data-article='true'] .architecture-art { opacity: calc(var(--art-opacity) * .35); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel, [data-collection], .header-inner, .reading-surface { background: var(--page); }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .ambient-backdrop { display: none; }
+  .glass-panel, [data-collection], .header-inner, .reading-surface { background: var(--page); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .social-links a, .main-nav a[aria-current], .pub-links a { background: var(--page); border-color: var(--line); }
+}
+@media print {
+  .ambient-backdrop { display: none; }
+  .glass-panel, [data-collection], .header-inner, .reading-surface { background: white; box-shadow: none; backdrop-filter: none; }
+  .page-heading, .profile-stage { min-height: 0; margin-bottom: 24px; }
+}

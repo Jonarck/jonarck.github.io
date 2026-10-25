@@ -1,0 +1,13 @@
+---
+interface Props { label: string }
+const { label } = Astro.props;
+---
+<div class="collection-search" data-search-controls hidden>
+  <label class="sr-only" for="collection-search">{label}</label>
+  <input id="collection-search" type="search" placeholder={label} autocomplete="off" data-search-input />
+  <button type="button" data-search-clear hidden>Clear</button>
+  <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-search-status></p>
+</div>
+<script>
+  import '../scripts/collections';
+</script>

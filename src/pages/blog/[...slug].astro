@@ -1,0 +1,44 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import { publishedEntries, entryUrl, formatDate } from '../../lib/content';
+import { mediaUrl } from '../../lib/media';
+import '../../styles/blog.css';
+export async function getStaticPaths() {
+  const posts = await publishedEntries('blog');
+  return posts.map(entry => {
+    const translations = entry.data.translation_key ? posts.filter(post => post.data.translation_key === entry.data.translation_key) : [entry];
+    return { params: { slug: entry.id.replace(/\/index$/, '') }, props: { entry, translations } };
+  });
+}
+interface Props { entry: CollectionEntry<'blog'>; translations: CollectionEntry<'blog'>[] }
+const { entry, translations } = Astro.props;
+const { Content } = await render(entry);
+const { title, alternate_title, description, date, date_label, updated, image, image_alt, image_caption, image_cover, lang, series, series_en, series_id, series_order } = entry.data;
+const chinese = lang.startsWith('zh');
+const variants = [...translations].sort((a,b) => Number(!!a.data.translation_of) - Number(!!b.data.translation_of));
+const original = variants.find(post => !post.data.translation_of) || entry;
+const alternates = variants.length > 1 ? [...variants.map(post => ({ lang: post.data.lang, url: entryUrl(post) })), { lang:'x-default', url:entryUrl(original) }] : [];
+---
+<PageLayout title={title} description={description} image={image ? mediaUrl(image) : undefined} lang={lang} article alternates={alternates}>
+  <article class="reading-surface glass-panel essay" lang={lang}>
+    <div class="essay-toolbar">
+      <a class="essay-back" href={series_id ? `/blog/#${series_id}` : '/blog/'}>← {chinese ? '全部文章' : 'All posts'}</a>
+      {variants.length > 1 && <nav class="language-switch" aria-label="Reading language">
+        {variants.map(post => <a href={entryUrl(post)} lang={post.data.lang} hreflang={post.data.lang} aria-current={post.id === entry.id ? 'page' : undefined}>{post.data.lang.startsWith('zh') ? '中文' : 'English'}</a>)}
+      </nav>}
+    </div>
+    <header class="essay-header">
+      {series && <p class="essay-series"><a href={`/blog/#${series_id}`}>{chinese ? series : series_en || series}</a>{series_order && <span> · {String(series_order).padStart(2, '0')}</span>}</p>}
+      <h1>{title}</h1>
+      {alternate_title && <p class="essay-alternate-title" lang={chinese ? 'en' : 'zh-CN'}>{alternate_title}</p>}
+      <p class="essay-byline"><span>{chinese ? '蒋卓洋' : 'Zhuoyang Jiang'}</span><span aria-hidden="true">·</span><time datetime={date.toISOString()}>{date_label || formatDate(date)}</time>{updated && <span> · {chinese ? '更新' : 'Updated'} {formatDate(updated)}</span>}</p>
+    </header>
+    {image && image_cover && <figure class="article-cover"><img src={mediaUrl(image)} alt={image_alt || ''} />{image_caption && <figcaption>{image_caption}</figcaption>}</figure>}
+    <div class="prose essay-prose"><Content /></div>
+    <nav class="essay-end-nav" aria-label={chinese ? '文章导航' : 'Article navigation'}>
+      <a href="/blog/">← {chinese ? '返回博客' : 'All posts'}</a>
+      {variants.filter(post => post.id !== entry.id).map(post => <a href={entryUrl(post)} lang={post.data.lang} hreflang={post.data.lang}>{post.data.lang.startsWith('zh') ? '阅读中文原文' : 'Read in English'} →</a>)}
+    </nav>
+  </article>
+</PageLayout>

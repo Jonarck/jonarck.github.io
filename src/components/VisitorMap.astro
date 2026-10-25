@@ -1,0 +1,63 @@
+---
+import world from '../data/visitor-world.json';
+const siteId = 'JdvgHXF28-3FI6HCbNgEF0WOXWb2swP5oR0u1MMBtkk';
+---
+<section class="visitor-map" data-visitor-map data-site-id={siteId} data-site-host={Astro.site?.hostname} aria-labelledby="visitor-map-heading" hidden>
+  <div class="visitor-map-copy">
+    <h2 id="visitor-map-heading">Visitors</h2>
+    <p class="visitor-map-status" data-visitor-status role="status">Local preview</p>
+    <p class="visitor-map-note" data-visitor-note>Tracking starts after deployment.</p>
+    <p class="visitor-map-provider" data-visitor-provider hidden><a href="https://mapmyvisitors.com/" target="_blank" rel="noopener">MapMyVisitors</a> · <a href="https://mapmyvisitors.com/b/policy" target="_blank" rel="noopener">Privacy</a></p>
+  </div>
+  <div class="visitor-map-art">
+    <div data-visitor-fallback>
+    <svg viewBox="0 0 900 440" role="img" aria-labelledby="visitor-map-title visitor-map-description">
+      <title id="visitor-map-title">World visitor map — design preview</title>
+      <desc id="visitor-map-description">World coastlines and latitude and longitude lines. No visitor locations or counts are shown.</desc>
+      <path class="map-ocean" d={world.outline} />
+      <path class="map-grid" d={world.graticule} />
+      <path class="map-land" d={world.land} />
+      <path class="map-outline" d={world.outline} />
+    </svg>
+    <p class="visitor-map-credit">Map: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></p>
+    </div>
+    <div class="visitor-map-live" data-visitor-live aria-hidden="true"></div>
+  </div>
+</section>
+<script src="../scripts/visitor-map.js"></script>
+<style>
+  .visitor-map { --visitor-ocean: #eef2f4; --visitor-land: #c1cfd6; --visitor-text: #607281; display: grid; grid-template-columns: minmax(160px, .65fr) minmax(0, 1fr); align-items: center; gap: 32px; padding: 26px 12px 0; margin-top: 36px; border-top: 1px solid var(--line); }
+  .visitor-map-copy h2 { font-size: 15px; font-weight: 500; letter-spacing: -.015em; }
+  .visitor-map-status { display: inline-block; margin-top: 12px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--control); color: var(--muted); font-size: 10px; }
+  .visitor-map-note { margin-top: 10px; color: var(--muted); font-size: 11px; }
+  .visitor-map-provider { margin-top: 10px; color: var(--muted); font-size: 10px; }
+  .visitor-map-provider a { text-decoration: underline; text-decoration-color: var(--line); }
+  .visitor-map-art { min-width: 0; position: relative; width: 100%; max-width: 540px; margin-left: auto; }
+  .visitor-map-art svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .visitor-map-art path { vector-effect: non-scaling-stroke; }
+  .map-ocean { fill: var(--control); opacity: .35; }
+  .map-grid { fill: none; stroke: var(--muted); stroke-width: .55px; opacity: .14; }
+  .map-land { fill: var(--architecture-blue); fill-opacity: .14; stroke: var(--link); stroke-width: .65px; stroke-opacity: .35; stroke-linejoin: round; }
+  .map-outline { fill: none; stroke: var(--muted); stroke-width: .6px; opacity: .2; }
+  .visitor-map-credit { margin-top: 5px; text-align: right; font-size: 9px; color: var(--muted); }
+  .visitor-map-credit a { text-decoration: underline; text-decoration-color: var(--line); }
+  .visitor-map-live { position: absolute; inset: 0; width: 100%; opacity: 0; pointer-events: none; }
+  .visitor-map[data-state='ready'] .visitor-map-live { position: relative; opacity: 1; pointer-events: auto; }
+  .visitor-map-live :global(#mapmyvisitors-widget) { max-width: 100%; min-height: 0 !important; border-radius: 10px; overflow: hidden; color: var(--visitor-text) !important; }
+  .visitor-map-live :global(.mapmyvisitors-map-container) { background-color: var(--visitor-ocean) !important; }
+  .visitor-map-live :global(.mapmyvisitors-map) { width: 100% !important; height: auto !important; aspect-ratio: 2.04; background-size: 100% 100%; }
+  .visitor-map-live :global(.mapmyvisitors-visitors), .visitor-map-live :global(.mapmyvisitors-date), .visitor-map-live :global(#clstminf) { color: var(--visitor-text) !important; font-family: inherit !important; font-size: 10px !important; }
+  .visitor-map-live :global(.mapmyvisitors-map svg) { width: 100%; height: 100%; }
+  :global(.dark) .visitor-map { --visitor-ocean: #182127; --visitor-land: #42545e; --visitor-text: #a4b3bd; }
+  :global(.dark) .map-land { fill: var(--link); fill-opacity: .13; stroke-opacity: .42; }
+  :global(.dark) .map-ocean { opacity: .2; }
+  @media (max-width: 640px) {
+    .visitor-map { grid-template-columns: 1fr; gap: 20px; margin-top: 26px; padding: 22px 5px 0; }
+    .visitor-map-copy { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 7px 12px; }
+    .visitor-map-status { margin: 0; }
+    .visitor-map-note { grid-column: 1 / -1; margin: 0; }
+    .visitor-map-provider { grid-column: 1 / -1; margin: 0; }
+    .visitor-map-art svg { margin-inline: auto; }
+  }
+  @media print { .visitor-map { display: none; } }
+</style>

@@ -1,0 +1,56 @@
+---
+// Original geometric study: a trimmed hyperbolic paraboloid, z = (x² - y²)/2.
+// Its two families of straight rulings are x + y = c and x - y = c.
+// This is an abstract composition, not a model of any referenced building.
+const project = (x: number, y: number) => {
+  const z = (x * x - y * y) / 2;
+  return [224 + 107 * x + 61 * y, 166 + 25 * x - 31 * y - 100 * z];
+};
+const radius = 1.27;
+const xy = (point: number[]) => point.map(n => n.toFixed(2)).join(',');
+const boundary = Array.from({ length: 121 }, (_, i) => {
+  const t = i / 120 * Math.PI * 2;
+  return project(radius * Math.cos(t), radius * Math.sin(t));
+});
+const outline = 'M' + boundary.map(xy).join(' L') + ' Z';
+const rulings = [-1, 1].flatMap(family => Array.from({ length: 23 }, (_, i) => {
+  const c = (i / 22 * 2 - 1) * radius * Math.SQRT2 * .985;
+  const delta = Math.sqrt(2 * radius * radius - c * c);
+  const x1 = (c - delta) / 2;
+  const x2 = (c + delta) / 2;
+  return { a: project(x1, family * (c - x1)), b: project(x2, family * (c - x2)), family };
+}));
+const rhythm = [0, 12, 29, 37, 62, 73, 89, 116, 124, 143];
+---
+<div class="architectural-study" aria-hidden="true">
+  <svg viewBox="0 0 460 330" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+    <defs>
+      <linearGradient id="study-shell" x1="82" y1="70" x2="340" y2="275" gradientUnits="userSpaceOnUse">
+        <stop class="shell-highlight" />
+        <stop offset=".47" class="shell-mid" />
+        <stop offset="1" class="shell-shade" />
+      </linearGradient>
+      <linearGradient id="study-frame" x1="245" y1="80" x2="421" y2="233" gradientUnits="userSpaceOnUse">
+        <stop class="frame-highlight" /><stop offset="1" class="frame-shade" />
+      </linearGradient>
+      <radialGradient id="study-shadow"><stop stop-color="currentColor" stop-opacity=".14" /><stop offset="1" stop-color="currentColor" stop-opacity="0" /></radialGradient>
+    </defs>
+    <ellipse cx="244" cy="290" rx="181" ry="22" fill="url(#study-shadow)" />
+    <g class="study-screen" transform="translate(259 64) skewY(12)">
+      <rect width="143" height="159" rx="2" fill="url(#study-frame)" />
+      {rhythm.map(x => <path d={`M${x} 0 V159`} />)}
+      <path d="M0 0 H143 M0 58 H143 M0 114 H143 M0 159 H143" />
+    </g>
+    <path d={outline} fill="url(#study-shell)" class="study-shell-edge" />
+    <g class="study-rulings">
+      {rulings.map(line => <path d={`M${xy(line.a)} L${xy(line.b)}`} opacity={line.family === 1 ? '.66' : '.34'} />)}
+    </g>
+    <path d={outline} class="study-shell-highlight" />
+    <g class="study-apertures" transform="translate(106 226) skewY(12)">
+      <path d="M-12 -11 H77 V44 H-12 Z" class="aperture-plane" />
+      <rect x="0" y="0" width="11" height="25" class="aperture-blue" />
+      <rect x="23" y="7" width="17" height="13" class="aperture-ochre" />
+      <rect x="51" y="-2" width="10" height="31" class="aperture-red" />
+    </g>
+  </svg>
+</div>

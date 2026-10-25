@@ -1,0 +1,150 @@
+# Sources and classification rationale: docs/research-organization.md
+- id: floorplan
+  title: "Rethinking Floorplan Generation with Space Syntax: From Design Theory to Model Improvement"
+  summary: Translating architectural theory into representations, evaluation criteria, and feedback for floorplan generation.
+  year: 2026
+  published: 2026-02-26
+  venue: arXiv
+  status: preprint
+  authors: Zhuoyang Jiang, Dongqing Zhang, Qingxiang Liu, Yuxuan Liang
+  topic: environments
+  focus: Design theory & generation
+  authorship: first
+  url: https://arxiv.org/abs/2602.22507
+  pdf: https://arxiv.org/pdf/2602.22507
+  image:
+    src: /assets/img/pubs/floorplan.webp
+    width: 960
+    height: 540
+    alt: Floorplans represented as convex-space access graphs and space-syntax integration maps.
+    caption: "Figure 1(b), arXiv v3: space-syntax-based representation, evaluation, and feedback."
+- id: parkbind
+  title: "Integrating Central-City Parks into Everyday Activity Chains: Boundary-Opening Optimization and Spatial-Network Reconfiguration with the Park-BIND Model"
+  summary: Using activity chains and pedestrian networks to choose where park boundaries should open and assess the resulting spatial changes.
+  year: 2026
+  published: 2026-08-27
+  venue: Land · 15(9), 1572
+  status: published
+  authors: Dongqing Zhang*, Zhuoyang Jiang*, Jiaxin Xue, Yi Wan
+  topic: environments
+  focus: Urban design & optimization
+  authorship: co-first
+  url: https://doi.org/10.3390/land15091572
+  image:
+    src: /assets/img/pubs/parkbind.webp
+    width: 1200
+    height: 670
+    alt: Maps of Xujiahui and Xiangyang parks showing existing entrances and proposed boundary openings.
+    caption: "Figure 4, Zhang et al., Land (2026), CC BY 4.0: existing entrances and intervention openings in two Shanghai parks."
+- id: residents
+  title: "When Residents Report and Sensors Record: Preserving Older Adults’ Evidence in Data-Enabled Neighbourhood Design"
+  summary: Residents’ accounts and sensor records as evidence for neighbourhood design with older adults.
+  year: 2026
+  published: "2026"
+  venue: ICHEC
+  status: accepted
+  authors: Dongqing Zhang, Zhuoyang Jiang, Qinglai Zhang, Yajun Wen, Yifan Yu
+  topic: environments
+  focus: Human experience & design evidence
+  authorship: co-author
+  image:
+    src: /assets/img/pubs/ichec.webp
+    width: 1200
+    height: 676
+    alt: TRACE evidence-processing workflow, with conceptual roles for residents and design professionals.
+    caption: "Figure 4: TRACE evidence-processing stages and proposed resident/professional roles. The paper evaluates the analytical stages, not an interactive deployment."
+- id: pocketpark
+  title: A Deep Learning Approach to Identify Potential Sites for Pocket Park Installation in Nanjing, China
+  summary: Assessing street-view imagery to identify potential pocket park sites and support urban planning decisions.
+  year: 2024
+  published: "2024"
+  venue: Journal of Urban Technology · 31(4–5), 191–217
+  status: published
+  authors: Conghui Zhou, Liuyi Yang, Zhuoyang Jiang, Xinyu Wu
+  topic: environments
+  focus: Site selection & planning
+  authorship: co-author
+  url: https://doi.org/10.1080/10630732.2024.2402676
+  image:
+    src: /assets/img/pubs/pocketpark.webp
+    width: 1200
+    height: 849
+    alt: Pocket park site-selection framework combining street-view images, four assessment categories, and human feedback.
+    caption: Research framework from the author-provided pocket park figure.
+- id: cagenmol
+  title: "CAGenMol: Condition-Aware Diffusion Language Model for Goal-Directed Molecular Generation"
+  summary: Generating molecular structures under combined structural and property constraints.
+  year: 2026
+  published: 2026-04-13
+  venue: Findings of ACL · 4720–4738
+  status: published
+  authors: Yanting Li*, Zhuoyang Jiang*, Enyan Dai, Lei Wang, Wen-Cai Ye, Li Liu
+  topic: molecules
+  focus: Conditional generation
+  authorship: co-first
+  url: https://aclanthology.org/2026.findings-acl.232/
+  pdf: https://aclanthology.org/2026.findings-acl.232.pdf
+  code: https://github.com/Lee612-1/CAGenMol
+  image:
+    src: /assets/img/pubs/cagenmol.webp
+    width: 1200
+    height: 589
+    alt: CAGenMol overview with condition adaptation, diffusion, and optimization modules.
+    caption: "Figure 1: overview of CAGenMol."
+- id: cams
+  title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next Token Prediction"
+  summary: Encoding molecular graphs as multi-scale token sequences for property prediction—a representation-learning foundation for design.
+  year: 2026
+  published: 2026-01-05
+  venue: arXiv
+  status: preprint
+  authors: Zhuoyang Jiang, Yaosen Min, Peiran Jin, Lei Chen
+  topic: molecules
+  focus: Representation & property prediction
+  authorship: first
+  url: https://arxiv.org/abs/2601.02530
+  pdf: https://arxiv.org/pdf/2601.02530
+  image:
+    src: /assets/img/pubs/cams-left.svg
+    width: 3314
+    height: 2011
+    alt: "CamS panel (a): a molecular graph is converted to a multi-scale sequence of motifs and tokens."
+    caption: "CamS, panel (a): molecular graph to multi-scale token sequence. Author-provided figure."
+- id: intentpoi
+  title: "Think Before You Act: Intention-Guided Reasoning for LLM-Based Location Prediction"
+  summary: Inferring travel intentions before predicting a person’s next location.
+  year: 2026
+  published: 2026-06-06
+  venue: arXiv
+  status: preprint
+  authors: Qingxiang Liu, Anqi Liang, Zhuoyang Jiang, Yutian Jiang, Sisuo Lyu, Yu Ji, Haomin Wen, Yuxuan Liang
+  topic: explorations
+  focus: Mobility prediction
+  authorship: co-author
+  url: https://arxiv.org/abs/2606.08122
+  pdf: https://arxiv.org/pdf/2606.08122
+  image:
+    src: /assets/img/pubs/intentpoi.webp
+    width: 678
+    height: 525
+    alt: Comparison of direct location prediction and intention-guided reasoning in IntentPOI.
+    caption: "Figure 1: intention inference as an intermediate step in next-location prediction."
+- id: rationalets
+  title: Rationale-Grounded In-Context Learning for Time Series Reasoning with Multimodal Large Language Models
+  summary: Retrieving reasoning examples to connect time-series observations with downstream outcomes.
+  year: 2026
+  published: 2026-01-06
+  venue: arXiv
+  status: preprint
+  authors: Qingxiang Liu, Zhiqing Cui, Xiaoliang Luo, Yuqian Wu, Zhuoyang Jiang, Huaiyu Wan, Sheng Sun, Lvchun Wang, Wei Yu, Yuxuan Liang
+  topic: explorations
+  focus: Time-series reasoning
+  authorship: co-author
+  url: https://arxiv.org/abs/2601.02968
+  pdf: https://arxiv.org/pdf/2601.02968
+  image:
+    src: /assets/img/pubs/rationalets.webp
+    width: 1125
+    height: 462
+    alt: RationaleTS uses retrieved reasoning paths to interpret a multivariate time-series plot.
+    caption: "Figure 1: comparison of time-series reasoning paradigms."

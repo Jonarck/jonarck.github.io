@@ -1,0 +1,26 @@
+- id: molecules
+  title: Physical sciences
+  kind: application
+  description: Molecular representation, property prediction, and generation.
+
+- id: environments
+  title: Built environment applications
+  kind: application
+  description: Architectural and urban design, planning, and human experience.
+
+- id: entertainment
+  title: Entertainment applications
+  kind: application
+  description: Design and creativity in film, storytelling, and entertainment.
+  empty_message: Coming soon
+
+- id: methods
+  title: AI & HCI methods
+  kind: methods
+  description: Structural representation and generation, foundation models and agentic systems, and intelligent interaction.
+  empty_message: Coming soon
+
+- id: explorations
+  title: Related explorations
+  kind: supporting
+  description: Collaborative work on temporal reasoning and mobility prediction, beyond the central design focus.

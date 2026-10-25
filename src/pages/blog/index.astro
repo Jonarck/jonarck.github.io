@@ -1,0 +1,41 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CollectionSearch from '../../components/CollectionSearch.astro';
+import { publishedEntries, entryUrl, formatDate } from '../../lib/content';
+import { mediaUrl } from '../../lib/media';
+import '../../styles/blog.css';
+const allPosts = await publishedEntries('blog');
+const posts = allPosts.filter(post => !post.data.translation_of);
+const series = [...new Set(posts.map(post => post.data.series_id || 'journal'))];
+---
+<PageLayout title="Blog" description="Essays on places, stories, research, and design. Chinese originals with English translations.">
+  <header class="page-heading"><h1>Blog</h1><p>Places, stories, and things worth looking at closely.</p></header>
+  <section data-collection aria-label="Blog posts" class="blog-library">
+    <div class="collection-bar"><p>{posts.length} {posts.length === 1 ? 'essay' : 'essays'}</p><a href="/feed.xml">RSS ↗</a></div>
+    {posts.length > 1 && <CollectionSearch label="Search essays in Chinese or English" />}
+    {series.map(id => {
+      const entries = posts.filter(post => (post.data.series_id || 'journal') === id);
+      const first = entries[0];
+      return <section class="blog-series" id={id}>
+        {first.data.series && <header class="blog-series-heading"><p>ESSAY COLLECTION</p><h2 lang="zh-CN">{first.data.series}</h2><span lang="en">{first.data.series_en}</span></header>}
+        <ul class="entry-list blog-entries">{entries.map(entry => {
+          const english = allPosts.find(post => post.data.translation_key === entry.data.translation_key && post.data.lang === 'en' && post.id !== entry.id);
+          return <li data-collection-item data-search={`${entry.data.title} ${entry.data.alternate_title || ''} ${entry.data.description} ${entry.data.tags.join(' ')}`}>
+            <div class="blog-entry">
+              {entry.data.image && <a class="blog-entry-cover" href={entryUrl(entry)} tabindex="-1" aria-hidden="true"><img src={mediaUrl(entry.data.image)} alt="" width="190" height="190" loading="lazy" /></a>}
+              <div class="blog-entry-copy">
+                <p class="entry-meta">{entry.data.date_label || formatDate(entry.data.date)}</p>
+                <h3 lang={entry.data.lang}><a href={entryUrl(entry)}>{entry.data.title}</a></h3>
+                {entry.data.alternate_title && <p class="blog-entry-english" lang="en">{entry.data.alternate_title}</p>}
+                <p class="blog-entry-description" lang={entry.data.lang}>{entry.data.description}</p>
+                <nav class="blog-entry-languages" aria-label="Read this essay"><a href={entryUrl(entry)} lang={entry.data.lang}>{entry.data.lang.startsWith('zh') ? '阅读中文' : 'Read essay'} →</a>{english && <a href={entryUrl(english)} lang="en" hreflang="en">Read in English →</a>}</nav>
+              </div>
+            </div>
+          </li>;
+        })}</ul>
+      </section>;
+    })}
+    {posts.length === 0 && <p class="empty-state">No posts yet.</p>}
+    <p class="empty-state" data-no-results hidden>No posts match your search.</p>
+  </section>
+</PageLayout>

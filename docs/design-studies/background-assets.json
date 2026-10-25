@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "kyoto",
+    "file": "public/assets/img/architecture/kyoto-abstract-960.webp",
+    "width": 960,
+    "height": 540,
+    "hasAlpha": true,
+    "bytes": 88138,
+    "sha256": "deb89b7eff1c7d22e75df2d5f6f8e6fe5adb4cec36d87d4140bc0856ac383418",
+    "sourceFile": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-02447749-66a7-4068-9d84-99353a7ec8f3.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "slug": "kyoto",
+    "file": "public/assets/img/architecture/kyoto-abstract-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": true,
+    "bytes": 211992,
+    "sha256": "5f201962c5dec1d65f5e317e5348afb2c879dd105ef009e5a81e8eb1607f404e",
+    "sourceFile": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-02447749-66a7-4068-9d84-99353a7ec8f3.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "slug": "philips",
+    "file": "public/assets/img/architecture/philips-abstract-960.webp",
+    "width": 960,
+    "height": 540,
+    "hasAlpha": true,
+    "bytes": 76398,
+    "sha256": "fa07d9ed10b74dcabbe9133b0813437a52298fd5761a55d5643ffffe8e941909",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-66856df2-eb56-4cd1-bbe3-7ef4d3aed63c.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "slug": "philips",
+    "file": "public/assets/img/architecture/philips-abstract-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": true,
+    "bytes": 196836,
+    "sha256": "f6ab64447511432592d791b6d76e2058f6b6aff958fbfc58d9b8eb09f3d2516d",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-66856df2-eb56-4cd1-bbe3-7ef4d3aed63c.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "slug": "tourette",
+    "file": "public/assets/img/architecture/tourette-abstract-960.webp",
+    "width": 960,
+    "height": 540,
+    "hasAlpha": true,
+    "bytes": 78974,
+    "sha256": "9e972f648f56b8ff96c93298fa3d5c7d4ed8cb4a812a2c363e96dfc9d16cac18",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-63c955dd-f878-4a07-b89a-234caca4e9dc.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 940
+  },
+  {
+    "slug": "tourette",
+    "file": "public/assets/img/architecture/tourette-abstract-1672.webp",
+    "width": 1672,
+    "height": 940,
+    "hasAlpha": true,
+    "bytes": 192432,
+    "sha256": "90c92700a497af35099d29217e16f1c17b0417d5197261fda0a11fcd608ca3e2",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-63c955dd-f878-4a07-b89a-234caca4e9dc.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 940
+  },
+  {
+    "slug": "hangzhou",
+    "file": "public/assets/img/architecture/hangzhou-abstract-960.webp",
+    "width": 960,
+    "height": 540,
+    "hasAlpha": true,
+    "bytes": 77626,
+    "sha256": "947aa04d63cd9ff673d82ac8602cbc1f8e8ba0de1358b42112e3ca5c5681d463",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-91d7d0e7-3556-42da-a869-9aa5e6d116fa.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "slug": "hangzhou",
+    "file": "public/assets/img/architecture/hangzhou-abstract-1672.webp",
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": true,
+    "bytes": 192156,
+    "sha256": "314ef7bd48a9359f1d908655c11cc8aba6201c5ed7036d928868ac5a87e1b94f",
+    "sourceFile": "D:\\CodexData\\.codex\\generated_images\\01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6\\exec-91d7d0e7-3556-42da-a869-9aa5e6d116fa.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  }
+]

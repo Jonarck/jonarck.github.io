@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ArrowCard from '../../components/ArrowCard.astro';
+import CollectionSearch from '../../components/CollectionSearch.astro';
+import { publishedEntries } from '../../lib/content';
+const projects = await publishedEntries('projects');
+---
+<PageLayout title="Projects" description="Research projects, tools, and experiments by Zhuoyang Jiang.">
+  <header class="page-heading"><h1>Projects</h1><p>Research projects, tools, and experiments.</p></header>
+  <section data-collection aria-label="Projects">
+    <div class="collection-bar"><p>{projects.length} {projects.length === 1 ? 'project' : 'projects'}</p><a href="https://github.com/Jonarck" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
+    {projects.length > 1 && <CollectionSearch label="Search projects by title, summary, or tag" />}
+    <ul class="entry-list">{projects.map(entry => <li data-collection-item data-search={`${entry.data.title} ${entry.data.description} ${entry.data.tags.join(' ')}`}><ArrowCard entry={entry} /></li>)}</ul>
+    {projects.length === 0 && <p class="empty-state">No projects yet.</p>}
+    <p class="empty-state" data-no-results hidden>No projects match your search.</p>
+  </section>
+</PageLayout>

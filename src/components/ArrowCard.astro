@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { entryUrl, formatDate } from '../lib/content';
+import { mediaUrl } from '../lib/media';
+interface Props { entry: CollectionEntry<'blog'> | CollectionEntry<'projects'>; compact?: boolean; headingLevel?: 2 | 3 }
+const { entry, compact = false, headingLevel = compact ? 3 : 2 } = Astro.props;
+const Heading = headingLevel === 3 ? 'h3' : 'h2';
+---
+<a href={entryUrl(entry)} class:list={['arrow-card', { 'arrow-card--compact': compact }]}>
+  {!compact && entry.data.image && <img class="entry-thumbnail" src={mediaUrl(entry.data.image)} alt="" loading="lazy" width="160" height="110" />}
+  <div class="arrow-card__body">
+    <p class="entry-date">{entry.collection === 'blog' ? formatDate(entry.data.date) : entry.data.date.getUTCFullYear()}</p>
+    <Heading>{entry.data.title}</Heading>
+    <p>{entry.data.description}</p>
+    {!compact && entry.data.tags.length > 0 && <ul class="content-tags" aria-label="Topics">{entry.data.tags.map(tag => <li>{tag}</li>)}</ul>}
+  </div>
+  <svg class="entry-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+</a>

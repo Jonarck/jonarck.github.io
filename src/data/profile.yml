@@ -1,0 +1,69 @@
+name: Zhuoyang Jiang
+name_zh: 蒋卓洋
+headline: Research Assistant, CityMind Lab, HKUST(GZ)
+location: Guangzhou, China
+email: zjiang496@connect.hkust-gz.edu.cn
+
+links:
+  github: https://github.com/Jonarck
+  linkedin: https://www.linkedin.com/in/zhuoyang-jiang-5421b4272/
+  scholar: https://scholar.google.com/citations?user=vMZ5yPgAAAAJ&hl=en
+  cv: /research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf
+
+about: |-
+  I'm a Research Assistant at [CityMind Lab](https://citymind.top/), HKUST(GZ). My recent research focuses on multimodal representation learning for unified understanding-and-generation autoregressive models in urban planning and architectural design.
+
+  Previously, I worked on representation learning at [Microsoft Research AI for Science](https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/) and the [Zhongguancun Institute of AI](https://www.bjzgca.edu.cn/en/organization). I also explored human-AI interaction projects on human cognition modeling and cognitive assistance at the [Augmenting & People by Empowering X (APEX) Group](https://www.mingmingfan.com/), HKUST(GZ).
+
+  I collaborate with researchers from [the School of Architecture at Southeast University](https://arch.seu.edu.cn/jz_en/main.htm) and [the Built Environment Technology Center at Tongji University](https://caup-lab.tongji.edu.cn/3b/76/c33896a211830/page.htm) on AI-assisted architectural and urban analysis and design.
+
+highlights:
+  - title: Education
+    items:
+      - main: M.Sc. in Data-Centric AI, HKUST(GZ)
+        subitems:
+          - Joint research internship at Microsoft Research Asia
+      - main: B.Eng. in AI, Southeast University
+        subitems:
+          - Capstone co-supervised by the School of Architecture
+  - title: Research Interests
+    text: AI & HCI for Creativity & Design for Humans & Built Environments.
+    items:
+      - main: Applications
+        subitems:
+          - Chemical design
+          - Built environment design
+          - Entertainment design
+      - main: Methods
+        subitems:
+          - Structural representation & generation
+          - Foundation models & agentic systems
+          - Intelligent interaction
+  - title: Outside Work
+    text: Architecture, historical sites, music history, and anime.
+
+timeline:
+  - date: 2026-04
+    text: 📄 CAGenMol was accepted to Findings of ACL 2026
+  - date: 2025-11
+    text: 💼 Joined CityMind Lab, HKUST(GZ) as a Research Assistant
+  - date: 2025-10
+    text: 🎓 Received M.Sc. in Data-Centric AI from HKUST(GZ)
+  - date: 2025-08
+    text: 💼 Began research internship at the Zhongguancun Institute of AI
+  - date: 2024-11
+    text: 📄 Undergraduate thesis on AI for pocket park site selection accepted by the Journal of Urban Technology
+  - date: 2024-08
+    text: 💼 Began research internship at Microsoft Research AI for Science
+  - date: 2024-02
+    text: 🧠 Started Human-AI Interaction projects at the APEX Group, HKUST(GZ)
+  - date: 2023-09
+    text: 🎓 Started M.Sc. in Data-Centric AI at HKUST(GZ)
+  - date: 2023-06
+    text: 🎓 Received B.Eng. in AI from Southeast University
+  - date: 2019-09
+    text: 🎓 Started B.Eng. in AI at Southeast University
+
+author_highlight:
+  - Zhuoyang Jiang
+  - Jiang Zhuoyang

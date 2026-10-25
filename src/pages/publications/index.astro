@@ -1,0 +1,48 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Publication from '../../components/Publication.astro';
+import { publications, topics } from '../../lib/site';
+import '../../styles/publications.css';
+const selectedCount = publications.filter(pub => pub.authorship !== 'co-author').length;
+---
+<PageLayout title="Research" description="AI and HCI for creativity and design: physical sciences, built environments, entertainment, methods research, and related explorations.">
+  <header class="page-heading research-heading">
+    <h1>Research</h1>
+    <p>AI & HCI for creativity and design.</p>
+  </header>
+  <div class="research-library" data-publications>
+    <form class="publication-filters" aria-label="Filter publications" hidden>
+      <fieldset class="work-views">
+        <legend class="visually-hidden">Publication selection</legend>
+        <label><input type="radio" name="selection" value="all" checked /><span>All work <small>{publications.length}</small></span></label>
+        <label><input type="radio" name="selection" value="selected" /><span>Selected work <small>{selectedCount}</small></span></label>
+      </fieldset>
+      <fieldset class="work-areas">
+        <legend class="visually-hidden">Research area</legend>
+        <label><input type="radio" name="area" value="all" checked /><span>All areas</span></label>
+        {topics.map(topic => <label><input type="radio" name="area" value={topic.id} /><span>{topic.title}</span></label>)}
+      </fieldset>
+    </form>
+    <div class="publication-list-note">
+      <p id="publication-results" role="status" aria-live="polite">{publications.length} publications</p>
+      <p id="selection-note" hidden>Selected work brings together first- and co-first-authored papers.</p>
+      <p class="contribution-note">* Equal contribution</p>
+    </div>
+    {topics.map(topic => <section class="publication-group" data-publication-group={topic.id} data-kind={topic.kind} aria-labelledby={`heading-${topic.id}`}>
+      <header class="publication-group-heading">
+        <p class="group-kicker">{topic.kind === 'supporting' ? 'Supporting work' : topic.kind === 'methods' ? 'Core methods' : 'Core applications'}</p>
+        <h2 id={`heading-${topic.id}`}>{topic.title}<span data-group-count>{publications.filter(pub => pub.topic === topic.id).length}</span></h2>
+        <p>{topic.description}</p>
+      </header>
+      {publications.filter(pub => pub.topic === topic.id).map(pub => <Publication pub={pub} />)}
+      {!publications.some(pub => pub.topic === topic.id) && <p class="publication-area-empty">{topic.empty_message ?? 'No publications yet.'}</p>}
+    </section>)}
+    <div id="publication-empty" class="empty-state" hidden><p>No selected papers in this area yet.</p><button type="button" id="reset-publications">Show all work</button></div>
+  </div>
+  <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="figure-dialog-title" aria-describedby="figure-dialog-caption">
+    <div class="figure-dialog-heading"><h2 id="figure-dialog-title"></h2><button type="button" aria-label="Close figure" autofocus>Close <span aria-hidden="true">×</span></button></div>
+    <img id="figure-dialog-image" alt="" />
+    <p id="figure-dialog-caption"></p>
+  </dialog>
+  <script src="../../scripts/publications.js"></script>
+</PageLayout>

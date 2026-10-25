@@ -1,0 +1,8 @@
+---
+interface Props { title: string; code?: string; demo?: string; paper?: string }
+const { title, code, demo, paper } = Astro.props;
+const links = [{ label: 'Code', url: code }, { label: 'Demo', url: demo }, { label: 'Paper', url: paper }];
+---
+<div class="entry-links">
+  {links.filter(link => link.url).map(link => <a href={link.url} target="_blank" rel="noopener" aria-label={`${link.label}: ${title}`}>{link.label} <span aria-hidden="true">↗</span></a>)}
+</div>

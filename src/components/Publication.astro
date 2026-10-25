@@ -1,0 +1,30 @@
+---
+import { profile, type Publication } from '../lib/site';
+interface Props { pub: Publication }
+const { pub } = Astro.props;
+const selected = pub.authorship !== 'co-author';
+---
+<article class="publication pub-row" id={pub.id} data-publication data-topic={pub.topic} data-selected={String(selected)}>
+  <div class="pub-visual">
+    <span class="pub-year">{pub.year}</span>
+    {pub.image && <a class="pub-figure" href={pub.image.src} data-figure data-caption={pub.image.caption} data-title={pub.title} aria-label={`Enlarge figure: ${pub.title}`}>
+      <img src={pub.image.src} width={pub.image.width} height={pub.image.height} alt={pub.image.alt} loading="lazy" decoding="async" />
+      <span class="figure-hint" aria-hidden="true">View figure ↗</span>
+    </a>}
+  </div>
+  <div class="pub-body">
+    <p class="pub-focus">{pub.focus}</p>
+    <h3>{pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}</h3>
+    <p class="pub-authors">{pub.authors.split(', ').map((name, index) => <>{index > 0 ? ', ' : ''}{profile.author_highlight.some(highlight => name.replace(/\*/g, '') === highlight) ? <strong>{name}</strong> : name}</>)}</p>
+    <p class="pub-venue">{pub.venue}, {pub.year}{pub.status === 'accepted' && <span class="pub-status">Accepted</span>}{pub.status === 'preprint' && <span class="pub-status">Preprint</span>}</p>
+    <div class="publication-bottom">
+      <div class="pub-links">
+        {pub.url && <a href={pub.url} target="_blank" rel="noopener" aria-label={`Paper: ${pub.title}`}>Paper <span aria-hidden="true">↗</span></a>}
+        {pub.pdf && <a href={pub.pdf} target="_blank" rel="noopener" aria-label={`PDF: ${pub.title}`}>PDF <span aria-hidden="true">↗</span></a>}
+        {pub.code && <a href={pub.code} target="_blank" rel="noopener" aria-label={`Code: ${pub.title}`}>Code <span aria-hidden="true">↗</span></a>}
+        {!pub.url && <span class="pub-pending">Publication link forthcoming</span>}
+      </div>
+      {selected && <span class="authorship">{pub.authorship === 'first' ? 'First author' : 'Co-first author'}</span>}
+    </div>
+  </div>
+</article>

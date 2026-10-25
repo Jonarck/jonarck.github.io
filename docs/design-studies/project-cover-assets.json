@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "micam",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-c97c8175-71ba-447d-ab58-e37aee6eca7a.png",
+    "output": "public/assets/img/projects/micam.webp",
+    "width": 1280,
+    "height": 640,
+    "bytes": 19046,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  },
+  {
+    "slug": "news",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-92091a37-ebae-4b1c-bc17-18cd90bad304.png",
+    "output": "public/assets/img/projects/news.webp",
+    "width": 1280,
+    "height": 640,
+    "bytes": 30328,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  },
+  {
+    "slug": "movielens",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-cff9fe70-86ef-41e0-a8df-2e8df5f2b8e5.png",
+    "output": "public/assets/img/projects/movielens.webp",
+    "width": 1280,
+    "height": 640,
+    "bytes": 31006,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  },
+  {
+    "slug": "forecasting",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-eda7cc5e-544b-4e4e-af05-95ff0394c4a6.png",
+    "output": "public/assets/img/projects/forecasting.webp",
+    "width": 1280,
+    "height": 640,
+    "bytes": 18560,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  },
+  {
+    "slug": "seu",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-9838ffff-7ad9-4835-9d52-b1ba6f2dfe24.png",
+    "output": "public/assets/img/projects/seu.webp",
+    "width": 1280,
+    "height": 640,
+    "bytes": 28770,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  },
+  {
+    "slug": "hkust",
+    "source": "D:/CodexData/.codex/generated_images/01a0c9b9-eb5c-7381-8d69-bd8ecd73bbf6/exec-f65009bd-7c8e-42db-b419-0daa7a8e38ff.png",
+    "output": "public/assets/img/projects/hkust.webp",
+    "width": 1280,
+    "height": 720,
+    "bytes": 32276,
+    "method": "Built-in imagegen; conceptual cover, not a scientific result or application screenshot."
+  }
+]
