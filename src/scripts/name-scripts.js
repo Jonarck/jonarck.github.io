@@ -11,7 +11,7 @@ if (trigger && dialog && typeof dialog.showModal === 'function') {
   const overview = dialog.querySelector('[data-overview-view]');
   const context = dialog.querySelector('[data-script-context]');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const interval = 6000;
+  const interval = 2000;
   let current = 0;
   let sourceIndex = 0;
   let timer;
@@ -47,6 +47,7 @@ if (trigger && dialog && typeof dialog.showModal === 'function') {
   function applyCurrent() {
     const { scriptSource, scriptLabel, scriptEnglish } = panels[current].dataset;
     artwork.setAttribute('href', `#name-glyph-${scriptSource}`);
+    artwork.setAttribute('transform', scriptSource === 'clerical' ? 'translate(160 54) scale(1.15) translate(-160 -54)' : '');
     trigger.dataset.script = scriptSource;
     trigger.title = `${scriptLabel} · ${scriptEnglish} · View sources`;
   }
