@@ -1,5 +1,6 @@
 # Sources and classification rationale: docs/research-organization.md
 - id: floorplan
+  selected: true
   title: "Rethinking Floorplan Generation with Space Syntax: From Design Theory to Model Improvement"
   summary: Translating architectural theory into representations, evaluation criteria, and feedback for floorplan generation.
   year: 2026
@@ -92,6 +93,7 @@
     alt: CAGenMol overview with condition adaptation, diffusion, and optimization modules.
     caption: "Figure 1: overview of CAGenMol."
 - id: cams
+  selected: true
   title: "Multi-scale Graph Autoregressive Modeling: Molecular Property Prediction via Next Token Prediction"
   summary: Encoding molecular graphs as multi-scale token sequences for property prediction—a representation-learning foundation for design.
   year: 2026

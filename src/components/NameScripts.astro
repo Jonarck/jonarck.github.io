@@ -10,7 +10,7 @@ const { name } = Astro.props;
     <svg class="name-script-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
   </button>
 </span>
-<dialog id="name-script-dialog" class="name-script-dialog" aria-labelledby="name-script-heading" aria-describedby="name-script-note">
+<dialog id="name-script-dialog" class="name-script-dialog" aria-labelledby="name-script-heading">
   <header class="name-script-heading">
     <div><h2 id="name-script-heading">Name scripts</h2><p lang="zh-CN">{name}</p></div>
     <button type="button" data-close-name-scripts aria-label="Close name styles" autofocus>Close <span aria-hidden="true">×</span></button>
@@ -21,7 +21,6 @@ const { name } = Astro.props;
       <span class="name-script-label" lang="zh-CN">{script.label}</span><span class="name-script-english">{script.english}</span>
     </button>)}
   </div>
-  <p id="name-script-note" class="name-script-note">Seal and clerical forms use <span lang="zh-Hant">蔣</span>, the traditional form of <span lang="zh-CN">蒋</span>.</p>
   <details class="name-script-credits" hidden>
     <summary>Typeface sources</summary>
     <ul>{scripts.map(script => <li><span lang="zh-CN">{script.label}</span> — <a href={script.source} target="_blank" rel="noopener">{script.credit}</a>{script.id === 'clerical' && ' · CC BY-ND 3.0 TW'}</li>)}</ul>
@@ -48,7 +47,6 @@ const { name } = Astro.props;
   .name-script-option svg { width: 100%; height: auto; margin-bottom: 10px; }
   .name-script-label { font-size: 12px; }
   .name-script-english { font-size: 10px; color: var(--muted); }
-  .name-script-note { font-size: 11px; color: var(--muted); margin-top: 18px; line-height: 1.7; }
   .name-script-credits { margin-top: 13px; color: var(--muted); font-size: 10px; line-height: 1.8; }
   .name-script-credits summary { padding-block: 6px; }
   .name-script-credits ul { padding-left: 16px; margin: 6px 0 0; }

@@ -35,8 +35,10 @@ if (library) {
   form.addEventListener('change', render);
   document.getElementById('reset-publications').addEventListener('click', () => {
     form.reset();
+    const allWork = form.querySelector('input[name="selection"][value="all"]');
+    allWork.checked = true;
     render();
-    form.querySelector('input').focus();
+    allWork.focus();
   });
   render();
 

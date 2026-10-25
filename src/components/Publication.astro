@@ -1,10 +1,10 @@
 ---
 import { profile, type Publication } from '../lib/site';
-interface Props { pub: Publication }
-const { pub } = Astro.props;
-const selected = pub.authorship !== 'co-author';
+interface Props { pub: Publication; hidden?: boolean }
+const { pub, hidden = false } = Astro.props;
+const leadAuthor = pub.authorship !== 'co-author';
 ---
-<article class="publication pub-row" id={pub.id} data-publication data-topic={pub.topic} data-selected={String(selected)}>
+<article class="publication pub-row" id={pub.id} data-publication data-topic={pub.topic} data-selected={String(pub.selected)} hidden={hidden}>
   <div class="pub-visual">
     <span class="pub-year">{pub.year}</span>
     {pub.image && <a class="pub-figure" href={pub.image.src} data-figure data-caption={pub.image.caption} data-title={pub.title} aria-label={`Enlarge figure: ${pub.title}`}>
@@ -24,7 +24,7 @@ const selected = pub.authorship !== 'co-author';
         {pub.code && <a href={pub.code} target="_blank" rel="noopener" aria-label={`Code: ${pub.title}`}>Code <span aria-hidden="true">↗</span></a>}
         {!pub.url && <span class="pub-pending">Publication link forthcoming</span>}
       </div>
-      {selected && <span class="authorship">{pub.authorship === 'first' ? 'First author' : 'Co-first author'}</span>}
+      {leadAuthor && <span class="authorship">{pub.authorship === 'first' ? 'First author' : 'Co-first author'}</span>}
     </div>
   </div>
 </article>

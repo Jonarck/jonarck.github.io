@@ -18,6 +18,7 @@ const publicationSchema = z.object({
   topic: z.enum(['molecules', 'environments', 'entertainment', 'methods', 'explorations']),
   focus: z.string(), status: z.enum(['published', 'preprint', 'accepted']),
   authorship: z.enum(['first', 'co-first', 'co-author']),
+  selected: z.boolean().default(false),
   url: z.string().url().optional(), pdf: z.string().url().optional(), code: z.string().url().optional(),
   image: z.object({ src: z.string(), width: z.number(), height: z.number(), alt: z.string(), caption: z.string() }).optional(),
 });

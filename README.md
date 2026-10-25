@@ -84,9 +84,9 @@ Each entry in `src/data/publications.yml` has `title`, `year`, `published`, `ven
 - `published` is a quoted date (`YYYY-MM-DD`, or `YYYY` if only the year is known), used for reverse chronological ordering.
 - `topic`: `molecules`, `environments`, `entertainment`, `methods`, or `explorations`.
 - `authorship`: `first`, `co-first`, or `co-author`.
-- Selected work is generated from first and co-first authorship. One-sentence summaries are not displayed.
+- `selected: true` explicitly includes a paper in the default Selected work view. The current selection is Floorplan and CamS: first-author preprints are included, while Land papers and second-listed co-first authorship are excluded. Other papers remain in All work. One-sentence summaries are not displayed.
 - Five groups organize physical sciences, built environments, entertainment, AI/HCI methods, and related explorations. CamS belongs to physical sciences; RationaleTS and IntentPOI belong to related explorations.
-- Native radio controls independently filter authorship and research area. Empty entertainment and methods sections display “Coming soon.” Figures use uniform frames and an accessible enlarged view.
+- Native radio controls independently filter the curated selection and research area. Empty entertainment and methods sections display “Coming soon.” Figures use uniform frames and an accessible enlarged view.
 - `author_highlight` in the profile data determines which author names are emphasized. `*` denotes equal contribution.
 
 ## Deploy

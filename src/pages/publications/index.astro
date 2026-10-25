@@ -3,7 +3,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Publication from '../../components/Publication.astro';
 import { publications, topics } from '../../lib/site';
 import '../../styles/publications.css';
-const selectedCount = publications.filter(pub => pub.authorship !== 'co-author').length;
+const selectedCount = publications.filter(pub => pub.selected).length;
+const groups = topics.map(topic => {
+  const papers = publications.filter(pub => pub.topic === topic.id);
+  return { ...topic, papers, selectedCount: papers.filter(pub => pub.selected).length };
+});
 ---
 <PageLayout title="Research" description="AI and HCI for creativity and design: built environments, physical sciences, entertainment, methods research, and related explorations.">
   <header class="page-heading research-heading">
@@ -14,8 +18,8 @@ const selectedCount = publications.filter(pub => pub.authorship !== 'co-author')
     <form class="publication-filters" aria-label="Filter publications" hidden>
       <fieldset class="work-views">
         <legend class="visually-hidden">Publication selection</legend>
-        <label><input type="radio" name="selection" value="all" checked /><span>All work <small>{publications.length}</small></span></label>
-        <label><input type="radio" name="selection" value="selected" /><span>Selected work <small>{selectedCount}</small></span></label>
+        <label><input type="radio" name="selection" value="selected" checked /><span>Selected work <small>{selectedCount}</small></span></label>
+        <label><input type="radio" name="selection" value="all" /><span>All work <small>{publications.length}</small></span></label>
       </fieldset>
       <fieldset class="work-areas">
         <legend class="visually-hidden">Research area</legend>
@@ -23,19 +27,27 @@ const selectedCount = publications.filter(pub => pub.authorship !== 'co-author')
         {topics.map(topic => <label><input type="radio" name="area" value={topic.id} /><span>{topic.title}</span></label>)}
       </fieldset>
     </form>
+    <noscript>
+      <style is:inline>
+        [data-publications] [data-publication][hidden] { display: grid !important; }
+        [data-publications] [data-publication-group][hidden] { display: block !important; }
+        #publication-results, #selection-note, [data-group-count] { display: none !important; }
+      </style>
+      <p class="small-note">All {publications.length} publications.</p>
+    </noscript>
     <div class="publication-list-note">
-      <p id="publication-results" role="status" aria-live="polite">{publications.length} publications</p>
-      <p id="selection-note" hidden>Selected work brings together first- and co-first-authored papers.</p>
+      <p id="publication-results" role="status" aria-live="polite">{selectedCount} selected publications</p>
+      <p id="selection-note">Selected first-author and first-listed co-first-author work.</p>
       <p class="contribution-note">* Equal contribution</p>
     </div>
-    {topics.map(topic => <section class="publication-group" data-publication-group={topic.id} data-kind={topic.kind} aria-labelledby={`heading-${topic.id}`}>
+    {groups.map(topic => <section class="publication-group" data-publication-group={topic.id} data-kind={topic.kind} aria-labelledby={`heading-${topic.id}`} hidden={topic.papers.length > 0 && topic.selectedCount === 0}>
       <header class="publication-group-heading">
         <p class="group-kicker">{topic.kind === 'supporting' ? 'Supporting work' : topic.kind === 'methods' ? 'Core methods' : 'Core applications'}</p>
-        <h2 id={`heading-${topic.id}`}>{topic.title}<span data-group-count>{publications.filter(pub => pub.topic === topic.id).length}</span></h2>
+        <h2 id={`heading-${topic.id}`}>{topic.title}<span data-group-count>{topic.selectedCount}</span></h2>
         <p>{topic.description}</p>
       </header>
-      {publications.filter(pub => pub.topic === topic.id).map(pub => <Publication pub={pub} />)}
-      {!publications.some(pub => pub.topic === topic.id) && <p class="publication-area-empty">{topic.empty_message ?? 'No publications yet.'}</p>}
+      {topic.papers.map(pub => <Publication pub={pub} hidden={!pub.selected} />)}
+      {topic.papers.length === 0 && <p class="publication-area-empty">{topic.empty_message ?? 'No publications yet.'}</p>}
     </section>)}
     <div id="publication-empty" class="empty-state" hidden><p>No selected papers in this area yet.</p><button type="button" id="reset-publications">Show all work</button></div>
   </div>
