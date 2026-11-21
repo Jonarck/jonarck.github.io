@@ -1,12 +1,12 @@
 - id: matter
   title: Matter design
   scope: Chemistry & biomedicine
-  description: Generating molecular structures with desired properties.
+  description: Molecular representation, property prediction, and goal-directed generation.
 
 - id: spatial
   title: Spatial design
   scope: Built environments
-  description: Computational approaches to architectural design, urban interventions, and planning decisions.
+  description: Analysis, simulation, and generation for architectural design and urban planning.
 
 - id: interaction
   title: Interaction design
@@ -17,4 +17,4 @@
 - id: supporting
   title: Supporting research
   scope: AI methods & related domain studies
-  description: Research that informs design, including molecular representation, mobility prediction, and time-series reasoning.
+  description: Research that informs design, including mobility prediction and time-series reasoning.

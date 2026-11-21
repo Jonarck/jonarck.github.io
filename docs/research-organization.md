@@ -10,7 +10,7 @@ Research in AI foundations and related domain questions also supports the design
 
 The library follows the About page's three directions in order: Matter design, Spatial design, and Interaction design. Each section names its application area. Supporting research brings together AI methods and domain studies that inform design. Authorship is an independent filter.
 
-The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to models that assist design. The CV frames the molecular representation work as a methodological foundation. The core groups contain work whose research question directly concerns generation, interventions, or design decisions. The spatial group includes statistical, computational, and AI methods applied to such questions.
+The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to models that assist design. The design groups cover prediction, simulation, evaluation, and generation when applied to a design question. Molecular property prediction supports the evaluation and screening of candidate molecules and belongs in Matter design.
 
 Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_Letter-ZhuoyangJIANG.pdf) and [CV](../public/research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf). Public paper records take precedence over stale titles and author lists in those application documents. Private application details and submission screenshots are not copied into the website.
 
@@ -23,11 +23,11 @@ Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_L
 | [Park-BIND](https://doi.org/10.3390/land15091572) | Spatial design | Network optimization evaluates park boundary-opening interventions | Co-first |
 | When Residents Report and Sensors Record | Spatial design | Resident and sensor evidence informs neighbourhood design | Co-author |
 | [Pocket park site selection](https://doi.org/10.1080/10630732.2024.2402676) | Spatial design | Site assessment supports planning decisions | Co-author |
-| [CamS](https://arxiv.org/abs/2601.02530) | Supporting research | Molecular representation and property prediction provide a methodological foundation for matter design | First |
+| [CamS](https://arxiv.org/abs/2601.02530) | Matter design | Molecular representation and property prediction support candidate evaluation and screening | First |
 | [Think Before You Act](https://arxiv.org/abs/2606.08122) | Supporting research | Travel-intention inference and location prediction contribute to understanding mobility | Co-author |
 | [RationaleTS](https://arxiv.org/abs/2601.02968) | Supporting research | General time-series reasoning with multimodal models | Co-author |
 
-The eight papers span Matter design (1), Spatial design (4), Interaction design (0), and Supporting research (3). Each paper has one primary area.
+The eight papers span Matter design (2), Spatial design (4), Interaction design (0), and Supporting research (2). Each paper has one primary area.
 
 On 26 October 2026, the user narrowed Selected work, then chose All work as the default view. The selected set is Floorplan and CamS (2 papers). First-author preprints remain eligible. Co-first authorship is eligible only when the user is listed first among the co-first authors; second-listed co-first papers are excluded. Park-BIND is excluded under the user's venue criterion (Land), and CAGenMol is excluded because the user is the second-listed co-first author. All 8 papers are visible initially under All work. Selection is stored explicitly with `selected: true` in the publication data, rather than inferred from any co-first authorship or from a venue-name keyword. Future additions should follow the user's editorial criteria.
 

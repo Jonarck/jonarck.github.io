@@ -85,7 +85,7 @@ Each entry in `src/data/publications.yml` has `title`, `year`, `published`, `ven
 - `topic` is one of `matter`, `spatial`, `interaction`, or `supporting`.
 - `authorship`: `first`, `co-first`, or `co-author`.
 - Research opens in All work. `selected: true` includes a paper in the optional Selected work view. The current selection is Floorplan and CamS: first-author preprints are included, while Land papers and second-listed co-first authorship are excluded. One-sentence summaries are not displayed.
-- Matter, spatial, and interaction design describe the three main directions. The supporting group covers AI methods and related domain studies, including CamS, IntentPOI, and RationaleTS.
+- Matter, spatial, and interaction design describe the three main directions. These include prediction, simulation, evaluation, and generation for design. CamS belongs to Matter design. IntentPOI and RationaleTS belong to Supporting research.
 - Native radio controls independently filter the curated selection and research area. Interaction design displays “Coming soon” while empty. Figures use uniform frames and an accessible enlarged view.
 - `author_highlight` in the profile data determines which author names are emphasized. `*` denotes equal contribution.
 
