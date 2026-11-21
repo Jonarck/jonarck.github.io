@@ -8,7 +8,13 @@ const profileSchema = z.object({
   name: z.string(), name_zh: z.string().optional(), headline: z.string(), location: z.string(), email: z.string().email(),
   links: z.object({ github: z.string().url(), linkedin: z.string().url(), scholar: z.string().url(), cv: z.string() }),
   about: z.string(),
-  highlights: z.array(z.object({ title: z.string(), text: z.string().optional(), support: z.string().optional(), items: z.array(z.object({ main: z.string(), subitems: z.array(z.string()) })).optional() })),
+  highlights: z.array(z.object({
+    title: z.string(),
+    text: z.string().optional(),
+    items: z.array(z.object({ main: z.string(), subitems: z.array(z.string()) })).optional(),
+    connections: z.string().optional(),
+    methods: z.string().optional(),
+  })),
   timeline: z.array(z.object({ date: z.string(), text: z.string() })),
   author_highlight: z.array(z.string()),
 });

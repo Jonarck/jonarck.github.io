@@ -84,7 +84,7 @@ main { flex: 0 0 auto; padding: 72px 0 100px; }
 .research-interests { display: grid; gap: 10px; list-style: none; padding: 0; margin: 0; }
 .research-intro { margin-bottom: 12px; }
 .research-interest-name { color: var(--text); font-weight: 500; }
-.research-support { margin-top: 14px; }
+.research-detail { margin-top: 14px; }
 @media print { .updates-scroll { block-size: auto; overflow: visible; } }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
 .section-heading > a { font-size: 12px; color: var(--muted); }

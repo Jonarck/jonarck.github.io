@@ -4,7 +4,7 @@
 
 The introduction presents AI-assisted design of matter, spaces, and human–AI interactions. The corresponding application areas are chemistry and biomedicine, built environments, and creativity, aesthetics, and education. "Matter design" covers the broad scope of the user's term 物质设计.
 
-Research in AI foundations and related domain questions also supports the design work. The shared methodological framework is data and representations, foundation models, agents, and interaction capabilities. Such supporting studies need not themselves solve a design task.
+Ideas from matter and interaction design inform spatial design. The research also explores ways for people to work with AI in matter and spatial design. Problems arising in these applications provide a starting point for developing AI methods in data and representations, foundation models, agents, and interaction capabilities.
 
 ## Current publication library
 
@@ -33,7 +33,7 @@ On 26 October 2026, the user narrowed Selected work, then chose All work as the 
 
 Interaction design remains visible with “Coming soon.” Its empty state is distinct from a filter returning no selected papers.
 
-About presents three plain list items under Research interests, pairing each design direction with its application area. A short paragraph describes the supporting research. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
+About presents three plain list items under Research interests, pairing each design direction with its application area. Two short paragraphs describe the intersections and the research on AI methods. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
 
 ## Bibliographic corrections and boundaries
 
