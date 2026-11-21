@@ -8,7 +8,7 @@ const profileSchema = z.object({
   name: z.string(), name_zh: z.string().optional(), headline: z.string(), location: z.string(), email: z.string().email(),
   links: z.object({ github: z.string().url(), linkedin: z.string().url(), scholar: z.string().url(), cv: z.string() }),
   about: z.string(),
-  highlights: z.array(z.object({ title: z.string(), text: z.string().optional(), items: z.array(z.object({ main: z.string(), subitems: z.array(z.string()) })).optional() })),
+  highlights: z.array(z.object({ title: z.string(), text: z.string().optional(), support: z.string().optional(), items: z.array(z.object({ main: z.string(), subitems: z.array(z.string()) })).optional() })),
   timeline: z.array(z.object({ date: z.string(), text: z.string() })),
   author_highlight: z.array(z.string()),
 });
@@ -28,7 +28,7 @@ export const topics = z.array(z.object({ id: z.enum(['molecules', 'environments'
 export type Publication = z.infer<typeof publicationSchema>;
 export const site = {
   name: profile.name,
-  description: 'Zhuoyang Jiang — AI and HCI for creativity and design, across the physical sciences, built environments, and entertainment.',
+  description: 'Zhuoyang Jiang — AI-assisted design of matter, spaces, and human–AI interactions, supported by research in AI foundations and application domains.',
 };
 export const navigation = [
   { title: 'About', url: '/' },

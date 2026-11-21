@@ -1,8 +1,14 @@
 # Research organization · 2026-10-25
 
-## Editorial decision
+## Research introduction update · 2026-11-22
 
-The user's current framing is AI and HCI for creativity and design for humans and built environments. Four core modules organize the research, in this order: Built environment, Physical sciences, Entertainment, and AI & HCI methods. Built environment is the first theme at the user's request. The three application areas use concise domain names because the shared “Core applications” label already describes their role. Related explorations remain a separate supporting module. Authorship is an independent filter.
+The introduction presents AI-assisted design of matter, spaces, and human–AI interactions. The corresponding application areas are chemistry and biomedicine, built environments, and creativity, aesthetics, and education. "Matter design" covers the broad scope of the user's term 物质设计.
+
+Research in AI foundations and related domain questions also supports the design work. The shared methodological framework is data and representations, foundation models, agents, and interaction capabilities. Such supporting studies need not themselves solve a design task.
+
+## Current publication library
+
+The library lists Built environment, Physical sciences, Entertainment, and AI & HCI methods in that order. Built environment comes first at the user's request. The three application areas use concise domain names under the shared “Core applications” label. Related explorations is a supporting module. Authorship is an independent filter.
 
 The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to design-assistive models. The CV explicitly frames the molecular representation work as a methodological foundation. The user's current instruction broadens this design focus to molecular structures, built environments, creativity, interaction, and film. The resulting taxonomy is an editorial synthesis, not a claim that every paper already addresses all these areas.
 
@@ -27,7 +33,7 @@ On 26 October 2026, the user narrowed Selected work, then chose All work as the 
 
 Entertainment and AI & HCI methods remain visible with “Coming soon,” as requested by the user. Their empty state is distinct from a filter returning no selected papers. The user identifies an unpublished project as belonging to AI & HCI methods and requests leaving that module empty for now; no project title, publication claim, or placeholder paper is added publicly.
 
-About presents three plain list items under Research interests: the intersection, the design domains, and the methods, without Applications or Methods labels. On wide screens, About aligns with the combined height of Education and Recent updates; the updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
+About presents three plain list items under Research interests, pairing each design direction with its application area. A short paragraph describes the supporting research. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
 
 ## Bibliographic corrections and boundaries
 

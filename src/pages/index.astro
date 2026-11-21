@@ -41,10 +41,11 @@ const personal = profile.highlights.find(item => item.title === 'Outside Work');
       <div class="prose about-text" set:html={about} />
       <dl class="profile-details">
         <div><dt>Research interests</dt><dd>
+          <p class="research-intro">{interests?.text}</p>
           <ul class="research-interests">
-            <li>{interests?.text}</li>
-            {interests?.items?.map(item => <li>{item.subitems.join(' · ')}</li>)}
+            {interests?.items?.map(item => <li><span class="research-interest-name">{item.main}</span> · {item.subitems.join(' · ')}</li>)}
           </ul>
+          {interests?.support && <p class="research-support">{interests.support}</p>}
         </dd></div>
         <div><dt>Outside work</dt><dd>{personal?.text}</dd></div>
       </dl>

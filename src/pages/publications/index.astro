@@ -1,18 +1,19 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Publication from '../../components/Publication.astro';
-import { publications, topics } from '../../lib/site';
+import { profile, publications, topics } from '../../lib/site';
 import '../../styles/publications.css';
+const interests = profile.highlights.find(item => item.title === 'Research Interests');
 const selectedCount = publications.filter(pub => pub.selected).length;
 const groups = topics.map(topic => {
   const papers = publications.filter(pub => pub.topic === topic.id);
   return { ...topic, papers };
 });
 ---
-<PageLayout title="Research" description="AI and HCI for creativity and design: built environments, physical sciences, entertainment, methods research, and related explorations.">
+<PageLayout title="Research">
   <header class="page-heading research-heading">
     <h1>Research</h1>
-    <p>AI & HCI for creativity and design.</p>
+    <p>{interests?.text}</p>
   </header>
   <div class="research-library" data-publications>
     <form class="publication-filters" aria-label="Filter publications" hidden>

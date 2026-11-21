@@ -11,7 +11,7 @@ links:
   cv: /research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf
 
 about: |-
-  I'm a Research Assistant at [CityMind Lab](https://citymind.top/), HKUST(GZ). My recent research focuses on multimodal representation learning for unified understanding-and-generation autoregressive models in urban planning and architectural design.
+  I'm a Research Assistant at [CityMind Lab](https://citymind.top/), HKUST(GZ). I work on multimodal models that combine understanding and generation for architectural design and urban planning.
 
   Previously, I worked on representation learning at [Microsoft Research AI for Science](https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/) and the [Zhongguancun Institute of AI](https://www.bjzgca.edu.cn/en/organization). I also explored human-AI interaction projects on human cognition modeling and cognitive assistance at the [Augmenting & People by Empowering X (APEX) Group](https://www.mingmingfan.com/), HKUST(GZ).
 
@@ -27,18 +27,18 @@ highlights:
         subitems:
           - Capstone co-supervised by the School of Architecture
   - title: Research Interests
-    text: AI & HCI for Creativity & Design for Humans & Built Environments.
+    text: My research centers on AI-assisted design of matter, spaces, and human–AI interactions.
     items:
-      - main: Applications
+      - main: Matter design
         subitems:
-          - Chemical design
-          - Built environment design
-          - Entertainment design
-      - main: Methods
+          - Chemistry & biomedicine
+      - main: Spatial design
         subitems:
-          - Structural representation & generation
-          - Foundation models & agentic systems
-          - Intelligent interaction
+          - Built environments
+      - main: Interaction design
+        subitems:
+          - Creativity, aesthetics & education
+    support: I also study AI foundations and related questions in these fields. That work informs how I use data and representations, foundation models, AI agents, and interaction capabilities in design.
   - title: Outside Work
     text: Architecture, historical sites, music history, and anime.
 
