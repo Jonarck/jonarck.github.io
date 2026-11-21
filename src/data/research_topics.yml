@@ -1,26 +1,20 @@
-- id: environments
-  title: Built environment
-  kind: application
-  description: Architectural and urban design, planning, and human experience.
+- id: matter
+  title: Matter design
+  scope: Chemistry & biomedicine
+  description: Generating molecular structures with desired properties.
 
-- id: molecules
-  title: Physical sciences
-  kind: application
-  description: Molecular representation, property prediction, and generation.
+- id: spatial
+  title: Spatial design
+  scope: Built environments
+  description: Computational approaches to architectural design, urban interventions, and planning decisions.
 
-- id: entertainment
-  title: Entertainment
-  kind: application
-  description: Design and creativity in film, storytelling, and entertainment.
+- id: interaction
+  title: Interaction design
+  scope: Creativity, aesthetics & education
+  description: Designing how people interact with AI while creating, exploring aesthetics, and learning.
   empty_message: Coming soon
 
-- id: methods
-  title: AI & HCI methods
-  kind: methods
-  description: Structural representation and generation, foundation models and agentic systems, and intelligent interaction.
-  empty_message: Coming soon
-
-- id: explorations
-  title: Related explorations
-  kind: supporting
-  description: Collaborative work on temporal reasoning and mobility prediction, beyond the central design focus.
+- id: supporting
+  title: Supporting research
+  scope: AI methods & related domain studies
+  description: Research that informs design, including molecular representation, mobility prediction, and time-series reasoning.

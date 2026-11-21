@@ -8,7 +8,7 @@
   venue: arXiv
   status: preprint
   authors: Zhuoyang Jiang, Dongqing Zhang, Qingxiang Liu, Yuxuan Liang
-  topic: environments
+  topic: spatial
   focus: Design theory & generation
   authorship: first
   url: https://arxiv.org/abs/2602.22507
@@ -27,7 +27,7 @@
   venue: Land · 15(9), 1572
   status: published
   authors: Dongqing Zhang*, Zhuoyang Jiang*, Jiaxin Xue, Yi Wan
-  topic: environments
+  topic: spatial
   focus: Urban design & optimization
   authorship: co-first
   url: https://doi.org/10.3390/land15091572
@@ -45,7 +45,7 @@
   venue: ICHEC
   status: accepted
   authors: Dongqing Zhang, Zhuoyang Jiang, Qinglai Zhang, Yajun Wen, Yifan Yu
-  topic: environments
+  topic: spatial
   focus: Human experience & design evidence
   authorship: co-author
   image:
@@ -62,7 +62,7 @@
   venue: Journal of Urban Technology · 31(4–5), 191–217
   status: published
   authors: Conghui Zhou, Liuyi Yang, Zhuoyang Jiang, Xinyu Wu
-  topic: environments
+  topic: spatial
   focus: Site selection & planning
   authorship: co-author
   url: https://doi.org/10.1080/10630732.2024.2402676
@@ -80,7 +80,7 @@
   venue: Findings of ACL · 4720–4738
   status: published
   authors: Yanting Li*, Zhuoyang Jiang*, Enyan Dai, Lei Wang, Wen-Cai Ye, Li Liu
-  topic: molecules
+  topic: matter
   focus: Conditional generation
   authorship: co-first
   url: https://aclanthology.org/2026.findings-acl.232/
@@ -101,8 +101,8 @@
   venue: arXiv
   status: preprint
   authors: Zhuoyang Jiang, Yaosen Min, Peiran Jin, Lei Chen
-  topic: molecules
-  focus: Representation & property prediction
+  topic: supporting
+  focus: Molecular representation & property prediction
   authorship: first
   url: https://arxiv.org/abs/2601.02530
   pdf: https://arxiv.org/pdf/2601.02530
@@ -120,7 +120,7 @@
   venue: arXiv
   status: preprint
   authors: Qingxiang Liu, Anqi Liang, Zhuoyang Jiang, Yutian Jiang, Sisuo Lyu, Yu Ji, Haomin Wen, Yuxuan Liang
-  topic: explorations
+  topic: supporting
   focus: Mobility prediction
   authorship: co-author
   url: https://arxiv.org/abs/2606.08122
@@ -139,7 +139,7 @@
   venue: arXiv
   status: preprint
   authors: Qingxiang Liu, Zhiqing Cui, Xiaoliang Luo, Yuqian Wu, Zhuoyang Jiang, Huaiyu Wan, Sheng Sun, Lvchun Wang, Wei Yu, Yuxuan Liang
-  topic: explorations
+  topic: supporting
   focus: Time-series reasoning
   authorship: co-author
   url: https://arxiv.org/abs/2601.02968

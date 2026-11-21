@@ -33,9 +33,9 @@ const groups = topics.map(topic => {
       <p id="selection-note" hidden>Selected first-author and first-listed co-first-author work.</p>
       <p class="contribution-note">* Equal contribution</p>
     </div>
-    {groups.map(topic => <section class="publication-group" data-publication-group={topic.id} data-kind={topic.kind} aria-labelledby={`heading-${topic.id}`}>
+    {groups.map(topic => <section class="publication-group" data-publication-group={topic.id} aria-labelledby={`heading-${topic.id}`}>
       <header class="publication-group-heading">
-        <p class="group-kicker">{topic.kind === 'supporting' ? 'Supporting work' : topic.kind === 'methods' ? 'Core methods' : 'Core applications'}</p>
+        <p class="group-kicker">{topic.scope}</p>
         <h2 id={`heading-${topic.id}`}>{topic.title}<span data-group-count>{topic.papers.length}</span></h2>
         <p>{topic.description}</p>
       </header>

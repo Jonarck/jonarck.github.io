@@ -8,9 +8,9 @@ Research in AI foundations and related domain questions also supports the design
 
 ## Current publication library
 
-The library lists Built environment, Physical sciences, Entertainment, and AI & HCI methods in that order. Built environment comes first at the user's request. The three application areas use concise domain names under the shared “Core applications” label. Related explorations is a supporting module. Authorship is an independent filter.
+The library follows the About page's three directions in order: Matter design, Spatial design, and Interaction design. Each section names its application area. Supporting research brings together AI methods and domain studies that inform design. Authorship is an independent filter.
 
-The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to design-assistive models. The CV explicitly frames the molecular representation work as a methodological foundation. The user's current instruction broadens this design focus to molecular structures, built environments, creativity, interaction, and film. The resulting taxonomy is an editorial synthesis, not a claim that every paper already addresses all these areas.
+The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to models that assist design. The CV frames the molecular representation work as a methodological foundation. The core groups contain work whose research question directly concerns generation, interventions, or design decisions. The spatial group includes statistical, computational, and AI methods applied to such questions.
 
 Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_Letter-ZhuoyangJIANG.pdf) and [CV](../public/research_pathway_pdf/2.CV-ZhuoyangJIANG.pdf). Public paper records take precedence over stale titles and author lists in those application documents. Private application details and submission screenshots are not copied into the website.
 
@@ -18,20 +18,20 @@ Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_L
 
 | Paper | Website area | Relationship to design | Contribution |
 | --- | --- | --- | --- |
-| [Rethinking Floorplan Generation](https://arxiv.org/abs/2602.22507) | Built environments | Architectural theory supplies representations, measurements, and feedback for generation | First |
-| [Park-BIND](https://doi.org/10.3390/land15091572) | Built environments | Evaluates concrete boundary-opening interventions, rather than merely predicting mobility | Co-first |
-| When Residents Report and Sensors Record | Built environments | Resident and sensor evidence for neighbourhood design; description limited to the title | Co-author |
-| [Pocket park site selection](https://doi.org/10.1080/10630732.2024.2402676) | Built environments | Site assessment supports planning decisions | Co-author |
-| [CAGenMol](https://aclanthology.org/2026.findings-acl.232/) | Physical sciences | Direct conditional generation of molecular structures | Co-first |
-| [CamS](https://arxiv.org/abs/2601.02530) | Physical sciences | Molecular representation and property prediction; grouped by its scientific domain at the user's request | First |
-| [Think Before You Act](https://arxiv.org/abs/2606.08122) | Related explorations | Location prediction without a direct design intervention in this paper | Co-author |
-| [RationaleTS](https://arxiv.org/abs/2601.02968) | Related explorations | General time-series reasoning, without a direct design task | Co-author |
+| [CAGenMol](https://aclanthology.org/2026.findings-acl.232/) | Matter design | Direct conditional generation of molecular structures | Co-first |
+| [Rethinking Floorplan Generation](https://arxiv.org/abs/2602.22507) | Spatial design | Architectural theory supplies representations, measurements, and feedback for generation | First |
+| [Park-BIND](https://doi.org/10.3390/land15091572) | Spatial design | Network optimization evaluates park boundary-opening interventions | Co-first |
+| When Residents Report and Sensors Record | Spatial design | Resident and sensor evidence informs neighbourhood design | Co-author |
+| [Pocket park site selection](https://doi.org/10.1080/10630732.2024.2402676) | Spatial design | Site assessment supports planning decisions | Co-author |
+| [CamS](https://arxiv.org/abs/2601.02530) | Supporting research | Molecular representation and property prediction provide a methodological foundation for matter design | First |
+| [Think Before You Act](https://arxiv.org/abs/2606.08122) | Supporting research | Travel-intention inference and location prediction contribute to understanding mobility | Co-author |
+| [RationaleTS](https://arxiv.org/abs/2601.02968) | Supporting research | General time-series reasoning with multimodal models | Co-author |
 
-Counts: 8 papers; 4 Built environment papers, 2 Physical sciences papers, 0 Entertainment papers, 0 AI & HCI methods papers, and 2 Related explorations. Each paper has one primary area.
+The eight papers span Matter design (1), Spatial design (4), Interaction design (0), and Supporting research (3). Each paper has one primary area.
 
 On 26 October 2026, the user narrowed Selected work, then chose All work as the default view. The selected set is Floorplan and CamS (2 papers). First-author preprints remain eligible. Co-first authorship is eligible only when the user is listed first among the co-first authors; second-listed co-first papers are excluded. Park-BIND is excluded under the user's venue criterion (Land), and CAGenMol is excluded because the user is the second-listed co-first author. All 8 papers are visible initially under All work. Selection is stored explicitly with `selected: true` in the publication data, rather than inferred from any co-first authorship or from a venue-name keyword. Future additions should follow the user's editorial criteria.
 
-Entertainment and AI & HCI methods remain visible with “Coming soon,” as requested by the user. Their empty state is distinct from a filter returning no selected papers. The user identifies an unpublished project as belonging to AI & HCI methods and requests leaving that module empty for now; no project title, publication claim, or placeholder paper is added publicly.
+Interaction design remains visible with “Coming soon.” Its empty state is distinct from a filter returning no selected papers.
 
 About presents three plain list items under Research interests, pairing each design direction with its application area. A short paragraph describes the supporting research. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
 

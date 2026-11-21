@@ -12,10 +12,18 @@ const profileSchema = z.object({
   timeline: z.array(z.object({ date: z.string(), text: z.string() })),
   author_highlight: z.array(z.string()),
 });
+const researchTopicId = z.enum(['matter', 'spatial', 'interaction', 'supporting']);
+const researchTopicSchema = z.object({
+  id: researchTopicId,
+  title: z.string(),
+  scope: z.string(),
+  description: z.string(),
+  empty_message: z.string().optional(),
+});
 const publicationSchema = z.object({
   id: z.string(), title: z.string(), summary: z.string(), year: z.number(),
   published: z.string().regex(/^\d{4}(-\d{2}-\d{2})?$/), venue: z.string(), authors: z.string(),
-  topic: z.enum(['molecules', 'environments', 'entertainment', 'methods', 'explorations']),
+  topic: researchTopicId,
   focus: z.string(), status: z.enum(['published', 'preprint', 'accepted']),
   authorship: z.enum(['first', 'co-first', 'co-author']),
   selected: z.boolean().default(false),
@@ -24,7 +32,7 @@ const publicationSchema = z.object({
 });
 export const profile = profileSchema.parse(parse(profileSource));
 export const publications = z.array(publicationSchema).parse(parse(publicationSource)).sort((a, b) => b.published.localeCompare(a.published));
-export const topics = z.array(z.object({ id: z.enum(['molecules', 'environments', 'entertainment', 'methods', 'explorations']), title: z.string(), kind: z.enum(['application', 'methods', 'supporting']), description: z.string(), empty_message: z.string().optional() })).parse(parse(topicSource));
+export const topics = z.array(researchTopicSchema).parse(parse(topicSource));
 export type Publication = z.infer<typeof publicationSchema>;
 export const site = {
   name: profile.name,
