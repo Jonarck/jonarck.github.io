@@ -82,11 +82,11 @@ Write the project description below the front matter. Projects sort by date, new
 Each entry in `src/data/publications.yml` has `title`, `year`, `published`, `venue`, `authors`, `topic`, `authorship`, `tags`, and `url`. Optional fields are `summary`, `code`, and `image`.
 
 - `published` is a quoted date (`YYYY-MM-DD`, or `YYYY` if only the year is known), used for reverse chronological ordering.
-- `topic` is one of `matter`, `spatial`, `interaction`, or `supporting`.
+- `topic` is one of `matter`, `spatial`, `interaction`, `media`, or `supporting`.
 - `authorship`: `first`, `co-first`, or `co-author`.
 - Research opens in All work. `selected: true` includes a paper in the optional Selected work view. The current selection is Floorplan and CamS: first-author preprints are included, while Land papers and second-listed co-first authorship are excluded. One-sentence summaries are not displayed.
-- Matter, spatial, and interaction design describe the three main directions. These include prediction, simulation, evaluation, and generation for design. CamS belongs to Matter design. IntentPOI and RationaleTS belong to Supporting research.
-- Native radio controls independently filter the curated selection and research area. Interaction design displays “Coming soon” while empty. Figures use uniform frames and an accessible enlarged view.
+- About and Research share the four design directions and their scopes from `research_topics.yml`. They appear as Matter, Space, Interaction, and Media. CamS belongs to Matter. IntentPOI and RationaleTS belong to Supporting research.
+- Native radio controls independently filter the curated selection and research area. Interaction and Media display “Coming soon” while empty. Figures use uniform frames and an accessible enlarged view.
 - `author_highlight` in the profile data determines which author names are emphasized. `*` denotes equal contribution.
 
 ## Deploy

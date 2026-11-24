@@ -18,7 +18,7 @@ const profileSchema = z.object({
   timeline: z.array(z.object({ date: z.string(), text: z.string() })),
   author_highlight: z.array(z.string()),
 });
-const researchTopicId = z.enum(['matter', 'spatial', 'interaction', 'supporting']);
+const researchTopicId = z.enum(['matter', 'spatial', 'interaction', 'media', 'supporting']);
 const researchTopicSchema = z.object({
   id: researchTopicId,
   title: z.string(),
@@ -42,7 +42,7 @@ export const topics = z.array(researchTopicSchema).parse(parse(topicSource));
 export type Publication = z.infer<typeof publicationSchema>;
 export const site = {
   name: profile.name,
-  description: 'Zhuoyang Jiang — AI-assisted design of matter, spaces, and human–AI interactions, supported by research in AI foundations and application domains.',
+  description: 'Zhuoyang Jiang studies AI-assisted design across matter, space, interaction, and media, and develops AI methods informed by design problems.',
 };
 export const navigation = [
   { title: 'About', url: '/' },

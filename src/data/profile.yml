@@ -27,19 +27,9 @@ highlights:
         subitems:
           - Capstone co-supervised by the School of Architecture
   - title: Research Interests
-    text: My research centers on AI-assisted design of matter, spaces, and human–AI interactions.
-    items:
-      - main: Matter design
-        subitems:
-          - Chemistry & biomedicine
-      - main: Spatial design
-        subitems:
-          - Built environments
-      - main: Interaction design
-        subitems:
-          - Creativity, aesthetics & education
-    connections: I explore how ideas from matter design and interaction design can inform spatial design, and how people can work with AI when designing matter and spaces.
-    methods: I also study AI foundations and related questions in these fields. I take problems from design applications as a starting point for developing AI methods, from data and representations to foundation models, AI agents, and interaction capabilities.
+    text: I study AI-assisted design across matter, space, interaction, and media.
+    connections: I explore how molecular representations can inform spatial layouts and how designers guide AI in both settings. In film and fiction, I’m interested in how creators steer AI to shape an audience’s experience, whether by moving a camera within a scene or choosing when a reader learns a character’s secret.
+    methods: I also study AI foundations and related questions in these fields. Across all four areas, design problems motivate my research on how to represent structures and sequences in data, adapt foundation models, and build agents that can revise a design in response to human feedback.
   - title: Outside Work
     text: Architecture, historical sites, music history, and anime.
 

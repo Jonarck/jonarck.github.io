@@ -1,14 +1,14 @@
 # Research organization · 2026-10-25
 
-## Research introduction update · 2026-11-22
+## Research introduction update · 2026-11-25
 
-The introduction presents AI-assisted design of matter, spaces, and human–AI interactions. The corresponding application areas are chemistry and biomedicine, built environments, and creativity, aesthetics, and education. "Matter design" covers the broad scope of the user's term 物质设计.
+About and Research share four design areas and their application domains from `src/data/research_topics.yml`. Matter covers chemistry and biomedicine, Space covers built environments, Interaction covers human–AI collaboration and learning, and Media covers film, fiction, and visual communication.
 
-Ideas from matter and interaction design inform spatial design. The research also explores ways for people to work with AI in matter and spatial design. Problems arising in these applications provide a starting point for developing AI methods in data and representations, foundation models, agents, and interaction capabilities.
+The introduction connects molecular and spatial representations, human guidance of AI in design, and the use of space and timing to direct an audience’s attention. Design problems across the four areas also motivate research on data representations, foundation models, agents, and interaction capabilities.
 
 ## Current publication library
 
-The library follows the About page's three directions in order: Matter design, Spatial design, and Interaction design. Each section names its application area. Supporting research brings together AI methods and domain studies that inform design. Authorship is an independent filter.
+Supporting research follows the four design areas in the publication library and covers broader AI methods and domain studies. Authorship is an independent filter.
 
 The motivation letter describes a progression from architecture and urban planning to structured representation learning and back to models that assist design. The design groups cover prediction, simulation, evaluation, and generation when applied to a design question. Molecular property prediction supports the evaluation and screening of candidate molecules and belongs in Matter design.
 
@@ -27,13 +27,13 @@ Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_L
 | [Think Before You Act](https://arxiv.org/abs/2606.08122) | Supporting research | Travel-intention inference and location prediction contribute to understanding mobility | Co-author |
 | [RationaleTS](https://arxiv.org/abs/2601.02968) | Supporting research | General time-series reasoning with multimodal models | Co-author |
 
-The eight papers span Matter design (2), Spatial design (4), Interaction design (0), and Supporting research (2). Each paper has one primary area.
+The eight papers span Matter (2), Space (4), Interaction (0), Media (0), and Supporting research (2). Each paper has one primary area.
 
 On 26 October 2026, the user narrowed Selected work, then chose All work as the default view. The selected set is Floorplan and CamS (2 papers). First-author preprints remain eligible. Co-first authorship is eligible only when the user is listed first among the co-first authors; second-listed co-first papers are excluded. Park-BIND is excluded under the user's venue criterion (Land), and CAGenMol is excluded because the user is the second-listed co-first author. All 8 papers are visible initially under All work. Selection is stored explicitly with `selected: true` in the publication data, rather than inferred from any co-first authorship or from a venue-name keyword. Future additions should follow the user's editorial criteria.
 
-Interaction design remains visible with “Coming soon.” Its empty state is distinct from a filter returning no selected papers.
+Interaction and Media display “Coming soon” while empty.
 
-About presents three plain list items under Research interests, pairing each design direction with its application area. Two short paragraphs describe the intersections and the research on AI methods. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
+About lists each design direction with its application area under Research interests. Two short paragraphs describe the intersections and the research on AI methods. On wide screens, About aligns with the combined height of Education and Recent updates. The updates region fills the remaining space and scrolls internally. On narrow screens the three panels stack and updates uses a fixed-height scrolling region. The full timeline supports keyboard scrolling without JavaScript or an expand action.
 
 ## Bibliographic corrections and boundaries
 

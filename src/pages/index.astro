@@ -4,12 +4,13 @@ import PageLayout from '../layouts/PageLayout.astro';
 import ArrowCard from '../components/ArrowCard.astro';
 import VisitorMap from '../components/VisitorMap.astro';
 import NameScripts from '../components/NameScripts.astro';
-import { profile } from '../lib/site';
+import { profile, topics } from '../lib/site';
 import { primaryPosts } from '../lib/content';
 const posts = (await primaryPosts()).slice(0, 3);
 const about = marked.parse(profile.about);
 const education = profile.highlights.find(item => item.title === 'Education');
 const interests = profile.highlights.find(item => item.title === 'Research Interests');
+const designAreas = topics.filter(topic => topic.id !== 'supporting');
 const personal = profile.highlights.find(item => item.title === 'Outside Work');
 ---
 <PageLayout title="About">
@@ -43,7 +44,7 @@ const personal = profile.highlights.find(item => item.title === 'Outside Work');
         <div><dt>Research interests</dt><dd>
           <p class="research-intro">{interests?.text}</p>
           <ul class="research-interests">
-            {interests?.items?.map(item => <li><span class="research-interest-name">{item.main}</span> · {item.subitems.join(' · ')}</li>)}
+            {designAreas.map(topic => <li><span class="research-interest-name">{topic.title}</span> · {topic.scope}</li>)}
           </ul>
           {interests?.connections && <p class="research-detail">{interests.connections}</p>}
           {interests?.methods && <p class="research-detail">{interests.methods}</p>}

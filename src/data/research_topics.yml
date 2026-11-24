@@ -1,20 +1,26 @@
 - id: matter
-  title: Matter design
+  title: Matter
   scope: Chemistry & biomedicine
   description: Molecular representation, property prediction, and goal-directed generation.
 
 - id: spatial
-  title: Spatial design
+  title: Space
   scope: Built environments
   description: Analysis, simulation, and generation for architectural design and urban planning.
 
 - id: interaction
-  title: Interaction design
-  scope: Creativity, aesthetics & education
-  description: Designing how people interact with AI while creating, exploring aesthetics, and learning.
+  title: Interaction
+  scope: Human–AI collaboration & learning
+  description: How people guide AI, reflect on its responses, and learn through interaction.
+  empty_message: Coming soon
+
+- id: media
+  title: Media
+  scope: Film, fiction & visual communication
+  description: How images, sound, and language shape narrative and aesthetic experience.
   empty_message: Coming soon
 
 - id: supporting
   title: Supporting research
   scope: AI methods & related domain studies
-  description: Research that informs design, including mobility prediction and time-series reasoning.
+  description: Broader questions about AI and its application domains, including how models reason about time and predict human mobility.
