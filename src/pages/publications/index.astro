@@ -30,7 +30,6 @@ const groups = topics.map(topic => {
     </form>
     <div class="publication-list-note">
       <p id="publication-results" role="status" aria-live="polite">{publications.length} publications</p>
-      <p id="selection-note" hidden>Selected first-author and first-listed co-first-author work.</p>
       <p class="contribution-note">* Equal contribution</p>
     </div>
     {groups.map(topic => <section class="publication-group" data-publication-group={topic.id} aria-labelledby={`heading-${topic.id}`}>

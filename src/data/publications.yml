@@ -58,6 +58,7 @@
     alt: TRACE evidence-processing workflow, with conceptual roles for residents and design professionals.
     caption: "Figure 4: TRACE evidence-processing stages and proposed resident/professional roles. The paper evaluates the analytical stages, not an interactive deployment."
 - id: pocketpark
+  selected: true
   title: A Deep Learning Approach to Identify Potential Sites for Pocket Park Installation in Nanjing, China
   summary: Assessing street-view imagery to identify potential pocket park sites and support urban planning decisions.
   year: 2024

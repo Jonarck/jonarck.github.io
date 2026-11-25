@@ -62,7 +62,6 @@
   .publication-filters label > span { font-size: 11px; min-height: 40px; padding-inline: 8px; }
   .publication-filters .work-areas { gap: 2px; }
   .publication-list-note { padding-block: 9px; align-items: baseline; }
-  #selection-note { order: 3; flex-basis: 100%; }
   .publication-group { margin-top: 22px; }
   .publication-group + .publication-group { margin-top: 40px; }
   .publication-group-heading h2 { font-size: 19px; }

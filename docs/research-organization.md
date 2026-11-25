@@ -29,7 +29,7 @@ Local sources: [motivation letter](../public/research_pathway_pdf/1.Motivation_L
 
 The eight papers span Matter (2), Space (4), Interaction (0), Media (0), and Supporting research (2). Each paper has one primary area.
 
-On 26 October 2026, the user narrowed Selected work, then chose All work as the default view. The selected set is Floorplan and CamS (2 papers). First-author preprints remain eligible. Co-first authorship is eligible only when the user is listed first among the co-first authors; second-listed co-first papers are excluded. Park-BIND is excluded under the user's venue criterion (Land), and CAGenMol is excluded because the user is the second-listed co-first author. All 8 papers are visible initially under All work. Selection is stored explicitly with `selected: true` in the publication data, rather than inferred from any co-first authorship or from a venue-name keyword. Future additions should follow the user's editorial criteria.
+All work is the default view and includes all eight publications. The author selected Floorplan, CamS, and the Nanjing pocket park site-selection study. Set `selected: true` on each chosen publication. Each entry retains its own authorship metadata.
 
 Interaction and Media display “Coming soon” while empty.
 
@@ -56,4 +56,4 @@ All eight papers have source figures. ICHEC uses Figure 4 from the user-supplied
 
 Before this redesign, working source and built preview were saved in `tools/ui-preview/snapshots/before-publication-redesign-2026-10-25/`, with SHA-256 manifest and restore instructions. Restore into a separate directory. Earlier architecture and glass snapshots remain available.
 
-Run `npm run build`, `npm run verify`, and `node tools/ui-preview/verify-selected-work.mjs` against the local preview on port 4180. The selection check covers the eight-paper default, the two-paper selected subset, independent research-area filters, the empty-result reset, author badges, initial HTML, no-JavaScript fallback, and responsive overflow. Earlier research-redesign screenshots and tests retain previous selection behavior.
+Run `npm run build`, `npm run verify`, and `node tools/ui-preview/verify-selected-work.mjs` against the local preview on port 4180. The selection check covers the eight-paper default, the three selected papers, independent research-area filters, the empty-result reset, author badges, initial HTML, no-JavaScript fallback, and responsive overflow. Earlier research-redesign screenshots and tests retain previous selection behavior.

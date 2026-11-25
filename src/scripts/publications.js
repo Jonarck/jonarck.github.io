@@ -4,7 +4,6 @@ if (library) {
   const rows = [...library.querySelectorAll('[data-publication]')];
   const groups = [...library.querySelectorAll('[data-publication-group]')];
   const results = document.getElementById('publication-results');
-  const selectionNote = document.getElementById('selection-note');
   const empty = document.getElementById('publication-empty');
 
   function render() {
@@ -27,7 +26,6 @@ if (library) {
       group.querySelector('[data-group-count]').textContent = String(count);
     }
     results.textContent = `${visible} ${selection === 'selected' ? 'selected ' : ''}publication${visible === 1 ? '' : 's'}`;
-    selectionNote.hidden = selection !== 'selected';
     empty.hidden = visible !== 0 || visibleEmptyArea;
   }
   form.hidden = false;
