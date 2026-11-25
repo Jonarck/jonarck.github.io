@@ -10,6 +10,7 @@
     "preview": "astro preview --host 127.0.0.1 --port 4173",
     "check": "astro check",
     "verify": "node tools/verify-build.mjs",
+    "paper-notes": "node tools/paper-notes/server.mjs",
     "astro": "astro"
   },
   "dependencies": {

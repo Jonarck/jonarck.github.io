@@ -89,6 +89,8 @@ Each entry in `src/data/publications.yml` has `title`, `year`, `published`, `ven
 - Native radio controls independently filter the curated selection and research area. Interaction and Media display “Coming soon” while empty. Figures use uniform frames and an accessible enlarged view.
 - `author_highlight` in the profile data determines which author names are emphasized. `*` denotes equal contribution.
 
+Run `npm run paper-notes` to open the author worksheet at `http://127.0.0.1:4181/`. It reads the publication list and saves drafts by paper ID under `.local/paper-notes/` on this computer. When ready for publication, add the author's wording under that paper's optional `notes` mapping in `src/data/publications.yml`. The fields are `origin`, `period`, and `contribution`. Populated fields appear in a collapsed “Behind the paper” section on Research.
+
 ## Deploy
 
 `.github/workflows/deploy.yml` installs dependencies from the committed lockfile, checks and builds Astro, and deploys `dist/` to GitHub Pages on a push to `main` or a manual workflow run. GitHub Pages should use **GitHub Actions** as its source. This repository is a user site, so no base path is required.

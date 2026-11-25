@@ -3,6 +3,11 @@ import { profile, type Publication } from '../lib/site';
 interface Props { pub: Publication; hidden?: boolean }
 const { pub, hidden = false } = Astro.props;
 const leadAuthor = pub.authorship !== 'co-author';
+const notes = [
+  { label: 'Idea origin', text: pub.notes?.origin },
+  { label: 'Core work period', text: pub.notes?.period },
+  { label: 'My contribution', text: pub.notes?.contribution },
+].filter(note => note.text);
 ---
 <article class="publication pub-row" id={pub.id} data-publication data-topic={pub.topic} data-selected={String(pub.selected)} hidden={hidden}>
   <div class="pub-visual">
@@ -26,5 +31,9 @@ const leadAuthor = pub.authorship !== 'co-author';
       </div>
       {leadAuthor && <span class="authorship">{pub.authorship === 'first' ? 'First author' : 'Co-first author'}</span>}
     </div>
+    {notes.length > 0 && <details class="pub-notes">
+      <summary>Behind the paper</summary>
+      <dl>{notes.map(note => <div><dt>{note.label}</dt><dd>{note.text}</dd></div>)}</dl>
+    </details>}
   </div>
 </article>

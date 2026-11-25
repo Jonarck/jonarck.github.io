@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>论文手记 · 蒋卓洋</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #f6f6f9; --surface: #fdfdfef0; --text: #252731; --muted: #595e70; --line: #d7d9e3; --accent: #515b8c; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #191a21; --surface: #23242df2; --text: #f3f2f7; --muted: #b6b8c8; --line: #444754; --accent: #bac6ff; }
+    }
+    * { box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, sans-serif; margin: 0; }
+    main { max-width: 52rem; margin: auto; padding: clamp(28px, 6vw, 72px) clamp(16px, 4vw, 34px); }
+    h1 { margin: 0; font-size: clamp(28px, 5vw, 38px); }
+    header p { margin: 6px 0 0; }
+    #progress, small, .status, .count { color: var(--muted); font-size: 14px; }
+    #progress { margin: 24px 0 12px; }
+    details { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin: 10px 0; }
+    summary { cursor: pointer; padding: 16px 20px; overflow-wrap: anywhere; }
+    summary::marker { color: var(--accent); }
+    summary strong { font-size: 16px; font-weight: 600; }
+    summary small { display: block; margin-top: 3px; }
+    form { padding: 0 20px 18px; }
+    label { display: block; font-weight: 600; margin-bottom: 14px; }
+    textarea { display: block; width: 100%; min-height: 4.5rem; resize: vertical; margin-top: 4px; padding: 9px 12px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 7px; font: 400 16px/1.5 system-ui, sans-serif; }
+    textarea::placeholder { color: var(--muted); opacity: 1; }
+    button { min-height: 42px; padding: 6px 16px; border: 1px solid var(--accent); border-radius: 7px; color: var(--accent); background: transparent; font: inherit; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>论文手记</h1>
+      <p>每篇三句话，中文或英文都可以。可以分次填写。点「保存草稿」后，告诉我哪几篇可以放到主页。</p>
+    </header>
+    <p id="progress" role="status">正在读取论文…</p>
+    <section id="papers" aria-label="论文列表"></section>
+  </main>
+  <template id="paper">
+    <details>
+      <summary><strong lang="en"></strong><small><span class="venue" lang="en"></span> · <span class="count"></span></small></summary>
+      <form>
+        <label>想法来源<textarea name="origin" rows="2" placeholder="哪个观察、问题或合作契机引出了这个想法？"></textarea></label>
+        <label>核心工作周期<textarea name="period" rows="2" placeholder="主要工作从何时开始、何时完成？大致的年月或学期也可以。"></textarea></label>
+        <label>我的贡献<textarea name="contribution" rows="2" placeholder="你具体提出、实现、验证或协调了什么？"></textarea></label>
+        <div class="actions"><button type="submit">保存草稿</button><span class="status" role="status"></span></div>
+      </form>
+    </details>
+  </template>
+  <script type="module">
+    const progress = document.querySelector('#progress');
+    const fields = ['origin', 'period', 'contribution'];
+    const dirtyForms = new Set();
+    const filled = notes => fields.filter(key => notes[key]?.trim()).length;
+    window.addEventListener('beforeunload', event => {
+      if (dirtyForms.size) { event.preventDefault(); event.returnValue = ''; }
+    });
+    try {
+      const result = await fetch('/papers');
+      if (!result.ok) throw new Error('无法载入论文。');
+      const papers = await result.json();
+      const refreshProgress = () => {
+        const complete = papers.filter(paper => filled(paper.notes) === fields.length).length;
+        progress.textContent = `已填完整 ${complete} / ${papers.length} 篇`;
+      };
+      const firstIncomplete = papers.find(paper => filled(paper.notes) < fields.length);
+      for (const paper of papers) {
+        const card = document.querySelector('#paper').content.firstElementChild.cloneNode(true);
+        const form = card.querySelector('form');
+        const status = card.querySelector('.status');
+        const button = form.querySelector('button');
+        card.open = paper === firstIncomplete;
+        card.querySelector('strong').textContent = paper.title;
+        card.querySelector('.venue').textContent = paper.venue + ', ' + paper.year;
+        const refreshCount = () => { card.querySelector('.count').textContent = `已保存 ${filled(paper.notes)} / 3 项`; };
+        for (const key of fields) form.elements[key].value = paper.notes[key] || '';
+        const updateDirty = () => {
+          const changed = fields.some(key => form.elements[key].value.trim() !== (paper.notes[key] || ''));
+          if (changed) dirtyForms.add(form); else dirtyForms.delete(form);
+          status.textContent = changed ? '有未保存的修改' : '';
+        };
+        form.addEventListener('input', updateDirty);
+        form.addEventListener('submit', async event => {
+          event.preventDefault();
+          if (button.disabled) return;
+          button.disabled = true;
+          status.textContent = '正在保存…';
+          try {
+            const response = await fetch('/draft/' + encodeURIComponent(paper.id), {
+              method: 'PUT', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(Object.fromEntries(new FormData(form))),
+            });
+            if (!response.ok) throw new Error('保存失败，请重试。');
+            paper.notes = await response.json();
+            updateDirty();
+            if (!dirtyForms.has(form)) status.textContent = '已保存到本机';
+            refreshCount();
+            refreshProgress();
+          } catch {
+            status.textContent = '保存失败，请保留此页并重试。';
+          } finally { button.disabled = false; }
+        });
+        refreshCount();
+        document.querySelector('#papers').append(card);
+      }
+      refreshProgress();
+    } catch {
+      progress.textContent = '无法读取论文，请检查本地服务后刷新。';
+    }
+  </script>
+</body>
+</html>
