@@ -34,7 +34,7 @@
   <main>
     <header>
       <h1>论文手记</h1>
-      <p>每篇三句话，中文或英文都可以。可以分次填写。点「保存草稿」后，告诉我哪几篇可以放到主页。</p>
+      <p>公开页只展示研究周期。想法来源和个人贡献可留作本机备忘。点「保存草稿」后，可以告诉我哪篇的周期需要更新。</p>
     </header>
     <p id="progress" role="status">正在读取论文…</p>
     <section id="papers" aria-label="论文列表"></section>
@@ -43,9 +43,9 @@
     <details>
       <summary><strong lang="en"></strong><small><span class="venue" lang="en"></span> · <span class="count"></span></small></summary>
       <form>
-        <label>想法来源<textarea name="origin" rows="2" placeholder="哪个观察、问题或合作契机引出了这个想法？"></textarea></label>
         <label>核心工作周期<textarea name="period" rows="2" placeholder="主要工作从何时开始、何时完成？大致的年月或学期也可以。"></textarea></label>
-        <label>我的贡献<textarea name="contribution" rows="2" placeholder="你具体提出、实现、验证或协调了什么？"></textarea></label>
+        <label>想法来源（本机备忘，可选）<textarea name="origin" rows="2" placeholder="哪个观察、问题或合作契机引出了这个想法？"></textarea></label>
+        <label>我的贡献（本机备忘，可选）<textarea name="contribution" rows="2" placeholder="你具体提出、实现、验证或协调了什么？"></textarea></label>
         <div class="actions"><button type="submit">保存草稿</button><span class="status" role="status"></span></div>
       </form>
     </details>
@@ -54,7 +54,6 @@
     const progress = document.querySelector('#progress');
     const fields = ['origin', 'period', 'contribution'];
     const dirtyForms = new Set();
-    const filled = notes => fields.filter(key => notes[key]?.trim()).length;
     window.addEventListener('beforeunload', event => {
       if (dirtyForms.size) { event.preventDefault(); event.returnValue = ''; }
     });
@@ -63,10 +62,10 @@
       if (!result.ok) throw new Error('无法载入论文。');
       const papers = await result.json();
       const refreshProgress = () => {
-        const complete = papers.filter(paper => filled(paper.notes) === fields.length).length;
-        progress.textContent = `已填完整 ${complete} / ${papers.length} 篇`;
+        const complete = papers.filter(paper => paper.notes.period?.trim()).length;
+        progress.textContent = `已填研究周期 ${complete} / ${papers.length} 篇`;
       };
-      const firstIncomplete = papers.find(paper => filled(paper.notes) < fields.length);
+      const firstIncomplete = papers.find(paper => !paper.notes.period?.trim());
       for (const paper of papers) {
         const card = document.querySelector('#paper').content.firstElementChild.cloneNode(true);
         const form = card.querySelector('form');
@@ -75,7 +74,7 @@
         card.open = paper === firstIncomplete;
         card.querySelector('strong').textContent = paper.title;
         card.querySelector('.venue').textContent = paper.venue + ', ' + paper.year;
-        const refreshCount = () => { card.querySelector('.count').textContent = `已保存 ${filled(paper.notes)} / 3 项`; };
+        const refreshCount = () => { card.querySelector('.count').textContent = paper.notes.period?.trim() ? '已填周期' : '待填周期'; };
         for (const key of fields) form.elements[key].value = paper.notes[key] || '';
         const updateDirty = () => {
           const changed = fields.some(key => form.elements[key].value.trim() !== (paper.notes[key] || ''));

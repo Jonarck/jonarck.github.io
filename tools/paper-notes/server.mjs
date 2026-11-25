@@ -21,7 +21,7 @@ async function readNotes(paper) {
     return JSON.parse(await readFile(draftFile(paper.id), 'utf8'));
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
-    return paper.notes ?? {};
+    return { period: paper.work_period ?? '' };
   }
 }
 

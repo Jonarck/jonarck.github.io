@@ -89,7 +89,7 @@ Each entry in `src/data/publications.yml` has `title`, `year`, `published`, `ven
 - Native radio controls independently filter the curated selection and research area. Interaction and Media display “Coming soon” while empty. Figures use uniform frames and an accessible enlarged view.
 - `author_highlight` in the profile data determines which author names are emphasized. `*` denotes equal contribution.
 
-Run `npm run paper-notes` to open the author worksheet at `http://127.0.0.1:4181/`. It reads the publication list and saves drafts by paper ID under `.local/paper-notes/` on this computer. When ready for publication, add the author's wording under that paper's optional `notes` mapping in `src/data/publications.yml`. The fields are `origin`, `period`, and `contribution`. Populated fields appear in a collapsed “Behind the paper” section on Research.
+Run `npm run paper-notes` to open the local author worksheet at `http://127.0.0.1:4181/`. Drafts are saved by paper ID under `.local/paper-notes/`. Set the optional `work_period` field in `src/data/publications.yml` to display a research period below the venue. Idea and contribution notes belong in the local drafts.
 
 ## Deploy
 

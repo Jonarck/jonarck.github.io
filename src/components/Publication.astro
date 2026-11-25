@@ -3,11 +3,6 @@ import { profile, type Publication } from '../lib/site';
 interface Props { pub: Publication; hidden?: boolean }
 const { pub, hidden = false } = Astro.props;
 const leadAuthor = pub.authorship !== 'co-author';
-const notes = [
-  { label: 'Idea origin', text: pub.notes?.origin },
-  { label: 'Core work period', text: pub.notes?.period },
-  { label: 'My contribution', text: pub.notes?.contribution },
-].filter(note => note.text);
 ---
 <article class="publication pub-row" id={pub.id} data-publication data-topic={pub.topic} data-selected={String(pub.selected)} hidden={hidden}>
   <div class="pub-visual">
@@ -22,6 +17,7 @@ const notes = [
     <h3>{pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}</h3>
     <p class="pub-authors">{pub.authors.split(', ').map((name, index) => <>{index > 0 ? ', ' : ''}{profile.author_highlight.some(highlight => name.replace(/\*/g, '') === highlight) ? <strong>{name}</strong> : name}</>)}</p>
     <p class="pub-venue">{pub.venue}, {pub.year}{pub.status === 'accepted' && <span class="pub-status">Accepted</span>}{pub.status === 'preprint' && <span class="pub-status">Preprint</span>}</p>
+    {pub.work_period && <p class="pub-period">Research period · {pub.work_period}</p>}
     <div class="publication-bottom">
       <div class="pub-links">
         {pub.url && <a href={pub.url} target="_blank" rel="noopener" aria-label={`Paper: ${pub.title}`}>Paper <span aria-hidden="true">↗</span></a>}
@@ -31,9 +27,5 @@ const notes = [
       </div>
       {leadAuthor && <span class="authorship">{pub.authorship === 'first' ? 'First author' : 'Co-first author'}</span>}
     </div>
-    {notes.length > 0 && <details class="pub-notes">
-      <summary>Behind the paper</summary>
-      <dl>{notes.map(note => <div><dt>{note.label}</dt><dd>{note.text}</dd></div>)}</dl>
-    </details>}
   </div>
 </article>

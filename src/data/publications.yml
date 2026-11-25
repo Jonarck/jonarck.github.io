@@ -11,10 +11,7 @@
   topic: spatial
   focus: Design theory & generation
   authorship: first
-  notes:
-    origin: After studying molecular graphs at Microsoft Research Asia, I wondered whether space syntax could guide floorplan refinement the way property predictors guide molecular design, an idea that grew out of conversations with Dongqing Zhang.
-    period: Aug 2025 – Oct 2026
-    contribution: I developed the space syntax criteria for evaluating layouts and built a model that uses those scores as verifiable rewards during post-training.
+  work_period: Aug 2025 – Oct 2026
   url: https://arxiv.org/abs/2602.22507
   pdf: https://arxiv.org/pdf/2602.22507
   image:
@@ -34,10 +31,7 @@
   topic: spatial
   focus: Urban design & optimization
   authorship: co-first
-  notes:
-    origin: The project grew out of a dataset Dongqing Zhang had collected several years earlier.
-    period: Mar – Jun 2026
-    contribution: I proposed using those data to simulate where new park entrances might work best.
+  work_period: Mar – Jun 2026
   url: https://doi.org/10.3390/land15091572
   image:
     src: /assets/img/pubs/parkbind.webp
@@ -56,10 +50,7 @@
   topic: spatial
   focus: Human experience & design evidence
   authorship: co-author
-  notes:
-    origin: Dongqing Zhang proposed studying how residents’ accounts and sensor records could jointly inform neighbourhood design.
-    period: Jun – Sep 2026
-    contribution: I advised on the human–computer interaction questions and helped extend ideas from our earlier Park-BIND study.
+  work_period: Jun – Sep 2026
   image:
     src: /assets/img/pubs/ichec.webp
     width: 1200
@@ -77,10 +68,7 @@
   topic: spatial
   focus: Site selection & planning
   authorship: co-author
-  notes:
-    origin: The project began with a question from the School of Architecture about how to identify sites for pocket parks.
-    period: Oct 2021 – Oct 2024
-    contribution: I collected the data, built the dataset, tested conventional machine learning methods, and designed and trained the final deep learning model.
+  work_period: Oct 2021 – Oct 2024
   url: https://doi.org/10.1080/10630732.2024.2402676
   image:
     src: /assets/img/pubs/pocketpark.webp
@@ -99,10 +87,7 @@
   topic: matter
   focus: Conditional generation
   authorship: co-first
-  notes:
-    origin: Yanting Li proposed the idea while at Microsoft Research Asia.
-    period: Sep 2025 – Jan 2026
-    contribution: I helped shape the paper’s central argument.
+  work_period: Sep 2025 – Jan 2026
   url: https://aclanthology.org/2026.findings-acl.232/
   pdf: https://aclanthology.org/2026.findings-acl.232.pdf
   code: https://github.com/Lee612-1/CAGenMol
@@ -124,10 +109,7 @@
   topic: matter
   focus: Molecular representation & property prediction
   authorship: first
-  notes:
-    origin: Yaosen Min guided my early work on molecular representations at Microsoft Research Asia, where I drew on his KPGT research and my earlier work on MiCaM with Yingce Xia.
-    period: Feb 2024 – Feb 2025 for exploration, then Feb 2025 – Nov 2026 for model development and experiments.
-    contribution: I designed and implemented CamS, refined the model with Peiran Jin’s guidance, and ran successive rounds of experiments to understand how its representation of molecular structure affects property prediction.
+  work_period: Feb 2024 – Feb 2025 (exploration), Feb 2025 – Nov 2026 (development)
   url: https://arxiv.org/abs/2601.02530
   pdf: https://arxiv.org/pdf/2601.02530
   image:
@@ -147,10 +129,7 @@
   topic: supporting
   focus: Mobility prediction
   authorship: co-author
-  notes:
-    origin: Qingxiang Liu took the idea forward after early discussions with Anqi Liang, Yutian Jiang, and me.
-    period: Jan – May 2026
-    contribution: I helped frame the initial question, reproduced additional baselines, and adapted them to the benchmark.
+  work_period: Jan – May 2026
   url: https://arxiv.org/abs/2606.08122
   pdf: https://arxiv.org/pdf/2606.08122
   image:
@@ -170,10 +149,7 @@
   topic: supporting
   focus: Time-series reasoning
   authorship: co-author
-  notes:
-    origin: Qingxiang Liu proposed the idea.
-    period: Dec 2025 – Jan 2026 (my involvement)
-    contribution: I reproduced additional baselines and adapted them to the benchmark.
+  work_period: Dec 2025 – Jan 2026 (my involvement)
   url: https://arxiv.org/abs/2601.02968
   pdf: https://arxiv.org/pdf/2601.02968
   image:

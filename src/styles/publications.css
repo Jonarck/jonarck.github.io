@@ -40,11 +40,7 @@
 .pub-row .pub-links a { min-height: 30px; padding: 0 10px; border-color: var(--line); border-radius: 5px; background: transparent; font-size: 11px; }
 .pub-row .pub-links a:hover { background: var(--control-active); }
 .pub-row .authorship, .pub-pending { color: var(--muted); font-size: 10px; }
-.pub-notes { margin-top: 12px; font-size: 13px; }
-.pub-notes summary { width: fit-content; padding-block: 4px; color: var(--link); }
-.pub-notes dl { display: grid; gap: 10px; margin: 6px 0 0; padding-inline-start: 14px; border-inline-start: 1px solid var(--line); }
-.pub-notes dt { color: var(--muted); font-size: 12px; }
-.pub-notes dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+.pub-period { margin-top: 4px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .publication-area-empty { padding: 20px 0; color: var(--muted); font-size: 12px; }
 #publication-empty button { margin-top: 10px; color: var(--link); text-decoration: underline; padding-block: 8px; }
 .figure-open { overflow: hidden; }

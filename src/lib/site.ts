@@ -33,11 +33,7 @@ const publicationSchema = z.object({
   focus: z.string(), status: z.enum(['published', 'preprint', 'accepted']),
   authorship: z.enum(['first', 'co-first', 'co-author']),
   selected: z.boolean().default(false),
-  notes: z.object({
-    origin: z.string().trim().optional(),
-    period: z.string().trim().optional(),
-    contribution: z.string().trim().optional(),
-  }).optional(),
+  work_period: z.string().trim().optional(),
   url: z.string().url().optional(), pdf: z.string().url().optional(), code: z.string().url().optional(),
   image: z.object({ src: z.string(), width: z.number(), height: z.number(), alt: z.string(), caption: z.string() }).optional(),
 });
